@@ -281,10 +281,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (subBtn) {
         subBtn.addEventListener('click', async (e) => {
             e.preventDefault();
-            const idInput = document.getElementById('admin-id') || document.querySelector('input[type="text"]');
-            const id = idInput ? idInput.value.trim() : '';
-            const pw = pwInp ? pwInp.value.trim() : '';
-            if (!id || !pw) return alert('아이디와 비밀번호를 입력해주세요.');
+            const idVal = (document.getElementById('admin-id') || document.querySelector('input[type="text"]'))?.value?.trim();
+            const pwVal = (document.getElementById('admin-pw') || document.querySelector('input[type="password"]'))?.value?.trim();
+            
+            console.log('Login attempt:', { idVal }); // Password excluded for security
+            
+            if (!idVal || !pwVal) return alert('아이디와 비밀번호를 입력해주세요.');
             
             const origText = subBtn.textContent;
             subBtn.disabled = true;
@@ -293,12 +295,14 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const resp = await fetch('/api/auth/login', {
                     method: 'POST', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username: id, password: pw })
+                    body: JSON.stringify({ username: idVal, password: pwVal })
                 });
                 const data = await resp.json();
+                console.log('Login response:', data);
+                
                 if (data.success) {
                     sessionStorage.setItem('mbs_token', data.token);
-                    sessionStorage.setItem('mbs_admin_name', data.name || id);
+                    sessionStorage.setItem('mbs_admin_name', data.name || idVal);
                     location.href = 'admin.html';
                 } else {
                     alert('로그인 실패: ' + (data.error || '아이디 또는 비밀번호를 확인하세요.'));
@@ -306,6 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     subBtn.textContent = origText;
                 }
             } catch (err) {
+                console.error('Login error:', err);
                 alert('서버 연결 오류');
                 subBtn.disabled = false;
                 subBtn.textContent = origText;
