@@ -317,6 +317,10 @@
         else if (cleanT.includes('영상관리')) {
             e.preventDefault(); e.stopPropagation(); goTo('admin_videos.html');
         }
+        // Admin Site Management
+        else if (cleanT.includes('현장관리')) {
+            e.preventDefault(); e.stopPropagation(); goTo('admin_sites.html');
+        }
         // Video Library
         else if (cleanT.includes('영상') || cleanT.includes('교육')) {
             e.preventDefault(); e.stopPropagation(); goTo('videos.html');
@@ -336,7 +340,20 @@
 <!-- STITCH_ROUTING_END -->
 <!-- STITCH_LOGIC_START -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    // Fetch and populate sites
+    const siteSelect = document.getElementById('site_name');
+    if (siteSelect) {
+        try {
+            const res = await fetch('/api/sites');
+            const sites = await res.json();
+            if (sites && sites.length > 0) {
+                siteSelect.innerHTML = '<option disabled selected value="">등록된 현장 선택</option>' + 
+                    sites.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
+            }
+        } catch (e) { console.error('Sites fetch failed'); }
+    }
+
     const submitBtn = document.querySelector('button[type="submit"]') || document.querySelector('button.bg-primary');
     if (submitBtn) {
         submitBtn.addEventListener('click', async (e) => {
@@ -350,6 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!name) return alert('성함을 입력해주세요.');
             if (!phone) return alert('연락처를 입력해주세요.');
+            if (!building) return alert('현장명을 선택해주세요.');
             if (!desc) return alert('문제 내용을 입력해주세요.');
 
             const btnText = submitBtn.querySelector('span:last-child') || submitBtn;

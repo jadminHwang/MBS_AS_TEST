@@ -552,6 +552,33 @@ async function router(request, env) {
     return res({ success: true, message: '관리자 계정이 삭제되었습니다.' });
   }
 
+  // ── GET /api/sites ── 현장 목록
+  if (method === 'GET' && path === '/sites') {
+    const { results } = await db.prepare('SELECT * FROM sites ORDER BY name').all();
+    return res(results);
+  }
+
+  // ── POST /api/sites ── 현장 추가
+  if (method === 'POST' && path === '/sites') {
+    if (!await checkAuth(request, env)) return err('인증이 필요합니다.', 401);
+    let body;
+    try { body = await request.json(); } catch { return err('잘못된 요청 형식'); }
+    const { name, address, contact_person, contact_phone } = body;
+    if (!name) return err('현장명은 필수입니다.');
+    await db.prepare(
+      'INSERT INTO sites (name, address, contact_person, contact_phone) VALUES (?, ?, ?, ?)'
+    ).bind(name, address || '', contact_person || '', contact_phone || '').run();
+    return res({ success: true }, 201);
+  }
+
+  // ── DELETE /api/sites/:id ── 현장 삭제
+  if (method === 'DELETE' && path.match(/^\/sites\/\d+$/)) {
+    if (!await checkAuth(request, env)) return err('인증이 필요합니다.', 401);
+    const id = path.split('/').pop();
+    await db.prepare('DELETE FROM sites WHERE id=?').bind(id).run();
+    return res({ success: true });
+  }
+
   return err('존재하지 않는 API 경로입니다.', 404);
 }
 

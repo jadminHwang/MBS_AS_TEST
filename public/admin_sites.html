@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Industrial Precision - 현장 관리</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#7a0024",
+                        "primary-container": "#a50034",
+                        "on-primary": "#ffffff",
+                        "secondary": "#5b5f62",
+                        "surface": "#fcf9f8",
+                        "on-surface": "#1b1c1c",
+                        "outline-variant": "#e2bec0",
+                        "background": "#fcf9f8"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; background-color: #fcf9f8; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-6 h-16 fixed top-0 z-50 bg-white shadow-sm border-b border-outline-variant">
+    <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-primary">Industrial Precision</span>
+    </div>
+    <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-secondary cursor-pointer">home</span>
+        <span class="material-symbols-outlined text-secondary cursor-pointer">logout</span>
+    </div>
+</header>
+
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col p-4 border-r border-outline-variant bg-white shadow-md z-40">
+    <div class="mb-8 px-2">
+        <h2 class="text-xl font-bold text-primary">Admin Dashboard</h2>
+        <p class="text-sm text-secondary">Facility Controller</p>
+    </div>
+    <nav class="flex-1 flex flex-col gap-1">
+        <a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-gray-100 rounded-lg transition-all" href="admin.html">
+            <span class="material-symbols-outlined">assignment_late</span>
+            <span>민원 관리</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-gray-100 rounded-lg transition-all" href="admin_access.html">
+            <span class="material-symbols-outlined">person_add</span>
+            <span>담당자 배정</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-gray-100 rounded-lg transition-all" href="admin_videos.html">
+            <span class="material-symbols-outlined">videocam</span>
+            <span>영상 관리</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-2 bg-primary text-on-primary rounded-lg shadow-sm" href="admin_sites.html">
+            <span class="material-symbols-outlined">domain</span>
+            <span>현장 관리</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-gray-100 rounded-lg transition-all" href="admin_settings.html">
+            <span class="material-symbols-outlined">settings</span>
+            <span>페이지 설정</span>
+        </a>
+    </nav>
+</aside>
+
+<!-- Main Content -->
+<main class="ml-64 mt-16 p-8 min-h-screen">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold text-on-surface">현장 관리</h1>
+            <button id="addSiteBtn" class="px-6 py-2 bg-primary text-white rounded-lg font-bold hover:opacity-90 shadow-md">
+                + 신규 현장 추가
+            </button>
+        </div>
+
+        <!-- Site List Table -->
+        <div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-50 border-b border-outline-variant">
+                    <tr>
+                        <th class="px-6 py-4 font-bold text-secondary">현장명</th>
+                        <th class="px-6 py-4 font-bold text-secondary">주소</th>
+                        <th class="px-6 py-4 font-bold text-secondary">담당자</th>
+                        <th class="px-6 py-4 font-bold text-secondary">연락처</th>
+                        <th class="px-6 py-4 font-bold text-secondary text-center">작업</th>
+                    </tr>
+                </thead>
+                <tbody id="sitesTableBody" class="divide-y divide-gray-100">
+                    <!-- Dynamic Rows -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<!-- Add Site Modal -->
+<div id="siteModal" class="fixed inset-0 bg-black/50 hidden z-[60] items-center justify-center p-4">
+    <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6">
+        <h3 class="text-xl font-bold mb-4">신규 현장 추가</h3>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-bold text-secondary mb-1">현장명</label>
+                <input id="siteName" type="text" class="w-full border border-outline-variant rounded-lg p-2 focus:ring-2 focus:ring-primary outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-secondary mb-1">주소</label>
+                <input id="siteAddress" type="text" class="w-full border border-outline-variant rounded-lg p-2 focus:ring-2 focus:ring-primary outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-secondary mb-1">담당자</label>
+                <input id="siteContact" type="text" class="w-full border border-outline-variant rounded-lg p-2 focus:ring-2 focus:ring-primary outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-secondary mb-1">연락처</label>
+                <input id="sitePhone" type="text" class="w-full border border-outline-variant rounded-lg p-2 focus:ring-2 focus:ring-primary outline-none">
+            </div>
+        </div>
+        <div class="mt-6 flex gap-3">
+            <button id="cancelModal" class="flex-1 px-4 py-2 border border-secondary text-secondary rounded-lg font-bold">취소</button>
+            <button id="saveSiteBtn" class="flex-1 px-4 py-2 bg-primary text-white rounded-lg font-bold">저장</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- STITCH_ROUTING_START -->
+
+<script>
+(function() {
+    const goTo = (url) => { if(url) location.href = url; };
+    const normalize = (t) => t.normalize('NFC').replace(/[^a-zA-Z0-9가-힣]/g, '');
+    
+    document.addEventListener('click', (e) => {
+        const el = e.target.closest('a, button, div, span');
+        if (!el) return;
+
+        const t = el.textContent.trim();
+        const h = el.innerHTML;
+        const cleanT = normalize(t);
+        const isSubmit = el.tagName === 'BUTTON' && el.type === 'submit';
+
+        // Log for debugging
+        console.log('Clicked:', { tag: el.tagName, text: t, clean: cleanT });
+
+        // Home (Text or Icon)
+        if (t.includes('홈') || t.includes('HOME') || t.includes('메인으로') || h.includes('>home</span>')) {
+            e.preventDefault(); e.stopPropagation(); goTo('index.html');
+        }
+        // Admin Login (Landing -> Login)
+        else if (cleanT === '관리자로그인' || (cleanT === '로그인' && !isSubmit && !cleanT.includes('설정'))) {
+            e.preventDefault(); e.stopPropagation(); goTo('login.html');
+        }
+        // AS Request
+        else if (cleanT.includes('AS접수') || cleanT.includes('접수하기')) {
+            e.preventDefault(); e.stopPropagation(); goTo('request.html');
+        }
+        // Quote
+        else if (cleanT.includes('견적문의')) {
+            e.preventDefault(); e.stopPropagation(); goTo('quote.html');
+        }
+        // Admin Video Management
+        else if (cleanT.includes('영상관리')) {
+            e.preventDefault(); e.stopPropagation(); goTo('admin_videos.html');
+        }
+        // Admin Site Management
+        else if (cleanT.includes('현장관리')) {
+            e.preventDefault(); e.stopPropagation(); goTo('admin_sites.html');
+        }
+        // Video Library
+        else if (cleanT.includes('영상') || cleanT.includes('교육')) {
+            e.preventDefault(); e.stopPropagation(); goTo('videos.html');
+        }
+        // Logout
+        else if (cleanT.includes('LogOut') || cleanT.includes('로그아웃')) {
+            e.preventDefault(); e.stopPropagation(); sessionStorage.removeItem('mbs_token'); goTo('index.html');
+        }
+        // Admin Pages
+        else if (cleanT.includes('페이지설정') || cleanT.includes('settings')) { e.preventDefault(); goTo('admin_settings.html'); }
+        else if (cleanT.includes('담당자배정') || cleanT.includes('담당자관리') || cleanT.includes('접속관리')) { e.preventDefault(); goTo('admin_access.html'); }
+        else if (cleanT.includes('대시보드') || cleanT.includes('민원관리') || cleanT.includes('접수현황')) { e.preventDefault(); goTo('admin.html'); }
+    }, true); // Capture phase to ensure we catch it early
+})();
+</script>
+
+<!-- STITCH_ROUTING_END -->
+
+</body></html>

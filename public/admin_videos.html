@@ -152,6 +152,10 @@
 <span class="material-symbols-outlined">videocam</span>
 <span class="">영상 관리</span>
 </a>
+                <a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200" href="admin_sites.html">
+                    <span class="material-symbols-outlined">domain</span>
+                    <span class="font-label-md text-label-md">현장 관리</span>
+                </a>
 <a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200 ease-in-out font-label-md" href="#">
 <span class="material-symbols-outlined">settings</span>
 <span class="">페이지 설정</span>
@@ -344,6 +348,10 @@
         // Admin Video Management
         else if (cleanT.includes('영상관리')) {
             e.preventDefault(); e.stopPropagation(); goTo('admin_videos.html');
+        }
+        // Admin Site Management
+        else if (cleanT.includes('현장관리')) {
+            e.preventDefault(); e.stopPropagation(); goTo('admin_sites.html');
         }
         // Video Library
         else if (cleanT.includes('영상') || cleanT.includes('교육')) {

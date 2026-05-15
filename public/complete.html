@@ -229,6 +229,10 @@
         else if (cleanT.includes('영상관리')) {
             e.preventDefault(); e.stopPropagation(); goTo('admin_videos.html');
         }
+        // Admin Site Management
+        else if (cleanT.includes('현장관리')) {
+            e.preventDefault(); e.stopPropagation(); goTo('admin_sites.html');
+        }
         // Video Library
         else if (cleanT.includes('영상') || cleanT.includes('교육')) {
             e.preventDefault(); e.stopPropagation(); goTo('videos.html');
