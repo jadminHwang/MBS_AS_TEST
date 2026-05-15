@@ -194,7 +194,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a').forEach(a => {
-        const t = a.textContent.replace(/\s+/g, ' ').trim();
+        const t = a.textContent.normalize('NFC').replace(/\s+/g, ' ').trim();
         if (t.includes('HOME') || t.includes('홈') || t.includes('메인으로')) a.href = 'index.html';
         else if (t.includes('A/S 접수') || t.includes('접수하기')) a.href = 'request.html';
         else if (t.includes('견적 문의')) a.href = 'quote.html';
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     document.querySelectorAll('button').forEach(btn => {
-        const text = btn.textContent.replace(/\s+/g, ' ').trim();
+        const text = btn.textContent.normalize('NFC').replace(/\s+/g, ' ').trim();
         if (text.includes('견적 문의') || text.includes('견적서')) btn.addEventListener('click', () => location.href = 'quote.html');
         else if (text.includes('영상 자료실') || text.includes('영상 보기') || text.includes('기술 교육 영상')) btn.addEventListener('click', () => location.href = 'videos.html');
         else if (text.includes('A/S 접수하기') || text.includes('접수하기')) btn.addEventListener('click', () => location.href = 'request.html');
