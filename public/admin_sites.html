@@ -134,6 +134,8 @@
 
 
 
+
+
 <!-- STITCH_ROUTING_START -->
 
 <script>
@@ -143,7 +145,7 @@
     
     document.addEventListener('click', (e) => {
         const el = e.target.closest('a, button, div, span');
-        if (!el) return;
+        if (!el || el.textContent.length > 100) return; // Optimization: Ignore huge containers
 
         const t = el.textContent.trim();
         const h = el.innerHTML;
@@ -151,45 +153,45 @@
         const isSubmit = el.tagName === 'BUTTON' && el.type === 'submit';
 
         // Log for debugging
-        console.log('Clicked:', { tag: el.tagName, text: t, clean: cleanT });
+        if (t.length > 0 && t.length < 50) console.log('Clicked:', { tag: el.tagName, text: t, clean: cleanT });
 
         // Home (Text or Icon)
         if (t.includes('홈') || t.includes('HOME') || t.includes('메인으로') || h.includes('>home</span>')) {
-            e.preventDefault(); e.stopPropagation(); goTo('index.html');
+            e.preventDefault(); e.stopPropagation(); goTo('index.html'); return;
         }
         // Admin Login (Landing -> Login)
         else if (cleanT === '관리자로그인' || (cleanT === '로그인' && !isSubmit && !cleanT.includes('설정'))) {
-            e.preventDefault(); e.stopPropagation(); goTo('login.html');
+            e.preventDefault(); e.stopPropagation(); goTo('login.html'); return;
         }
         // AS Request
         else if (cleanT.includes('AS접수') || cleanT.includes('접수하기')) {
-            e.preventDefault(); e.stopPropagation(); goTo('request.html');
+            e.preventDefault(); e.stopPropagation(); goTo('request.html'); return;
         }
         // Quote
         else if (cleanT.includes('견적문의')) {
-            e.preventDefault(); e.stopPropagation(); goTo('quote.html');
+            e.preventDefault(); e.stopPropagation(); goTo('quote.html'); return;
         }
         // Admin Video Management
         else if (cleanT.includes('영상관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_videos.html');
+            e.preventDefault(); e.stopPropagation(); goTo('admin_videos.html'); return;
         }
         // Admin Site Management
         else if (cleanT.includes('현장관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_sites.html');
+            e.preventDefault(); e.stopPropagation(); goTo('admin_sites.html'); return;
         }
         // Video Library
         else if (cleanT.includes('영상') || cleanT.includes('교육')) {
-            e.preventDefault(); e.stopPropagation(); goTo('videos.html');
+            e.preventDefault(); e.stopPropagation(); goTo('videos.html'); return;
         }
         // Logout
         else if (cleanT.includes('LogOut') || cleanT.includes('로그아웃')) {
-            e.preventDefault(); e.stopPropagation(); sessionStorage.removeItem('mbs_token'); goTo('index.html');
+            e.preventDefault(); e.stopPropagation(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); return;
         }
         // Admin Pages
-        else if (cleanT.includes('페이지설정') || cleanT.includes('settings')) { e.preventDefault(); goTo('admin_settings.html'); }
-        else if (cleanT.includes('담당자배정') || cleanT.includes('담당자관리') || cleanT.includes('접속관리')) { e.preventDefault(); goTo('admin_access.html'); }
-        else if (cleanT.includes('대시보드') || cleanT.includes('민원관리') || cleanT.includes('접수현황')) { e.preventDefault(); goTo('admin.html'); }
-    }, true); // Capture phase to ensure we catch it early
+        else if (cleanT.includes('페이지설정') || cleanT.includes('settings')) { e.preventDefault(); e.stopPropagation(); goTo('admin_settings.html'); return; }
+        else if (cleanT.includes('담당자배정') || cleanT.includes('담당자관리') || cleanT.includes('접속관리')) { e.preventDefault(); e.stopPropagation(); goTo('admin_access.html'); return; }
+        else if (cleanT.includes('대시보드') || cleanT.includes('민원관리') || cleanT.includes('접수현황')) { e.preventDefault(); e.stopPropagation(); goTo('admin.html'); return; }
+    }, true);
 })();
 </script>
 
