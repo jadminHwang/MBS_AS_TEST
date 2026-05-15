@@ -2,10 +2,10 @@ name = "mbs-as-system"
 compatibility_date = "2024-09-23"
 pages_build_output_dir = "public"
 
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "mbs-as-db"
-# database_id = "REPLACE_AFTER_CREATION"
+[[d1_databases]]
+binding = "DB"
+database_name = "mbs-as-db"
+database_id = "762b2edf-7da4-4397-8fdf-1595d6f93d6f"
 
 
 # 환경변수 (민감정보는 wrangler secret put 으로 설정)
