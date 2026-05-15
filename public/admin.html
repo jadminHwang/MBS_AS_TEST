@@ -453,31 +453,33 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('a').forEach(a => {
-        const t = a.textContent.normalize('NFC').replace(/\s+/g, ' ').trim();
-        if (t.includes('HOME') || t.includes('홈') || t.includes('메인으로')) a.href = 'index.html';
-        else if (t.includes('A/S 접수') || t.includes('접수하기')) a.href = 'request.html';
-        else if (t.includes('견적 문의')) a.href = 'quote.html';
-        else if (t.includes('영상 자료실') || t.includes('교육 영상') || t.includes('영상 관리')) a.href = 'videos.html';
-        else if (t.includes('관리자 로그인') || t.includes('로그인')) a.href = 'login.html';
-        else if (t.includes('관리자 접속 관리') || t.includes('페이지 설정') || t.includes('settings 설정')) a.href = 'admin_settings.html';
-        else if (t.includes('담당자 배정') || t.includes('담당자 관리')) a.href = 'admin_access.html';
-        else if (t.includes('대시보드') || t.includes('접수 현황') || t.includes('접수 관리') || t.includes('민원 접수') || t.includes('민원 관리')) a.href = 'admin.html';
+    const goTo = (url) => { if(url) location.href = url; };
+    const handleRoute = (el) => {
+        const t = el.textContent.normalize('NFC').replace(/\s+/g, ' ').trim();
+        const h = el.innerHTML;
         
-        if (t.includes('Log Out') || t.includes('로그아웃')) {
-            a.href = '#';
-            a.addEventListener('click', (e) => { e.preventDefault(); sessionStorage.removeItem('mbs_token'); location.href = 'index.html'; });
+        // Home check (Text or Icon)
+        if (t.includes('홈') || t.includes('HOME') || t.includes('메인으로') || h.includes('>home</span>')) {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); goTo('index.html'); });
+            if (el.tagName === 'A') el.href = 'index.html';
         }
-    });
-    document.querySelectorAll('button').forEach(btn => {
-        const text = btn.textContent.normalize('NFC').replace(/\s+/g, ' ').trim();
-        if (text.includes('견적 문의') || text.includes('견적서')) btn.addEventListener('click', () => location.href = 'quote.html');
-        else if (text.includes('영상 자료실') || text.includes('영상 보기') || text.includes('기술 교육 영상')) btn.addEventListener('click', () => location.href = 'videos.html');
-        else if (text.includes('A/S 접수하기') || text.includes('접수하기')) btn.addEventListener('click', () => location.href = 'request.html');
-        else if (text.includes('페이지 설정') || text.includes('접속 관리') || text.includes('담당자 배정') || text.includes('settings 설정')) btn.addEventListener('click', () => location.href = 'admin_settings.html');
-        else if (text.includes('대시보드') || text.includes('민원')) btn.addEventListener('click', () => location.href = 'admin.html');
-        else if (text.includes('관리자 로그인') || (text.includes('로그인') && btn.type !== 'submit')) btn.addEventListener('click', () => location.href = 'login.html');
-        else if (text.includes('Log Out') || text.includes('로그아웃')) btn.addEventListener('click', () => { sessionStorage.removeItem('mbs_token'); location.href = 'index.html'; });
+        // Other routes
+        else if (t.includes('A/S 접수') || t.includes('접수하기')) { if(el.tagName==='A') el.href='request.html'; else el.addEventListener('click',()=>goTo('request.html')); }
+        else if (t.includes('견적 문의')) { if(el.tagName==='A') el.href='quote.html'; else el.addEventListener('click',()=>goTo('quote.html')); }
+        else if (t.includes('영상 자료실') || t.includes('영상 관리')) { if(el.tagName==='A') el.href='videos.html'; else el.addEventListener('click',()=>goTo('videos.html')); }
+        else if (t.includes('페이지 설정') || t.includes('settings 설정')) { if(el.tagName==='A') el.href='admin_settings.html'; else el.addEventListener('click',()=>goTo('admin_settings.html')); }
+        else if (t.includes('담당자 배정') || t.includes('담당자 관리')) { if(el.tagName==='A') el.href='admin_access.html'; else el.addEventListener('click',()=>goTo('admin_access.html')); }
+        else if (t.includes('대시보드') || t.includes('민원 관리') || t.includes('접수 현황')) { if(el.tagName==='A') el.href='admin.html'; else el.addEventListener('click',()=>goTo('admin.html')); }
+        else if (t.includes('Log Out') || t.includes('로그아웃')) {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); });
+        }
+    };
+
+    // Target links, buttons, and clickable divs
+    document.querySelectorAll('a, button, div.cursor-pointer, .material-symbols-outlined').forEach(el => {
+        handleRoute(el);
     });
 });
 </script>
