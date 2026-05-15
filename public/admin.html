@@ -450,12 +450,13 @@
 </button>
 
 
+<!-- STITCH_ROUTING_START -->
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const goTo = (url) => { if(url) location.href = url; };
     const handleRoute = (el) => {
-        const t = el.textContent.normalize('NFC').replace(/\s+/g, ' ').trim();
+        const t = el.textContent.normalize('NFC').replace(/\\s+/g, ' ').trim();
         const cleanT = t.replace(/[^a-zA-Z0-9가-힣]/g, ''); // Remove spaces and special chars
         const h = el.innerHTML;
         
@@ -488,7 +489,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
-\n<script>
+
+<!-- STITCH_ROUTING_END -->
+<!-- STITCH_LOGIC_START -->
+<script>
 document.addEventListener('DOMContentLoaded', () => {
     const TOKEN = sessionStorage.getItem('mbs_token');
     if (!TOKEN) { location.href = 'login.html'; return; }
@@ -501,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const r = await fetch(API + '/requests', { headers: H() });
             const d = await r.json();
             if (!d.success) return;
-            const cards = document.querySelectorAll('.grid.grid-cols-1.md\\:grid-cols-4 > div, .grid.grid-cols-2.md\\:grid-cols-4 > div');
+            const cards = document.querySelectorAll('.grid.grid-cols-1.md\\\\:grid-cols-4 > div, .grid.grid-cols-2.md\\\\:grid-cols-4 > div');
             if (cards.length >= 4) {
                 const vals = [d.stats?.total||0, d.stats?.waiting||0, d.stats?.processing||0, d.stats?.urgent||0];
                 cards.forEach((c, i) => {
@@ -596,4 +600,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadStats();
 });
-</script>\n</body></html>
+</script>
+<!-- STITCH_LOGIC_END -->
+</body></html>

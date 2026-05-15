@@ -239,4 +239,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
-\n</body></html>
+\n<!-- STITCH_ROUTING_START -->
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const goTo = (url) => { if(url) location.href = url; };
+    const handleRoute = (el) => {
+        const t = el.textContent.normalize('NFC').replace(/\\s+/g, ' ').trim();
+        const cleanT = t.replace(/[^a-zA-Z0-9가-힣]/g, ''); // Remove spaces and special chars
+        const h = el.innerHTML;
+        
+        // Home check (Text or Icon)
+        if (t.includes('홈') || t.includes('HOME') || t.includes('메인으로') || h.includes('>home</span>')) {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); goTo('index.html'); });
+            if (el.tagName === 'A') el.href = 'index.html';
+        }
+        // Other routes
+        else if (cleanT.includes('AS접수') || cleanT.includes('접수하기')) { if(el.tagName==='A') el.href='request.html'; else el.addEventListener('click',()=>goTo('request.html')); }
+        else if (cleanT.includes('견적문의')) { if(el.tagName==='A') el.href='quote.html'; else el.addEventListener('click',()=>goTo('quote.html')); }
+        else if (cleanT.includes('영상') || cleanT.includes('교육')) { if(el.tagName==='A') el.href='videos.html'; else el.addEventListener('click',()=>goTo('videos.html')); }
+        else if (cleanT.includes('관리자로그인') || (cleanT.includes('로그인') && !cleanT.includes('설정'))) { 
+            if (el.tagName === 'BUTTON' && el.type === 'submit') return;
+            if(el.tagName==='A') el.href='login.html'; else el.addEventListener('click',()=>goTo('login.html')); 
+        }
+        else if (cleanT.includes('페이지설정') || cleanT.includes('settings')) { if(el.tagName==='A') el.href='admin_settings.html'; else el.addEventListener('click',()=>goTo('admin_settings.html')); }
+        else if (cleanT.includes('담당자배정') || cleanT.includes('담당자관리') || cleanT.includes('접속관리')) { if(el.tagName==='A') el.href='admin_access.html'; else el.addEventListener('click',()=>goTo('admin_access.html')); }
+        else if (cleanT.includes('대시보드') || cleanT.includes('민원관리') || cleanT.includes('접수현황')) { if(el.tagName==='A') el.href='admin.html'; else el.addEventListener('click',()=>goTo('admin.html')); }
+        else if (cleanT.includes('LogOut') || cleanT.includes('로그아웃')) {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); });
+        }
+    };
+
+    // Target links, buttons, and clickable divs
+    document.querySelectorAll('a, button, div.cursor-pointer, .material-symbols-outlined').forEach(el => {
+        handleRoute(el);
+    });
+});
+</script>
+
+<!-- STITCH_ROUTING_END -->
+
+</body></html>
