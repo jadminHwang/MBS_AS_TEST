@@ -1,0 +1,15 @@
+{
+  "name": "mbs-as-system",
+  "version": "1.0.0",
+  "description": "MBS 빌딩자동제어 24시간 A/S 접수 시스템",
+  "scripts": {
+    "dev": "wrangler pages dev public --d1=DB --port=3000",
+    "deploy": "wrangler pages deploy public",
+    "db:init": "wrangler d1 execute mbs-as-db --file=./schema.sql",
+    "db:local": "wrangler d1 execute mbs-as-db --local --file=./schema.sql",
+    "db:create": "wrangler d1 create mbs-as-db"
+  },
+  "devDependencies": {
+    "wrangler": "^3.101.0"
+  }
+}

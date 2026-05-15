@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MBS Engineering | 관리자 로그인</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#43474a",
+                        "inverse-surface": "#303030",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary-fixed": "#181c1f",
+                        "tertiary-container": "#505151",
+                        "secondary": "#5b5f62",
+                        "primary-fixed": "#ffdadb",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#eae7e7",
+                        "inverse-primary": "#ffb2b8",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-background": "#1b1c1c",
+                        "primary-container": "#a50034",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "tertiary-fixed": "#e2e2e2",
+                        "tertiary": "#383a3b",
+                        "outline": "#8e7071",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#c3c4c4",
+                        "on-primary-container": "#ffafb5",
+                        "on-primary-fixed-variant": "#91002d",
+                        "surface-dim": "#dcd9d9",
+                        "surface": "#fcf9f8",
+                        "secondary-fixed": "#e0e3e6",
+                        "primary-fixed-dim": "#ffb2b8",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#c3c7ca",
+                        "inverse-on-surface": "#f3f0ef",
+                        "background": "#fcf9f8",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container": "#f0eded",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-primary-fixed": "#40000f",
+                        "surface-variant": "#e5e2e1",
+                        "primary": "#7a0024",
+                        "on-surface": "#1b1c1c",
+                        "surface-tint": "#b81840",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#5a4042",
+                        "on-secondary-container": "#5f6366",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-container": "#dde0e3",
+                        "outline-variant": "#e2bec0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "48px",
+                        "sm": "8px",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+            background-color: #fcf9f8;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center overflow-hidden">
+<main class="w-full h-screen flex flex-col md:flex-row">
+<!-- Left Panel: Brand & Visuals -->
+<section class="hidden md:flex relative md:w-1/2 h-full bg-primary flex-col justify-center items-center px-xl overflow-hidden">
+<!-- Background Overlay Image -->
+<div class="absolute inset-0 z-0 opacity-20 grayscale brightness-50">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugb5yt_-GL7or0i-c4OX0XbKHJp3hp9M3HKUyO_QMwL8Qtk3EA9TYU5f1s4T9WAWEgcTVVyXBTulqnXDPjt0AGOj3gqBnvYtiJCZagmsbIxeFoHxJhLuHglLhQw3yFrD37tjKGRnYMvuxHe7Vq2NqmMQPGGO1kzBW4sFttClr8Nleps5cDWZvJlPmDPTEFpYj1bMZuGEZGjPfZMSwfFlf12-yV6PGOwOJlDf8UOEY5Xvm91LqFFfVxCEg"/>
+</div>
+<!-- Content Overlay -->
+<div class="relative z-10 text-center flex flex-col items-center">
+<div class="mb-lg flex items-center justify-center bg-white/10 backdrop-blur-md rounded-xl p-md">
+<span class="material-symbols-outlined text-white text-[48px]" style="font-variation-settings: 'FILL' 1;">corporate_fare</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-white mb-sm tracking-tight">
+                    (주)엠비에스엔지니어링
+                </h1>
+<p class="font-body-lg text-body-lg text-primary-fixed opacity-90 tracking-wide font-medium">
+                    스마트 빌딩 통합 A/S 관리 포털
+                </p>
+<div class="mt-xl grid grid-cols-2 gap-md w-full max-w-sm opacity-60">
+<div class="border border-white/20 rounded-lg p-md text-white">
+<span class="material-symbols-outlined block mb-xs">precision_manufacturing</span>
+<div class="font-label-sm text-label-sm">Precision</div>
+</div>
+<div class="border border-white/20 rounded-lg p-md text-white">
+<span class="material-symbols-outlined block mb-xs">verified_user</span>
+<div class="font-label-sm text-label-sm">Reliability</div>
+</div>
+</div>
+</div>
+<!-- Bottom decorative element -->
+<div class="absolute bottom-lg left-lg right-lg flex justify-between items-end">
+<div class="text-white/40 font-label-sm text-label-sm">
+                    MBS Engineering Co., Ltd.<br/>Advanced Building Management System
+                </div>
+<div class="w-16 h-1 bg-white/20 rounded-full"></div>
+</div>
+</section>
+<!-- Right Panel: Login Form -->
+<section class="w-full md:w-1/2 h-full bg-surface-container-lowest flex items-center justify-center p-gutter">
+<div class="w-full max-w-[440px] flex flex-col">
+<!-- Mobile Header (Logo) -->
+<div class="flex items-center gap-sm mb-xl md:hidden">
+<span class="material-symbols-outlined text-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">corporate_fare</span>
+<span class="font-headline-md text-headline-md text-on-surface">(주)엠비에스엔지니어링</span>
+</div>
+<!-- Desktop Form Header -->
+<div class="hidden md:flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">corporate_fare</span>
+<span class="font-label-md text-label-md text-on-surface-variant">(주)엠비에스엔지니어링</span>
+</div>
+<div class="mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">관리자 로그인</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">시스템 통합 관리를 위해 계정 정보를 입력하세요.</p>
+</div>
+<!-- Error Message Alert (Simulated Hidden/Visible State) -->
+<div class="hidden mb-lg bg-error-container text-on-error-container p-md rounded-lg flex items-start gap-md border border-outline-variant" id="error-alert">
+<span class="material-symbols-outlined text-error">error</span>
+<div class="font-label-md text-label-md">아이디 또는 비밀번호를 다시 확인해 주세요.</div>
+</div>
+<form class="space-y-lg" onsubmit="return false;">
+<!-- ID Input -->
+<div class="space-y-sm">
+<label class="block font-label-md text-label-md text-on-surface-variant" for="admin-id">아이디</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">person</span>
+<input class="w-full pl-[48px] pr-md py-md bg-white border border-outline-variant rounded-lg text-body-md focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all placeholder:text-outline outline-none" id="admin-id" placeholder="아이디를 입력하세요" type="text"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<label class="block font-label-md text-label-md text-on-surface-variant" for="admin-pw">비밀번호</label>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">비밀번호 초기화</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full pl-[48px] pr-[48px] py-md bg-white border border-outline-variant rounded-lg text-body-md focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all placeholder:text-outline outline-none" id="admin-pw" placeholder="비밀번호를 입력하세요" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Options -->
+<div class="flex items-center">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" id="remember-me" type="checkbox"/>
+<label class="ml-sm font-label-sm text-label-sm text-on-surface-variant cursor-pointer" for="remember-me">로그인 상태 유지</label>
+</div>
+<!-- Login Button -->
+<button class="w-full py-[14px] bg-primary-container text-white font-label-md text-label-md rounded-lg hover:bg-primary active:scale-[0.98] transition-all shadow-sm flex justify-center items-center gap-sm" type="submit">
+                        로그인
+                        <span class="material-symbols-outlined text-[20px]">login</span>
+</button>
+</form>
+<div class="mt-xl flex flex-col items-center gap-lg">
+<a class="flex items-center gap-xs font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="/">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                        홈으로 돌아가기
+                    </a>
+</div>
+<!-- Technical Support Info -->
+<div class="mt-auto pt-xl border-t border-outline-variant/30 text-center">
+<p class="font-label-sm text-label-sm text-outline mb-xs">Technical Support: 02-XXX-XXXX</p>
+<p class="font-label-sm text-label-sm text-outline">© 2024 MBS Engineering. All Rights Reserved.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Background Pattern for Right Panel -->
+<div class="fixed top-0 right-0 w-64 h-64 pointer-events-none opacity-[0.03]">
+<svg viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M47.7,-64.1C61.3,-56.3,71.5,-42.2,76.5,-26.8C81.5,-11.4,81.4,5.4,75.4,19.3C69.4,33.2,57.5,44.3,44.2,53.4C30.9,62.5,16.2,69.6,-0.1,69.7C-16.4,69.8,-32.8,62.8,-46.8,53.2C-60.8,43.6,-72.4,31.4,-76.3,17.1C-80.2,2.8,-76.4,-13.6,-68.9,-28C-61.4,-42.4,-50.2,-54.9,-37.2,-63C-24.2,-71.1,-9.4,-74.8,4.1,-80.4C17.6,-86,34.1,-71.9,47.7,-64.1Z" fill="#7a0024" transform="translate(100 100)"></path>
+</svg>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a').forEach(a => {
+        const t = a.textContent.trim();
+        if (t === 'HOME' || t === '홈' || t === '메인으로') a.href = 'index.html';
+        else if (t.includes('A/S 접수') || t.includes('접수하기')) a.href = 'request.html';
+        else if (t.includes('견적 문의')) a.href = 'quote.html';
+        else if (t.includes('영상 자료실') || t.includes('교육 영상') || t.includes('영상 관리')) a.href = 'videos.html';
+        else if (t.includes('관리자 로그인') || t.includes('로그인')) a.href = 'login.html';
+        else if (t.includes('관리자 접속 관리') || t.includes('페이지 설정')) a.href = 'admin_settings.html';
+        else if (t.includes('담당자 배정') || t.includes('담당자 관리')) a.href = 'admin_access.html';
+        else if (t.includes('대시보드') || t.includes('접수 현황') || t.includes('접수 관리') || t.includes('민원 접수')) a.href = 'admin.html';
+    });
+    document.querySelectorAll('button').forEach(btn => {
+        const text = btn.textContent.trim();
+        if (text.includes('견적 문의') || text.includes('견적서')) btn.addEventListener('click', () => location.href = 'quote.html');
+        else if (text.includes('영상 자료실') || text.includes('영상 보기') || text.includes('기술 교육 영상')) btn.addEventListener('click', () => location.href = 'videos.html');
+        else if (text.includes('A/S 접수하기') || text.includes('접수하기')) btn.addEventListener('click', () => location.href = 'request.html');
+        else if (text.includes('페이지 설정') || text.includes('접속 관리') || text.includes('담당자 배정')) btn.addEventListener('click', () => location.href = 'admin_settings.html');
+        else if (text.includes('대시보드')) btn.addEventListener('click', () => location.href = 'admin.html');
+        else if (text.includes('관리자 로그인') || (text.includes('로그인') && btn.type !== 'submit')) btn.addEventListener('click', () => location.href = 'login.html');
+        else if (text.includes('Log Out') || text.includes('로그아웃')) btn.addEventListener('click', () => { sessionStorage.removeItem('mbs_token'); location.href = 'index.html'; });
+    });
+});
+</script>
+\n<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const pwBtn = Array.from(document.querySelectorAll('button')).find(b => b.innerHTML.includes('visibility'));
+    const pwInp = document.querySelector('input[type="password"]');
+    if (pwBtn && pwInp) {
+        pwBtn.addEventListener('click', () => {
+            const isPass = pwInp.type === 'password';
+            pwInp.type = isPass ? 'text' : 'password';
+            const icon = pwBtn.querySelector('.material-symbols-outlined');
+            if(icon) icon.textContent = isPass ? 'visibility' : 'visibility_off';
+        });
+    }
+    const subBtn = document.querySelector('button[type="submit"]') || Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('로그인'));
+    if (subBtn) {
+        subBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const idInput = document.querySelector('input[type="text"]');
+            const id = idInput ? idInput.value : '';
+            const pw = pwInp ? pwInp.value : '';
+            if (!id || !pw) return alert('아이디와 비밀번호를 입력해주세요.');
+            try {
+                const resp = await fetch('/api/auth/login', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: id, password: pw })
+                });
+                const data = await resp.json();
+                if (data.success) {
+                    sessionStorage.setItem('mbs_token', data.token);
+                    sessionStorage.setItem('mbs_admin_name', data.name || id);
+                    location.href = 'admin.html';
+                } else {
+                    alert('로그인 실패: ' + (data.error || '정보를 확인하세요.'));
+                }
+            } catch (err) {
+                alert('서버 연결 오류');
+            }
+        });
+    }
+});
+</script>\n</body></html>

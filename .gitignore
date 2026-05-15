@@ -1,0 +1,6 @@
+node_modules/
+.wrangler/
+__pycache__/
+*.pyc
+screens_list.txt
+*.py

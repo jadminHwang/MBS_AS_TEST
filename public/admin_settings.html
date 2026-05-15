@@ -1,0 +1,388 @@
+<!DOCTYPE html><html class="light" lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for technical density */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 10px; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "secondary-fixed-dim": "#c3c7ca",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#7a0024",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dcd9d9",
+                        "on-surface-variant": "#5a4042",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-container": "#505151",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "primary-container": "#a50034",
+                        "surface-tint": "#b81840",
+                        "secondary": "#5b5f62",
+                        "on-secondary-fixed-variant": "#43474a",
+                        "primary-fixed-dim": "#ffb2b8",
+                        "tertiary": "#383a3b",
+                        "on-secondary-fixed": "#181c1f",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#303030",
+                        "secondary-fixed": "#e0e3e6",
+                        "outline-variant": "#e2bec0",
+                        "outline": "#8e7071",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#eae7e7",
+                        "on-tertiary-container": "#c3c4c4",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary-fixed-variant": "#91002d",
+                        "tertiary-fixed": "#e2e2e2",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#40000f",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-bright": "#fcf9f8",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-container": "#5f6366",
+                        "background": "#fcf9f8",
+                        "surface-container": "#f0eded",
+                        "primary-fixed": "#ffdadb",
+                        "on-background": "#1b1c1c",
+                        "surface": "#fcf9f8",
+                        "inverse-primary": "#ffb2b8",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#dde0e3",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#ffafb5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "48px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "sm": "8px"
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface-container-highest dark:bg-surface-container-lowest text-primary dark:text-inverse-primary font-body-md text-body-md docked full-width top-0 border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center w-full px-gutter h-16 fixed top-0 z-50">
+<div class="flex items-center gap-lg">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface">Industrial Precision</span>
+<div class="hidden md:flex items-center gap-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low rounded-lg border-none focus:ring-2 focus:ring-primary w-64 text-label-md" placeholder="Search parameters..." type="text">
+</div>
+</div>
+</div>
+<div class="flex items-center gap-md"><a class="flex items-center gap-xs cursor-pointer hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors p-2 rounded-lg text-secondary dark:text-inverse-primary" href="#">
+  <span class="material-symbols-outlined">home</span>
+  <span class="font-label-md hidden lg:block">홈가기</span>
+</a>
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors p-2 rounded-full">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors p-2 rounded-full">help</span>
+<div class="flex items-center gap-sm pl-md border-l border-outline-variant">
+<img alt="Admin profile avatar" class="w-8 h-8 rounded-full border border-outline" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjbdqba04IkrHbG-rf0SFURUnB4HOt-mOmesI55VzZSiwAfIrozYFCJ6NdE54SkzpyHvGpG5QIA8OTRPo3CYiikjviUzC-HL8Yyl_OsVyVEJdk6lwixD-3uPAiIZj4Y8IKIgqqeM8M249JBeDMakowOfSL496ovNVk4BYOt5fuU7O1fxApUU9vCemNVWkqLZpMQttCXNsS51yj_H8cBk7ZTQkbRxFBCrEIYzD_V8WrCtxuKG92X0sVAOWfvEMdKKjIqQ6h5hrGKh0">
+<span class="font-label-md hidden lg:block">System Admin</span>
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="bg-surface dark:bg-surface-dim fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col p-md border-r border-outline-variant shadow-md z-40 hidden md:flex">
+<div class="flex flex-col gap-xs flex-1">
+<div class="mb-lg px-md">
+<h2 class="font-headline-md text-headline-md text-primary">Admin Dashboard</h2>
+<p class="font-label-sm text-on-surface-variant opacity-70">Facility Controller</p>
+</div>
+<nav class="flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">assignment_late</span>
+<span class="font-label-md">민원 관리</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-label-md">담당자 배정</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">videocam</span>
+<span class="font-label-md">영상 관리</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-primary text-on-primary rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">페이지 설정</span>
+</a>
+</nav>
+</div>
+<div class="border-t border-outline-variant pt-md">
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="md:ml-64 pt-24 px-gutter pb-xl min-h-screen">
+<div class="max-w-6xl mx-auto">
+<header class="mb-xl flex justify-between items-end">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">페이지 설정 관리</h1>
+<p class="font-body-md text-on-surface-variant">시스템 인터페이스의 시각적 요소와 문구를 실시간으로 관리하고 조정합니다.</p>
+</div>
+<div class="flex gap-md">
+<button class="px-lg py-sm border border-secondary text-secondary rounded-lg font-label-md hover:bg-secondary-container transition-colors">변경사항 초기화</button>
+<button class="px-lg py-sm bg-primary text-on-primary rounded-lg font-label-md hover:bg-primary-container transition-colors shadow-md">설정 저장하기</button>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left: Configuration Controls -->
+<div class="lg:col-span-5 space-y-lg">
+<!-- Text Content Card -->
+<section class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-primary">edit_note</span>
+<h3 class="font-label-md text-on-surface">메인 문구 관리</h3>
+</div>
+<div class="space-y-md">
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-xs">메인 헤드라인</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-md py-sm focus:ring-2 focus:ring-primary focus:border-primary text-body-md" type="text" value="Industrial Precision Dashboard">
+</div>
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-xs">서브 텍스트 설명</label>
+<textarea class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-md py-sm focus:ring-2 focus:ring-primary focus:border-primary text-body-md" rows="3">시설 관리 시스템의 데이터 흐름과 운영 상태를 한눈에 파악하세요.</textarea>
+</div>
+</div>
+</section>
+<!-- Identity & Color Card -->
+<section class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-primary">palette</span>
+<h3 class="font-label-md text-on-surface">브랜드 아이덴티티</h3>
+</div>
+<div class="space-y-lg">
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-md">브랜드 컬러 선택 (Primary)</label>
+<div class="flex flex-wrap gap-md items-center">
+<button class="w-10 h-10 rounded-full bg-primary border-4 border-surface-container-high ring-2 ring-primary"></button>
+<button class="w-10 h-10 rounded-full bg-slate-700"></button>
+<button class="w-10 h-10 rounded-full bg-blue-800"></button>
+<button class="w-10 h-10 rounded-full bg-emerald-700"></button>
+<div class="w-px h-8 bg-outline-variant mx-sm"></div>
+<div class="flex items-center gap-sm bg-surface-container-low px-sm py-xs rounded-lg border border-outline-variant">
+<div class="w-6 h-6 rounded bg-primary border border-outline"></div>
+<span class="text-label-sm font-mono uppercase">#7A0024</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] cursor-pointer">colorize</span>
+</div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-md">
+<label class="block font-label-sm text-on-surface-variant">기본 폰트 크기 조절</label>
+<span class="text-label-md font-bold text-primary">16px (100%)</span>
+</div>
+<input class="w-full h-2 bg-secondary-container rounded-lg appearance-none cursor-pointer accent-primary" max="24" min="12" step="1" type="range" value="16">
+<div class="flex justify-between mt-2 text-[10px] text-on-surface-variant uppercase font-bold">
+<span class="">Small</span>
+<span class="">Normal</span>
+<span class="">Large</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Density Card -->
+<section class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-primary">grid_view</span>
+<h3 class="font-label-md text-on-surface">레이아웃 밀도</h3>
+</div>
+<div class="grid grid-cols-3 gap-sm">
+<button class="flex flex-col items-center gap-xs p-md border-2 border-primary bg-primary-fixed rounded-lg">
+<span class="material-symbols-outlined text-primary">view_compact</span>
+<span class="text-label-sm font-bold text-primary">Compact</span>
+</button>
+<button class="flex flex-col items-center gap-xs p-md border border-outline-variant hover:bg-surface-container-high rounded-lg transition-colors">
+<span class="material-symbols-outlined">view_agenda</span>
+<span class="text-label-sm">Standard</span>
+</button>
+<button class="flex flex-col items-center gap-xs p-md border border-outline-variant hover:bg-surface-container-high rounded-lg transition-colors">
+<span class="material-symbols-outlined">view_comfy</span>
+<span class="text-label-sm">Spacious</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Right: Live Preview -->
+<div class="lg:col-span-7">
+<div class="sticky top-24 bg-surface-container rounded-xl border border-outline-variant overflow-hidden shadow-xl">
+<div class="bg-surface-container-highest px-lg py-md border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="w-3 h-3 rounded-full bg-amber-400"></span>
+<span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+<span class="ml-md font-label-sm text-on-surface-variant italic">Live Interface Preview</span>
+</div>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">desktop_windows</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] opacity-40">tablet</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] opacity-40">smartphone</span>
+</div>
+</div>
+<!-- Preview Canvas -->
+<div class="p-xl bg-surface min-h-[600px] flex flex-col gap-lg">
+<div class="flex items-center justify-between">
+<div class="w-32 h-6 bg-primary/20 rounded"></div>
+<div class="flex gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest"></div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest"></div>
+</div>
+</div>
+<!-- Hero Preview -->
+<div class="relative h-64 rounded-xl overflow-hidden bg-primary-container group">
+<img class="w-full h-full object-cover mix-blend-overlay opacity-60" data-alt="A clean, wide-angle interior of a modern industrial facility with automated machinery and polished metallic surfaces. The atmosphere is professional and high-tech, with cool silver tones and warm red structural accents. Soft, natural daylight filters through large windows, creating a bright and airy light-mode aesthetic that emphasizes precision and technical authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0RgYbmrwhxECt_QM_7kqdF3WdTilMCRLlHFSzMo2laRrsV3sPLLAJ4eAkYj8fV0K5ybcWJB0ar04sscJuMs3s6lvxsByHWjRsnfcaS5bg4rw9RzPpQwUzNrbWkfaKec2ELrzdkRZKZqa88Nvg2n5g_hhpxHWwYcykg5_EYKE-vT7Woot38ZXo6gpb1a3UQg_zLc9GbApLzMrLgc_Xe9_vk9QiA3vArTlagZ8v1OlduR6eYSse6pnJW4oTsV-WKiCQxtfsNqnDNEY">
+<div class="absolute inset-0 p-lg flex flex-col justify-center text-white">
+<h2 class="font-headline-lg text-headline-lg mb-xs">Industrial Precision Dashboard</h2>
+<p class="font-body-md opacity-90 max-w-md">시설 관리 시스템의 데이터 흐름과 운영 상태를 한눈에 파악하세요.</p>
+<button class="mt-md px-lg py-sm bg-white text-primary rounded font-label-md w-fit shadow-lg">상세 보기</button>
+</div>
+</div>
+<!-- Data Grid Preview -->
+<div class="grid grid-cols-2 gap-md">
+<div class="p-md bg-white rounded-lg shadow-sm border border-outline-variant">
+<div class="flex justify-between mb-sm">
+<span class="text-label-sm text-on-surface-variant">System Load</span>
+<span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+</div>
+<div class="text-headline-md font-bold text-on-surface">82.4%</div>
+<div class="mt-xs h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[82.4%]"></div>
+</div>
+</div>
+<div class="p-md bg-white rounded-lg shadow-sm border border-outline-variant">
+<div class="flex justify-between mb-sm">
+<span class="text-label-sm text-on-surface-variant">Active Alerts</span>
+<span class="material-symbols-outlined text-primary text-[18px]">warning</span>
+</div>
+<div class="text-headline-md font-bold text-on-surface">12</div>
+<div class="mt-xs flex gap-xs">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-error/30"></div>
+</div>
+</div>
+</div>
+<!-- List Preview -->
+<div class="flex-1 bg-white rounded-lg border border-outline-variant overflow-hidden">
+<table class="w-full text-left">
+<thead class="bg-secondary-container/30 border-b border-outline-variant">
+<tr>
+<th class="px-md py-sm text-label-sm text-secondary">ID</th>
+<th class="px-md py-sm text-label-sm text-secondary">Task</th>
+<th class="px-md py-sm text-label-sm text-secondary">Status</th>
+</tr>
+</thead>
+<tbody class="text-label-md">
+<tr class="border-b border-surface-container">
+<td class="px-md py-sm">#A012</td>
+<td class="px-md py-sm">Zone 1 Lighting Check</td>
+<td class="px-md py-sm text-primary font-bold">In Progress</td>
+</tr>
+<tr>
+<td class="px-md py-sm">#B045</td>
+<td class="px-md py-sm">HVAC System Update</td>
+<td class="px-md py-sm text-emerald-600 font-bold">Success</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-highest border-t border-outline-variant flex justify-around items-center h-16 z-50">
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">assignment_late</span>
+<span class="text-[10px]">민원</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">person_add</span>
+<span class="text-[10px]">배정</span>
+</button>
+<button class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-[10px] font-bold">설정</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px]">프로필</span>
+</button>
+</nav>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a').forEach(a => {
+        const t = a.textContent.trim();
+        if (t === 'HOME' || t === '홈' || t === '메인으로') a.href = 'index.html';
+        else if (t.includes('A/S 접수') || t.includes('접수하기')) a.href = 'request.html';
+        else if (t.includes('견적 문의')) a.href = 'quote.html';
+        else if (t.includes('영상 자료실') || t.includes('교육 영상') || t.includes('영상 관리')) a.href = 'videos.html';
+        else if (t.includes('관리자 로그인') || t.includes('로그인')) a.href = 'login.html';
+        else if (t.includes('관리자 접속 관리') || t.includes('페이지 설정')) a.href = 'admin_settings.html';
+        else if (t.includes('담당자 배정') || t.includes('담당자 관리')) a.href = 'admin_access.html';
+        else if (t.includes('대시보드') || t.includes('접수 현황') || t.includes('접수 관리') || t.includes('민원 접수')) a.href = 'admin.html';
+    });
+    document.querySelectorAll('button').forEach(btn => {
+        const text = btn.textContent.trim();
+        if (text.includes('견적 문의') || text.includes('견적서')) btn.addEventListener('click', () => location.href = 'quote.html');
+        else if (text.includes('영상 자료실') || text.includes('영상 보기') || text.includes('기술 교육 영상')) btn.addEventListener('click', () => location.href = 'videos.html');
+        else if (text.includes('A/S 접수하기') || text.includes('접수하기')) btn.addEventListener('click', () => location.href = 'request.html');
+        else if (text.includes('페이지 설정') || text.includes('접속 관리') || text.includes('담당자 배정')) btn.addEventListener('click', () => location.href = 'admin_settings.html');
+        else if (text.includes('대시보드')) btn.addEventListener('click', () => location.href = 'admin.html');
+        else if (text.includes('관리자 로그인') || (text.includes('로그인') && btn.type !== 'submit')) btn.addEventListener('click', () => location.href = 'login.html');
+        else if (text.includes('Log Out') || text.includes('로그아웃')) btn.addEventListener('click', () => { sessionStorage.removeItem('mbs_token'); location.href = 'index.html'; });
+    });
+});
+</script>
+\n</body></html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html><html class="light" lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Industrial Precision - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "secondary-fixed-dim": "#c3c7ca",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#7a0024",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dcd9d9",
+                        "on-surface-variant": "#5a4042",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-container": "#505151",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "primary-container": "#a50034",
+                        "surface-tint": "#b81840",
+                        "secondary": "#5b5f62",
+                        "on-secondary-fixed-variant": "#43474a",
+                        "primary-fixed-dim": "#ffb2b8",
+                        "tertiary": "#383a3b",
+                        "on-secondary-fixed": "#181c1f",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#303030",
+                        "secondary-fixed": "#e0e3e6",
+                        "outline-variant": "#e2bec0",
+                        "outline": "#8e7071",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#eae7e7",
+                        "on-tertiary-container": "#c3c4c4",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary-fixed-variant": "#91002d",
+                        "tertiary-fixed": "#e2e2e2",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#40000f",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-bright": "#fcf9f8",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-container": "#5f6366",
+                        "background": "#fcf9f8",
+                        "surface-container": "#f0eded",
+                        "primary-fixed": "#ffdadb",
+                        "on-background": "#1b1c1c",
+                        "surface": "#fcf9f8",
+                        "inverse-primary": "#ffb2b8",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#dde0e3",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#ffafb5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "48px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2bec0; border-radius: 10px; }
+    </style>
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-gutter h-16 fixed top-0 z-50 bg-surface-container-highest dark:bg-surface-container-lowest border-b border-outline-variant dark:border-outline shadow-sm">
+<div class="flex items-center gap-md">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface">Industrial Precision</h1>
+<div class="hidden md:flex ml-xl gap-lg">
+<span class="font-body-md text-body-md text-primary dark:text-inverse-primary font-bold border-b-2 border-primary cursor-pointer transition-opacity active:opacity-80">Dashboard</span>
+<span class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors cursor-pointer px-sm rounded">Reports</span>
+<span class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors cursor-pointer px-sm rounded">Analytics</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border border-outline-variant rounded-full text-body-md focus:ring-2 focus:ring-primary outline-none transition-all w-64" placeholder="Search facilities..." type="text">
+</div>
+<div class="flex items-center gap-sm"><button class="flex items-center gap-xs p-2 hover:bg-surface-container-high rounded-full transition-colors group">
+    <span class="material-symbols-outlined text-on-surface-variant">home</span>
+    <span class="hidden lg:block text-label-md font-label-md text-on-surface-variant">홈으로</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">help</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors ml-2">
+<img alt="Admin profile avatar" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAUJWMQtt_qw_e3a5o8YNMhsw4bwWZvoO4msHDkoNYn0sy0v3s7Ag7VxZ2ZDfWi2IeXJJVXj4aEnhHXLJFG11SKxM_VN67VEqnhOyGUqwCQhLtrlJxOaHrK_H2Qt32xnvmngy83L7Kt89kTz4ACSZ9c9zxkv8x6CK5YgB5snK0EWemTuRFrR-Srso1js4Uot0JxlERuaibeYtAeWlZSuNngSMQJcQYIW9JTe7Y_OB8fDmKY6hFl61OdyL1gOFDYJw-W1LJ85nVxUc">
+</button>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col p-md border-r border-outline-variant bg-surface dark:bg-surface-dim shadow-md z-40">
+<div class="flex flex-col gap-xs mb-lg px-sm">
+<span class="font-headline-md text-headline-md text-primary">Admin Dashboard</span>
+<span class="text-label-sm font-label-sm text-secondary">Facility Controller</span>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-md px-md py-sm bg-primary text-on-primary rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment_late</span>
+<span class="font-label-md text-label-md">민원 관리</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-label-md text-label-md">담당자 배정</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">videocam</span>
+<span class="font-label-md text-label-md">영상 관리</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">페이지 설정</span>
+</a>
+</nav>
+<div class="pt-md border-t border-outline-variant">
+<button class="w-full flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container rounded-lg transition-all">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Log Out</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-gutter min-h-[calc(100vh-64px)]">
+<div class="max-w-container-max mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-xl gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">종합 대시보드</h2>
+<p class="text-body-md font-body-md text-secondary">실시간 민원 처리 현황 및 시스템 가동 상태</p>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs px-md py-2 bg-surface-container-high rounded-lg text-label-md font-label-md hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+                        2024년 5월 24일
+                    </button>
+<button class="flex items-center gap-xs px-md py-2 bg-primary text-on-primary rounded-lg text-label-md font-label-md hover:brightness-110 shadow-sm transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        신규 리포트 생성
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-lg">
+<!-- Summary Cards (Quick Stats) -->
+<div class="col-span-12 lg:col-span-4 grid grid-cols-1 gap-lg">
+<!-- New Request Card -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant/30 flex justify-between items-center relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div>
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider">신규 접수</span>
+<div class="font-headline-xl text-headline-xl text-primary mt-xs">12</div>
+<div class="flex items-center gap-xs text-error mt-sm">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="text-label-sm font-label-sm">+3 vs 어제</span>
+</div>
+</div>
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">emergency_home</span>
+</div>
+</div>
+<!-- In Progress Card -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant/30 flex justify-between items-center relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div>
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider">처리 중</span>
+<div class="font-headline-xl text-headline-xl text-on-surface mt-xs">28</div>
+<div class="flex items-center gap-xs text-on-tertiary-fixed-variant mt-sm">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="text-label-sm font-label-sm">평균 2.4시간 소요</span>
+</div>
+</div>
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">engineering</span>
+</div>
+</div>
+<!-- Completed Card -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant/30 flex justify-between items-center relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-tertiary-container"></div>
+<div>
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider">처리 완료</span>
+<div class="font-headline-xl text-headline-xl text-on-surface mt-xs">142</div>
+<div class="flex items-center gap-xs text-primary mt-sm">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="text-label-sm font-label-sm">성공률 98.2%</span>
+</div>
+</div>
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">task_alt</span>
+</div>
+</div>
+</div>
+<!-- System Status Graph -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface">시스템 상태 요약</h3>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-xs">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-label-sm font-label-sm">전력 사용량</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="text-label-sm font-label-sm">냉난방 효율</span>
+</div>
+</div>
+</div>
+<div class="flex-1 min-h-[300px] flex items-end gap-md pt-xl">
+<!-- Simulated Bar Graph -->
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full flex gap-1 items-end h-full">
+<div class="w-1/2 bg-primary rounded-t-sm h-[60%]"></div>
+<div class="w-1/2 bg-secondary rounded-t-sm h-[45%]"></div>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">Mon</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full flex gap-1 items-end h-full">
+<div class="w-1/2 bg-primary rounded-t-sm h-[75%]"></div>
+<div class="w-1/2 bg-secondary rounded-t-sm h-[55%]"></div>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">Tue</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full flex gap-1 items-end h-full">
+<div class="w-1/2 bg-primary rounded-t-sm h-[90%]"></div>
+<div class="w-1/2 bg-secondary rounded-t-sm h-[80%]"></div>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">Wed</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full flex gap-1 items-end h-full">
+<div class="w-1/2 bg-primary rounded-t-sm h-[40%]"></div>
+<div class="w-1/2 bg-secondary rounded-t-sm h-[30%]"></div>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">Thu</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full flex gap-1 items-end h-full">
+<div class="w-1/2 bg-primary rounded-t-sm h-[65%]"></div>
+<div class="w-1/2 bg-secondary rounded-t-sm h-[50%]"></div>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">Fri</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full flex gap-1 items-end h-full">
+<div class="w-1/2 bg-primary rounded-t-sm h-[30%]"></div>
+<div class="w-1/2 bg-secondary rounded-t-sm h-[20%]"></div>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">Sat</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full flex gap-1 items-end h-full">
+<div class="w-1/2 bg-primary rounded-t-sm h-[20%]"></div>
+<div class="w-1/2 bg-secondary rounded-t-sm h-[15%]"></div>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">Sun</span>
+</div>
+</div>
+</div>
+<!-- Recent Complaints List -->
+<div class="col-span-12 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden">
+<div class="p-lg border-b border-outline-variant/30 flex justify-between items-center bg-surface-container-low/50">
+<h3 class="font-headline-md text-headline-md text-on-surface">최근 민원 리스트</h3>
+<button class="text-primary font-label-md text-label-md hover:underline">전체 보기</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-secondary text-on-secondary uppercase text-label-sm font-label-sm tracking-wider">
+<th class="px-lg py-4">ID</th>
+<th class="px-lg py-4">민원 유형</th>
+<th class="px-lg py-4">제목</th>
+<th class="px-lg py-4">접수 일시</th>
+<th class="px-lg py-4">담당자</th>
+<th class="px-lg py-4 text-center">상태</th>
+<th class="px-lg py-4 text-right">관리</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-lg py-4 text-label-md font-label-md text-secondary">#20491</td>
+<td class="px-lg py-4 font-body-md text-body-md">시설 보수</td>
+<td class="px-lg py-4 font-body-md text-body-md font-semibold">3층 북측 로비 조명 깜빡임 현상</td>
+<td class="px-lg py-4 text-body-md font-body-md text-on-surface-variant">2024-05-24 10:15</td>
+<td class="px-lg py-4 text-body-md font-body-md">김철수 매니저</td>
+<td class="px-lg py-4 text-center">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant rounded-full text-label-sm font-label-sm">신규 접수</span>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="p-2 hover:bg-outline-variant/20 rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container transition-colors group">
+<td class="px-lg py-4 text-label-md font-label-md text-secondary">#20488</td>
+<td class="px-lg py-4 font-body-md text-body-md">공조 시스템</td>
+<td class="px-lg py-4 font-body-md text-body-md font-semibold">지하 2층 주차장 환기 팬 이상 소음</td>
+<td class="px-lg py-4 text-body-md font-body-md text-on-surface-variant">2024-05-24 09:30</td>
+<td class="px-lg py-4 text-body-md font-body-md">이영희 엔지니어</td>
+<td class="px-lg py-4 text-center">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm font-label-sm">처리 중</span>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="p-2 hover:bg-outline-variant/20 rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-lg py-4 text-label-md font-label-md text-secondary">#20485</td>
+<td class="px-lg py-4 font-body-md text-body-md">보안/출입</td>
+<td class="px-lg py-4 font-body-md text-body-md font-semibold">B구역 4번 출입문 카드 리더기 오류</td>
+<td class="px-lg py-4 text-body-md font-body-md text-on-surface-variant">2024-05-23 17:45</td>
+<td class="px-lg py-4 text-body-md font-body-md">박지성 보안팀</td>
+<td class="px-lg py-4 text-center">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-label-sm font-label-sm">처리 완료</span>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="p-2 hover:bg-outline-variant/20 rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container transition-colors group">
+<td class="px-lg py-4 text-label-md font-label-md text-secondary">#20482</td>
+<td class="px-lg py-4 font-body-md text-body-md">기타</td>
+<td class="px-lg py-4 font-body-md text-body-md font-semibold">옥상 정원 조경 관리 요청</td>
+<td class="px-lg py-4 text-body-md font-body-md text-on-surface-variant">2024-05-23 14:20</td>
+<td class="px-lg py-4 text-body-md font-body-md">최두리 관리원</td>
+<td class="px-lg py-4 text-center">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-label-sm font-label-sm">처리 완료</span>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="p-2 hover:bg-outline-variant/20 rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Secondary Analysis Section (Bento Bottom) -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant/30">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-lg">지역별 민원 분포</h3>
+<div class="space-y-md">
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between text-label-md font-label-md">
+<span class="">A동 (오피스)</span>
+<span class="">45%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 45%;"></div>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between text-label-md font-label-md">
+<span class="">B동 (상업시설)</span>
+<span class="">30%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 30%;"></div>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between text-label-md font-label-md">
+<span class="">공동 구역</span>
+<span class="">25%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 25%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 lg:col-span-8 relative rounded-xl overflow-hidden shadow-sm h-64 border border-outline-variant/30">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale brightness-50" data-alt="A sophisticated birds-eye view architectural rendering of a high-tech industrial complex at sunset. The scene is illuminated with professional warm lighting that emphasizes structural silhouettes. The color palette is composed of metallic silvers, slate greys, and dramatic deep red accents from building light fixtures. The style is clean, corporate modernism with a premium, engineered feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCevXHkMSJm-cioTdtlBQqsTpfjo1aaO-0tnYOvtAs78YnfWcM4IJ2pRBrUEpnGvYKMpempOKgVhdeoH8y1Cb85YUvAGl_rUc-AIZ85uWflcLTuzMWTs66S7yckGMTYxr3w_nF3o3wChCs5RDYlWj7KjbqdcyzVWsuw-aQrkvvIiz6UFDfqh69rWZPyKc3rbFSUU-p5qnLqnt6DKX0TzaxDzm5TqkjYWCVdZNFKRJFs5W1Mrlqjp-tttBT0riiRAQOi_LSvMkSZVuE">
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent z-10"></div>
+<div class="relative z-20 h-full p-lg flex flex-col justify-center max-w-lg">
+<h4 class="font-headline-md text-headline-md text-white mb-sm">실시간 현장 모니터링</h4>
+<p class="text-body-md font-body-md text-white/90 mb-lg">현재 모든 주요 시설이 정상 작동 범위 내에 있습니다. 전력 효율이 전주 대비 4.2% 향상되었습니다.</p>
+<div class="flex gap-md">
+<button class="px-md py-2 bg-white text-primary rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors">CCTV 채널 보기</button>
+<button class="px-md py-2 border border-white text-white rounded-lg font-label-md text-label-md hover:bg-white/10 transition-colors">시설 상세 제어</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (Only on Mobile-equivalent layout or context) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary-container text-on-primary-container rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50 md:hidden">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a').forEach(a => {
+        const t = a.textContent.trim();
+        if (t === 'HOME' || t === '홈' || t === '메인으로') a.href = 'index.html';
+        else if (t.includes('A/S 접수') || t.includes('접수하기')) a.href = 'request.html';
+        else if (t.includes('견적 문의')) a.href = 'quote.html';
+        else if (t.includes('영상 자료실') || t.includes('교육 영상') || t.includes('영상 관리')) a.href = 'videos.html';
+        else if (t.includes('관리자 로그인') || t.includes('로그인')) a.href = 'login.html';
+        else if (t.includes('관리자 접속 관리') || t.includes('페이지 설정')) a.href = 'admin_settings.html';
+        else if (t.includes('담당자 배정') || t.includes('담당자 관리')) a.href = 'admin_access.html';
+        else if (t.includes('대시보드') || t.includes('접수 현황') || t.includes('접수 관리') || t.includes('민원 접수')) a.href = 'admin.html';
+    });
+    document.querySelectorAll('button').forEach(btn => {
+        const text = btn.textContent.trim();
+        if (text.includes('견적 문의') || text.includes('견적서')) btn.addEventListener('click', () => location.href = 'quote.html');
+        else if (text.includes('영상 자료실') || text.includes('영상 보기') || text.includes('기술 교육 영상')) btn.addEventListener('click', () => location.href = 'videos.html');
+        else if (text.includes('A/S 접수하기') || text.includes('접수하기')) btn.addEventListener('click', () => location.href = 'request.html');
+        else if (text.includes('페이지 설정') || text.includes('접속 관리') || text.includes('담당자 배정')) btn.addEventListener('click', () => location.href = 'admin_settings.html');
+        else if (text.includes('대시보드')) btn.addEventListener('click', () => location.href = 'admin.html');
+        else if (text.includes('관리자 로그인') || (text.includes('로그인') && btn.type !== 'submit')) btn.addEventListener('click', () => location.href = 'login.html');
+        else if (text.includes('Log Out') || text.includes('로그아웃')) btn.addEventListener('click', () => { sessionStorage.removeItem('mbs_token'); location.href = 'index.html'; });
+    });
+});
+</script>
+\n<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const TOKEN = sessionStorage.getItem('mbs_token');
+    if (!TOKEN) { location.href = 'login.html'; return; }
+
+    const API = '/api';
+    const H = () => ({ Authorization: 'Bearer ' + TOKEN, 'Content-Type': 'application/json' });
+
+    async function loadStats() {
+        try {
+            const r = await fetch(API + '/requests', { headers: H() });
+            const d = await r.json();
+            if (!d.success) return;
+            const cards = document.querySelectorAll('.grid.grid-cols-1.md\\:grid-cols-4 > div, .grid.grid-cols-2.md\\:grid-cols-4 > div');
+            if (cards.length >= 4) {
+                const vals = [d.stats?.total||0, d.stats?.waiting||0, d.stats?.processing||0, d.stats?.urgent||0];
+                cards.forEach((c, i) => {
+                    const txt = c.querySelector('p.font-headline-md, p.text-3xl, h2');
+                    if(txt && vals[i]!==undefined) txt.textContent = vals[i] + '건';
+                });
+            }
+            if (d.data) renderTable(d.data);
+        } catch(e) { console.error(e); }
+    }
+
+    function statusBadge(s) {
+        const m = { '접수대기': 'bg-error-container text-on-error-container', '처리중': 'bg-secondary-container text-on-secondary-container', '완료': 'bg-green-100 text-green-800' };
+        return `<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold ${m[s]||'bg-gray-100 text-gray-700'}">${s}</span>`;
+    }
+
+    function renderTable(rows) {
+        const tbody = document.querySelector('table tbody');
+        if (!tbody) return;
+        if (!rows.length) {
+            tbody.innerHTML = '<tr><td colspan="7" class="text-center py-12 text-on-surface-variant">접수된 내역이 없습니다.</td></tr>';
+            return;
+        }
+        tbody.innerHTML = rows.map((r, i) => `
+            <tr class="${i%2===1?'bg-surface-container-low/50':''} hover:bg-surface-container transition-colors cursor-pointer" onclick="openDetail(${r.id})">
+                <td class="px-lg py-md font-label-md">${r.ticket_no}</td>
+                <td class="px-lg py-md text-body-md text-on-surface-variant">${(r.created_at||'').slice(0,16).replace('T',' ')}</td>
+                <td class="px-lg py-md text-body-md font-semibold">${r.building_name}</td>
+                <td class="px-lg py-md text-body-md">${r.as_type}</td>
+                <td class="px-lg py-md">${statusBadge(r.status)}</td>
+                <td class="px-lg py-md text-body-md">${r.assigned_to||'미지정'}</td>
+                <td class="px-lg py-md text-right"><button class="text-primary hover:underline font-label-md">보기</button></td>
+            </tr>`).join('');
+    }
+
+    let detailModal = null;
+    window.openDetail = async function(id) {
+        try {
+            const r = await fetch(API + '/requests/' + id, { headers: H() });
+            const d = await r.json();
+            if (!d.success) return;
+            const row = d.data;
+            if (!detailModal) {
+                detailModal = document.createElement('div');
+                detailModal.className = 'fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm';
+                detailModal.addEventListener('click', e => { if (e.target === detailModal) detailModal.style.display='none'; });
+                document.body.appendChild(detailModal);
+            }
+            detailModal.innerHTML = `
+                <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+                    <div class="flex items-center justify-between p-6 border-b border-gray-200 sticky top-0 bg-white z-10">
+                        <h3 class="font-bold text-xl">${row.ticket_no}</h3>
+                        <button onclick="detailModal.style.display='none'" class="p-2 hover:bg-gray-100 rounded-full">X</button>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <p><strong>현장명:</strong> ${row.building_name}</p>
+                        <p><strong>고객명:</strong> ${row.customer_name} (${row.customer_phone})</p>
+                        <p><strong>AS 유형:</strong> ${row.as_type}</p>
+                        <div class="bg-gray-50 p-3 rounded-lg"><p>${row.description}</p></div>
+                        <div>
+                            <label class="block font-bold mb-1">상태</label>
+                            <select id="detailStatus" class="w-full border p-2 rounded">
+                                <option ${row.status==='접수대기'?'selected':''}>접수대기</option>
+                                <option ${row.status==='처리중'?'selected':''}>처리중</option>
+                                <option ${row.status==='완료'?'selected':''}>완료</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-bold mb-1">담당자</label>
+                            <input id="detailAssign" type="text" value="${row.assigned_to||''}" class="w-full border p-2 rounded">
+                        </div>
+                        <button onclick="saveDetail(${id})" class="w-full bg-primary text-white py-3 rounded-xl font-bold mt-4">저장</button>
+                    </div>
+                </div>`;
+            detailModal.style.display = 'flex';
+        } catch(e) { alert('조회 오류'); }
+    }
+
+    window.saveDetail = async function(id) {
+        const status = document.getElementById('detailStatus')?.value;
+        const assigned_to = document.getElementById('detailAssign')?.value;
+        try {
+            const r = await fetch(API + '/requests/' + id, {
+                method: 'PATCH', headers: H(),
+                body: JSON.stringify({ status, assigned_to })
+            });
+            const d = await r.json();
+            if (d.success) { detailModal.style.display='none'; loadStats(); alert('저장되었습니다.'); }
+            else alert('오류: ' + d.error);
+        } catch(e) { alert('저장 오류'); }
+    }
+
+    loadStats();
+});
+</script>\n</body></html>

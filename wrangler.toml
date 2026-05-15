@@ -1,0 +1,21 @@
+name = "mbs-as-system"
+compatibility_date = "2024-09-23"
+pages_build_output_dir = "public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "mbs-as-db"
+database_id = "REPLACE_AFTER_CREATION"
+
+# 환경변수 (민감정보는 wrangler secret put 으로 설정)
+[vars]
+COMPANY_NAME = "MBS 빌딩자동제어"
+COMPANY_PHONE = "02-0000-0000"
+ADMIN_USERNAME = "mbseng"
+ADMIN_PASSWORD = "me4848"
+
+# SMS/카카오 API 키는 배포 후 아래 명령으로 비밀 설정:
+# npx wrangler secret put COOLSMS_API_KEY
+# npx wrangler secret put COOLSMS_API_SECRET
+# npx wrangler secret put COOLSMS_FROM
+# npx wrangler secret put KAKAO_PFID

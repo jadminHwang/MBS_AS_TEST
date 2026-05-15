@@ -1,0 +1,355 @@
+<!DOCTYPE html><html class="light" lang="ko" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title content="A/S 접수 - (주)엠비에스엔지니어링">A/S 접수 - (주)엠비에스엔지니어링</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcd9d9",
+                        "on-tertiary-container": "#c3c4c4",
+                        "surface-variant": "#e5e2e1",
+                        "on-surface-variant": "#5a4042",
+                        "secondary": "#5b5f62",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-primary-container": "#ffafb5",
+                        "inverse-surface": "#303030",
+                        "surface-container-low": "#f6f3f2",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#ffdadb",
+                        "surface-tint": "#b81840",
+                        "primary": "#7a0024",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container-high": "#eae7e7",
+                        "secondary-container": "#dde0e3",
+                        "on-surface": "#1b1c1c",
+                        "on-secondary-fixed-variant": "#43474a",
+                        "primary-fixed-dim": "#ffb2b8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#a50034",
+                        "tertiary-container": "#505151",
+                        "surface": "#fcf9f8",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "secondary-fixed-dim": "#c3c7ca",
+                        "tertiary-fixed": "#e2e2e2",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "tertiary": "#383a3b",
+                        "outline-variant": "#e2bec0",
+                        "outline": "#8e7071",
+                        "surface-container": "#f0eded",
+                        "inverse-primary": "#ffb2b8",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fcf9f8",
+                        "on-background": "#1b1c1c",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-secondary-container": "#5f6366",
+                        "secondary-fixed": "#e0e3e6",
+                        "on-secondary-fixed": "#181c1f",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-primary-fixed-variant": "#91002d",
+                        "on-primary-fixed": "#40000f",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "base": "8px",
+                        "lg": "24px",
+                        "xl": "48px",
+                        "gutter": "24px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        body { min-height: 100dvh; }
+    </style>
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface-container dark:bg-surface-container-highest sticky top-0 z-50 border-b border-outline-variant dark:border-on-surface-variant shadow-sm w-full">
+<div class="max-w-container-max mx-auto flex items-center justify-between px-lg py-1.5">
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-sm"><img alt="(주)엠비에스엔지니어링 로고" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3_N9CmkIZtRnYWkCoOB0zEgi4B0GlwAt_hCVW-MIkgr-tpgpOjMRwcQuoPu5Ylqe4DS8ezo1ogX-_wytGkpHgwwEmJE0JCFRJyMH2eL7AQ_cMl-ig1-m306FBQ6tsN0WEmlePF9Fh2HNK4cDHx8hZGm3bHi5oge0ZrnkjIUDe1bFnjJiRWDD_ILvPVjCWFz0kmvB1U-9xqOareqyOr_cO0UQJWqCeiOQL1bPLG_poDGzTbXlz2JO704n5N4QMmc0NSy33yF29J_s"><span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">(주)엠비에스엔지니어링</span></div>
+<nav class="hidden md:flex items-center gap-md ml-lg"><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">HOME</a><a class="font-label-md text-label-md text-primary transition-colors" href="#">A/S 접수</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">기술 교육 영상</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">견적문의</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">연락처</a></nav>
+</div>
+<div class="flex items-center">
+<button class="bg-primary-container text-on-primary font-label-md text-label-md px-md py-sm rounded-full shadow-sm hover:bg-surface-tint transition-all active:scale-95 flex items-center gap-xs"><span class="">관리자 로그인</span></button>
+</div>
+</div>
+</header>
+<div class="flex-1 w-full max-w-container-max mx-auto relative flex flex-col items-center">
+<!-- Main Content -->
+<main class="w-full px-md md:px-xl bg-surface py-sm">
+<div class="mx-auto">
+<div class="">
+<div class="flex items-center gap-xs text-on-surface-variant mb-xs">
+<a class="hover:text-primary transition-colors font-label-sm text-label-sm" href="#">홈</a>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">A/S 접수</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">A/S 서비스 접수</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">시설 시스템의 점검 및 유지보수가 필요한 경우 상세 정보를 입력해 주세요.</p>
+</div>
+<!-- Bento-style Form Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_24px_rgba(0,0,0,0.06)] border border-surface-variant overflow-hidden">
+<!-- Form Header Area -->
+<div class="bg-surface-container border-b border-surface-variant flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="build_circle" style="font-variation-settings: &quot;FILL&quot; 1;">build_circle</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">지원 요청 상세</h2>
+</div>
+<div class="">
+<!-- Applicant Info Section 1 -->
+<section class="space-y-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">신청자 정보</h3>
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface" for="requester_name">성함</label>
+<input class="w-full px-md py-sm bg-surface-container-lowest border border-outline-variant rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface placeholder:text-outline transition-colors" id="requester_name" name="requester_name" placeholder="성함을 입력하세요" type="text">
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface" for="requester_phone">연락처</label>
+<input class="w-full px-md py-sm bg-surface-container-lowest border border-outline-variant rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface placeholder:text-outline transition-colors" id="requester_phone" name="requester_phone" placeholder="010-0000-0000" type="tel">
+</div>
+</div>
+</section>
+<hr class="border-surface-variant">
+<!-- Service Type Selection -->
+<section>
+<label class="block font-label-md text-label-md text-on-surface mb-sm">지원 유형</label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-sm">
+<label class="relative cursor-pointer">
+<input checked="" class="peer sr-only" name="service_type" type="radio" value="visit">
+<div class="rounded-lg border-2 border-surface-variant peer-checked:border-primary peer-checked:bg-primary-fixed transition-all flex flex-col items-center justify-center gap-xs text-center h-full hover:bg-surface-variant/30">
+<span class="material-symbols-outlined text-outline peer-checked:text-primary text-2xl" data-icon="directions_car">directions_car</span>
+<span class="font-label-md text-label-md text-on-surface peer-checked:text-primary">방문 지원</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">현장 엔지니어 파견</span>
+</div>
+</label>
+<label class="relative cursor-pointer">
+<input class="peer sr-only" name="service_type" type="radio" value="phone">
+<div class="rounded-lg border-2 border-surface-variant peer-checked:border-primary peer-checked:bg-primary-fixed transition-all flex flex-col items-center justify-center gap-xs text-center h-full hover:bg-surface-variant/30">
+<span class="material-symbols-outlined text-outline peer-checked:text-primary text-2xl" data-icon="support_agent">support_agent</span>
+<span class="font-label-md text-label-md text-on-surface peer-checked:text-primary">전화 지원</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">원격 문제 해결</span>
+</div>
+</label>
+<label class="relative cursor-pointer">
+<input class="peer sr-only" name="service_type" type="radio" value="remote">
+<div class="rounded-lg border-2 border-surface-variant peer-checked:border-primary peer-checked:bg-primary-fixed transition-all flex flex-col items-center justify-center gap-xs text-center h-full hover:bg-surface-variant/30">
+<span class="material-symbols-outlined text-outline peer-checked:text-primary text-2xl" data-icon="desktop_windows">desktop_windows</span>
+<span class="font-label-md text-label-md text-on-surface peer-checked:text-primary">원격접속 지원</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">시스템 점검</span>
+</div>
+</label>
+</div>
+</section>
+<hr class="border-surface-variant">
+<!-- Facility Information -->
+<section class="space-y-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">시설 정보</h3>
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface" for="site_name">현장명</label>
+<div class="relative w-full">
+<select class="w-full px-md py-sm bg-surface-container-lowest border border-outline-variant rounded-md appearance-none focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface transition-colors" id="site_name" name="site_name">
+<option disabled="" selected="" value="">등록된 현장 선택</option>
+<option value="site_a">강남 테크노 타워</option>
+<option value="site_b">판교 R&amp;D 센터</option>
+<option value="site_c">여의도 파이낸스 빌딩</option>
+<option value="site_d">부산 물류 센터</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface" for="system_type">시스템 종류</label>
+<div class="relative">
+<select class="w-full px-md py-sm bg-surface-container-lowest border border-outline-variant rounded-md appearance-none focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface transition-colors" id="system_type" name="system_type">
+<option disabled="" selected="" value="">시스템 카테고리 선택</option>
+<option value="power">전력 모니터링</option>
+<option value="lighting">조명 제어</option>
+<option value="automation">시설 자동화</option>
+<option value="bems">BEMS</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Problem Description -->
+<section class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface flex justify-between" for="problem_description">
+<span class="">문제 내용</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-normal">최대 500자</span>
+</label>
+<textarea class="w-full px-md py-sm bg-surface-container-lowest border border-outline-variant rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface placeholder:text-outline transition-colors resize-y" id="problem_description" name="problem_description" placeholder="발생한 문제의 상세 내용, 오류 코드 또는 특이 사항을 입력해 주세요..." rows="4"></textarea>
+</section>
+<hr class="border-surface-variant">
+<!-- Notification Info Box -->
+<div class="bg-surface-container-low rounded-lg flex gap-md items-start border border-surface-variant">
+<span class="material-symbols-outlined text-primary mt-0.5" data-icon="notifications_active">notifications_active</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-xs">실시간 알림 서비스</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">접수된 요청의 진행 상황 및 엔지니어 배정 정보는 등록된 연락처로 SMS 및 카카오톡을 통해 자동 발송됩니다.</p>
+</div>
+</div>
+</div>
+<!-- Form Actions -->
+<div class="bg-surface-container border-t border-surface-variant flex justify-end gap-md items-center">
+<button class="px-lg py-sm border border-outline text-on-surface font-label-md text-label-md rounded-md hover:bg-surface-variant transition-colors" type="button">취소</button>
+<button class="px-xl py-sm bg-primary-container text-on-primary font-label-md text-label-md rounded-md hover:bg-surface-tint shadow-sm hover:shadow-md transition-all flex items-center gap-xs" type="submit">
+<span class="material-symbols-outlined text-[20px]" data-icon="send">send</span>
+<span class="">접수 신청하기</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-tertiary text-tertiary-fixed w-full border-t border-outline-variant mt-auto">
+<div class="max-w-container-max mx-auto px-lg py-md">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+<div class="space-y-md">
+<h4 class="font-label-md text-label-md text-surface-bright">고객 지원</h4>
+<p class="font-headline-md text-headline-md font-bold text-primary-fixed">1800-4848</p>
+<p class="font-body-md text-body-md text-tertiary-fixed-dim">평일 09:00 - 18:00 (주말/공휴일 제외)</p>
+</div>
+<div class="space-y-md">
+<h4 class="font-label-md text-label-md text-surface-bright">문의</h4>
+<p class="font-body-md text-body-md text-tertiary-fixed-dim underline">sales@mbseng.co.kr</p>
+</div>
+<div class="space-y-md lg:col-span-2">
+<h4 class="font-label-md text-label-md text-surface-bright">회사 정보</h4>
+<p class="font-body-md text-body-md text-tertiary-fixed-dim">본사: 서울시 마포구 서교동 446-45</p>
+<p class="font-body-md text-body-md text-tertiary-fixed-dim">(주)엠비에스엔지니어링 | 대표이사: 강형주 | 사업자등록번호: 105-86-63420</p>
+</div>
+</div>
+<div class="border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-md">
+<div class="font-label-sm text-label-sm text-tertiary-fixed-dim italic">© 2024 (주)엠비에스엔지니어링. All Rights Reserved.</div>
+<nav>
+<ul class="flex gap-md">
+<li class=""><a class="font-label-sm text-label-sm text-tertiary-fixed-dim hover:text-surface-bright" href="#">개인정보처리방침</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-tertiary-fixed-dim hover:text-surface-bright" href="#">이용약관</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</footer>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a').forEach(a => {
+        const t = a.textContent.trim();
+        if (t === 'HOME' || t === '홈' || t === '메인으로') a.href = 'index.html';
+        else if (t.includes('A/S 접수') || t.includes('접수하기')) a.href = 'request.html';
+        else if (t.includes('견적 문의')) a.href = 'quote.html';
+        else if (t.includes('영상 자료실') || t.includes('교육 영상') || t.includes('영상 관리')) a.href = 'videos.html';
+        else if (t.includes('관리자 로그인') || t.includes('로그인')) a.href = 'login.html';
+        else if (t.includes('관리자 접속 관리') || t.includes('페이지 설정')) a.href = 'admin_settings.html';
+        else if (t.includes('담당자 배정') || t.includes('담당자 관리')) a.href = 'admin_access.html';
+        else if (t.includes('대시보드') || t.includes('접수 현황') || t.includes('접수 관리') || t.includes('민원 접수')) a.href = 'admin.html';
+    });
+    document.querySelectorAll('button').forEach(btn => {
+        const text = btn.textContent.trim();
+        if (text.includes('견적 문의') || text.includes('견적서')) btn.addEventListener('click', () => location.href = 'quote.html');
+        else if (text.includes('영상 자료실') || text.includes('영상 보기') || text.includes('기술 교육 영상')) btn.addEventListener('click', () => location.href = 'videos.html');
+        else if (text.includes('A/S 접수하기') || text.includes('접수하기')) btn.addEventListener('click', () => location.href = 'request.html');
+        else if (text.includes('페이지 설정') || text.includes('접속 관리') || text.includes('담당자 배정')) btn.addEventListener('click', () => location.href = 'admin_settings.html');
+        else if (text.includes('대시보드')) btn.addEventListener('click', () => location.href = 'admin.html');
+        else if (text.includes('관리자 로그인') || (text.includes('로그인') && btn.type !== 'submit')) btn.addEventListener('click', () => location.href = 'login.html');
+        else if (text.includes('Log Out') || text.includes('로그아웃')) btn.addEventListener('click', () => { sessionStorage.removeItem('mbs_token'); location.href = 'index.html'; });
+    });
+});
+</script>
+\n<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const submitBtn = document.querySelector('button[type="submit"]') || document.querySelector('button.bg-primary');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('requester_name')?.value?.trim() || document.querySelector('input[placeholder*="성함"]')?.value?.trim();
+            const phone = document.getElementById('requester_phone')?.value?.trim() || document.querySelector('input[placeholder*="연락처"]')?.value?.trim();
+            const building = document.getElementById('site_name')?.value?.trim() || document.querySelector('input[placeholder*="현장명"]')?.value?.trim();
+            const systemType = document.getElementById('system_type')?.value || 'BECON';
+            const desc = document.getElementById('problem_description')?.value?.trim() || document.querySelector('textarea')?.value?.trim();
+            const serviceType = document.querySelector('input[name="service_type"]:checked')?.value || '방문';
+
+            if (!name) return alert('성함을 입력해주세요.');
+            if (!phone) return alert('연락처를 입력해주세요.');
+            if (!desc) return alert('문제 내용을 입력해주세요.');
+
+            const btnText = submitBtn.querySelector('span:last-child') || submitBtn;
+            const origText = btnText.textContent;
+            submitBtn.disabled = true;
+            btnText.textContent = '접수 중...';
+
+            try {
+                const resp = await fetch('/api/requests', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        customer_name: name, customer_phone: phone, building_name: building || 'MBS 테스트건물',
+                        as_type: `${systemType} (${serviceType})`, priority: '일반', description: desc,
+                    })
+                });
+                const data = await resp.json();
+                if (data.success) {
+                    sessionStorage.setItem('ticket_no', data.ticket_no);
+                    sessionStorage.setItem('customer_name', name);
+                    location.href = 'complete.html';
+                } else {
+                    alert('접수 오류: ' + (data.error || '알 수 없는 오류'));
+                    submitBtn.disabled = false;
+                    btnText.textContent = origText;
+                }
+            } catch (err) {
+                alert('서버 연결 오류.');
+                submitBtn.disabled = false;
+                btnText.textContent = origText;
+            }
+        });
+    }
+});
+</script>\n</body></html>
