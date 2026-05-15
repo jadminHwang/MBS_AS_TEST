@@ -241,6 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Other routes
         else if (cleanT.includes('AS접수') || cleanT.includes('접수하기')) { if(el.tagName==='A') el.href='request.html'; else el.addEventListener('click',()=>goTo('request.html')); }
         else if (cleanT.includes('견적문의')) { if(el.tagName==='A') el.href='quote.html'; else el.addEventListener('click',()=>goTo('quote.html')); }
+        else if (cleanT.includes('영상관리')) { if(el.tagName==='A') el.href='admin_videos.html'; else el.addEventListener('click',()=>goTo('admin_videos.html')); }
         else if (cleanT.includes('영상') || cleanT.includes('교육')) { if(el.tagName==='A') el.href='videos.html'; else el.addEventListener('click',()=>goTo('videos.html')); }
         else if (cleanT.includes('관리자로그인') || (cleanT.includes('로그인') && !cleanT.includes('설정'))) { 
             if (el.tagName === 'BUTTON' && el.type === 'submit') return;
