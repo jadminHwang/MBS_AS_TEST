@@ -106,38 +106,42 @@
 <style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
 <body class="bg-background text-on-background min-h-screen flex flex-col">
 <!-- TopAppBar -->
-<header class="bg-surface-container dark:bg-surface-container-highest sticky top-0 z-50 border-b border-outline-variant dark:border-on-surface-variant shadow-sm w-full">
-<div class="max-w-container-max mx-auto flex items-center justify-between px-lg py-1.5">
-<div class="flex items-center gap-md">
-<div class="flex items-center gap-sm"><img alt="(주)엠비에스엔지니어링 로고" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3_N9CmkIZtRnYWkCoOB0zEgi4B0GlwAt_hCVW-MIkgr-tpgpOjMRwcQuoPu5Ylqe4DS8ezo1ogX-_wytGkpHgwwEmJE0JCFRJyMH2eL7AQ_cMl-ig1-m306FBQ6tsN0WEmlePF9Fh2HNK4cDHx8hZGm3bHi5oge0ZrnkjIUDe1bFnjJiRWDD_ILvPVjCWFz0kmvB1U-9xqOareqyOr_cO0UQJWqCeiOQL1bPLG_poDGzTbXlz2JO704n5N4QMmc0NSy33yF29J_s"><span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">(주)엠비에스엔지니어링</span></div>
-<nav class="hidden md:flex items-center gap-md ml-lg"><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">HOME</a><a class="font-label-md text-label-md text-primary transition-colors" href="#">A/S 접수</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">기술 교육 영상</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">견적문의</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">연락처</a></nav>
-</div>
-<div class="flex items-center">
-<button class="bg-primary-container text-on-primary font-label-md text-label-md px-md py-sm rounded-full shadow-sm hover:bg-surface-tint transition-all active:scale-95 flex items-center gap-xs"><span class="">관리자 로그인</span></button>
-</div>
+
+<header style="background:#f0eded;border-bottom:1px solid #e2bec0;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,.08);">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 32px;max-width:1440px;margin:0 auto;height:68px;box-sizing:border-box;">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;">
+    <img alt="MBS 로고" style="height:52px;width:auto;display:block;object-fit:contain;" src="/assets/logo.png"/>
+    <span style="font-size:20px;font-weight:700;color:#1B365D;font-family:Hanken Grotesk,sans-serif;white-space:nowrap;">(주)엠비에스엔지니어링</span>
+  </a>
+  <nav style="display:flex;align-items:center;gap:24px;">
+    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="index.html">HOME</a>
+    <a class="text-[#7a0024] font-bold border-b-2 border-[#7a0024] pb-1 px-1 transition-colors" href="request.html">A/S 접수</a>
+    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="videos.html">기술 교육 영상</a>
+    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="quote.html">견적문의</a>
+    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="#contact">연락처</a>
+  </nav>
+  <div>
+    <button onclick="location.href='login.html'" style="font-size:14px;font-weight:600;background:#a50034;color:#fff;padding:8px 18px;border-radius:8px;border:none;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.15);white-space:nowrap;">관리자 로그인</button>
+  </div>
 </div>
 </header>
-<div class="flex-1 w-full max-w-container-max mx-auto relative flex flex-col items-center">
+
 <!-- Main Content -->
-<main class="w-full px-md md:px-xl bg-surface py-sm">
-<div class="mx-auto">
-<div class="">
-<div class="flex items-center gap-xs text-on-surface-variant mb-xs">
-<a class="hover:text-primary transition-colors font-label-sm text-label-sm" href="#">홈</a>
-<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
-<span class="font-label-sm text-label-sm text-primary font-bold">A/S 접수</span>
-</div>
-<h1 class="font-headline-lg text-headline-lg text-on-surface">A/S 서비스 접수</h1>
-<p class="font-body-md text-body-md text-on-surface-variant">시설 시스템의 점검 및 유지보수가 필요한 경우 상세 정보를 입력해 주세요.</p>
+<main class="flex-grow w-full max-w-container-max mx-auto px-gutter py-xl">
+<div class="max-w-4xl mx-auto space-y-lg">
+<!-- Header Section -->
+<div class="text-center space-y-4 mb-xl">
+<h1 class="text-headline-xl font-headline-xl text-on-background">A/S 서비스 접수</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant">시설 시스템의 점검 및 유지보수가 필요한 경우 상세 정보를 입력해 주세요.</p>
 </div>
 <!-- Bento-style Form Container -->
-<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_24px_rgba(0,0,0,0.06)] border border-surface-variant overflow-hidden">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant overflow-hidden">
 <!-- Form Header Area -->
-<div class="bg-surface-container border-b border-surface-variant flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary" data-icon="build_circle" style="font-variation-settings: &quot;FILL&quot; 1;">build_circle</span>
+<div class="bg-surface-container border-b border-surface-variant flex items-center gap-sm p-6">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="build_circle" style="font-variation-settings: 'FILL' 1;">build_circle</span>
 <h2 class="font-headline-md text-headline-md text-on-surface">지원 요청 상세</h2>
 </div>
-<div class="">
+<div class="p-lg space-y-lg">
 <!-- Applicant Info Section 1 -->
 <section class="space-y-sm">
 <h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">신청자 정보</h3>
@@ -152,7 +156,7 @@
 </div>
 </div>
 </section>
-<hr class="border-surface-variant">
+<hr class="border-surface-variant my-lg">
 <!-- Service Type Selection -->
 <section>
 <label class="block font-label-md text-label-md text-on-surface mb-sm">지원 유형</label>
@@ -183,7 +187,7 @@
 </label>
 </div>
 </section>
-<hr class="border-surface-variant">
+<hr class="border-surface-variant my-lg">
 <!-- Facility Information -->
 <section class="space-y-sm">
 <h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">시설 정보</h3>
@@ -224,7 +228,7 @@
 </label>
 <textarea class="w-full px-md py-sm bg-surface-container-lowest border border-outline-variant rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface placeholder:text-outline transition-colors resize-y" id="problem_description" name="problem_description" placeholder="발생한 문제의 상세 내용, 오류 코드 또는 특이 사항을 입력해 주세요..." rows="4"></textarea>
 </section>
-<hr class="border-surface-variant">
+<hr class="border-surface-variant my-lg">
 <!-- Notification Info Box -->
 <div class="bg-surface-container-low rounded-lg flex gap-md items-start border border-surface-variant">
 <span class="material-symbols-outlined text-primary mt-0.5" data-icon="notifications_active">notifications_active</span>
@@ -235,17 +239,16 @@
 </div>
 </div>
 <!-- Form Actions -->
-<div class="bg-surface-container border-t border-surface-variant flex justify-end gap-md items-center">
-<button class="px-lg py-sm border border-outline text-on-surface font-label-md text-label-md rounded-md hover:bg-surface-variant transition-colors" type="button">취소</button>
-<button class="px-xl py-sm bg-primary-container text-on-primary font-label-md text-label-md rounded-md hover:bg-surface-tint shadow-sm hover:shadow-md transition-all flex items-center gap-xs" type="submit">
+<div class="bg-surface-container border-t border-surface-variant flex justify-end gap-md items-center p-6">
+<button class="px-lg py-3 border border-outline text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-variant transition-colors" type="button">취소</button>
+<button class="px-xl py-3 bg-primary-container text-on-primary font-label-md text-label-md rounded-lg hover:bg-surface-tint shadow-sm hover:shadow-md transition-all flex items-center gap-xs" type="submit">
 <span class="material-symbols-outlined text-[20px]" data-icon="send">send</span>
-<span class="">접수 신청하기</span>
+<span class="text-headline-md font-headline-md">접수 신청하기</span>
 </button>
 </div>
 </div>
 </div>
 </main>
-</div>
 <!-- Footer -->
 <footer class="bg-tertiary text-tertiary-fixed w-full border-t border-outline-variant mt-auto">
 <div class="max-w-container-max mx-auto px-lg py-md">
@@ -266,7 +269,7 @@
 </div>
 </div>
 <div class="border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-md">
-<div class="font-label-sm text-label-sm text-tertiary-fixed-dim italic">© 2024 (주)엠비에스엔지니어링. All Rights Reserved.</div>
+<div class="font-label-sm text-label-sm text-tertiary-fixed-dim italic">© 2026 (주)엠비에스엔지니어링. All Rights Reserved.</div>
 <nav>
 <ul class="flex gap-md">
 <li class=""><a class="font-label-sm text-label-sm text-tertiary-fixed-dim hover:text-surface-bright" href="#">개인정보처리방침</a></li>
@@ -278,70 +281,32 @@
 </footer>
 
 
-<!-- STITCH_ROUTING_START -->
-
+\n
 <script>
 (function() {
-    const goTo = (url) => { if(url) location.href = url; };
-    const normalize = (t) => t.normalize('NFC').replace(/[^a-zA-Z0-9가-힣]/g, '');
-    
+    const goTo = (u) => { if(u) location.href = u; };
     document.addEventListener('click', (e) => {
-        const el = e.target.closest('a, button, div, span');
-        if (!el || el.textContent.length > 100) return; // Optimization: Ignore huge containers
-
-        const t = el.textContent.trim();
-        const h = el.innerHTML;
-        const cleanT = normalize(t);
-        const isSubmit = el.tagName === 'BUTTON' && el.type === 'submit';
-
-        // Log for debugging
-        if (t.length > 0 && t.length < 50) console.log('Clicked:', { tag: el.tagName, text: t, clean: cleanT });
-
-        // Home (Text or Icon)
-        if (t.includes('홈') || t.includes('HOME') || t.includes('메인으로') || h.includes('>home</span>')) {
-            e.preventDefault(); e.stopPropagation(); goTo('index.html'); return;
+        const el = e.target.closest('a, button');
+        if (!el) return;
+        const t = el.innerText.trim();
+        if (t.includes('홈') || t.includes('HOME')) { 
+            if (window.location.pathname.includes('admin')) { } else { e.preventDefault(); goTo('index.html'); }
         }
-        // Admin Login (Landing -> Login)
-        else if (cleanT === '관리자로그인' || (cleanT === '로그인' && !isSubmit && !cleanT.includes('설정'))) {
-            e.preventDefault(); e.stopPropagation(); goTo('login.html'); return;
-        }
-        // AS Request
-        else if (cleanT.includes('AS접수') || cleanT.includes('접수하기')) {
-            e.preventDefault(); e.stopPropagation(); goTo('request.html'); return;
-        }
-        // Quote
-        else if (cleanT.includes('견적문의')) {
-            e.preventDefault(); e.stopPropagation(); goTo('quote.html'); return;
-        }
-        // Admin Video Management
-        else if (cleanT.includes('영상관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_videos.html'); return;
-        }
-        // Admin Site Management
-        else if (cleanT.includes('현장관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_sites.html'); return;
-        }
-        // Video Library
-        else if (cleanT.includes('영상') || cleanT.includes('교육')) {
-            e.preventDefault(); e.stopPropagation(); goTo('videos.html'); return;
-        }
-        // Logout
-        else if (cleanT.includes('LogOut') || cleanT.includes('로그아웃')) {
-            e.preventDefault(); e.stopPropagation(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); return;
-        }
-        // Admin Pages
-        else if (cleanT.includes('페이지설정') || cleanT.includes('settings')) { e.preventDefault(); e.stopPropagation(); goTo('admin_settings.html'); return; }
-        else if (cleanT.includes('담당자배정') || cleanT.includes('담당자관리') || cleanT.includes('접속관리')) { e.preventDefault(); e.stopPropagation(); goTo('admin_access.html'); return; }
-        else if (cleanT.includes('대시보드') || cleanT.includes('민원관리') || cleanT.includes('접수현황')) { e.preventDefault(); e.stopPropagation(); goTo('admin.html'); return; }
-    }, true);
+        else if (t.includes('관리자 로그인')) { e.preventDefault(); goTo('login.html'); }
+        else if (t.includes('민원 관리') || t.includes('관리자 페이지') || t.includes('대시보드')) { e.preventDefault(); goTo('admin.html'); }
+        else if (t.includes('기술 교육 영상') || t.includes('영상 보기')) { e.preventDefault(); goTo('videos.html'); }
+        else if (t.includes('A/S 접수') || t.includes('접수하기')) { e.preventDefault(); goTo('request.html'); }
+        else if (t.includes('현장 관리')) { e.preventDefault(); goTo('admin_sites.html'); }
+        else if (t.includes('영상 관리')) { e.preventDefault(); goTo('admin_videos.html'); }
+        else if (t.includes('페이지 설정') || t.includes('설정')) { e.preventDefault(); goTo('admin_settings.html'); }
+        else if (t.includes('견적') || t.includes('견적 문의') || t.includes('견적문의')) { e.preventDefault(); goTo('quote.html'); }
+        else if (t.includes('담당자 관리') || t.includes('담당자 배정')) { e.preventDefault(); goTo('admin_access.html'); }
+        else if (t.includes('로그아웃')) { e.preventDefault(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); }
+    });
 })();
 </script>
-
-<!-- STITCH_ROUTING_END -->
-<!-- STITCH_LOGIC_START -->
-<script>
+\n<script>
 document.addEventListener('DOMContentLoaded', async () => {
-    // Fetch and populate sites
     const siteSelect = document.getElementById('site_name');
     if (siteSelect) {
         try {
@@ -351,56 +316,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 siteSelect.innerHTML = '<option disabled selected value="">등록된 현장 선택</option>' + 
                     sites.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
             }
-        } catch (e) { console.error('Sites fetch failed'); }
-    }
-
-    const submitBtn = document.querySelector('button[type="submit"]') || document.querySelector('button.bg-primary');
-    if (submitBtn) {
-        submitBtn.addEventListener('click', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('requester_name')?.value?.trim() || document.querySelector('input[placeholder*="성함"]')?.value?.trim();
-            const phone = document.getElementById('requester_phone')?.value?.trim() || document.querySelector('input[placeholder*="연락처"]')?.value?.trim();
-            const building = document.getElementById('site_name')?.value?.trim() || document.querySelector('input[placeholder*="현장명"]')?.value?.trim();
-            const systemType = document.getElementById('system_type')?.value || 'BECON';
-            const desc = document.getElementById('problem_description')?.value?.trim() || document.querySelector('textarea')?.value?.trim();
-            const serviceType = document.querySelector('input[name="service_type"]:checked')?.value || '방문';
-
-            if (!name) return alert('성함을 입력해주세요.');
-            if (!phone) return alert('연락처를 입력해주세요.');
-            if (!building) return alert('현장명을 선택해주세요.');
-            if (!desc) return alert('문제 내용을 입력해주세요.');
-
-            const btnText = submitBtn.querySelector('span:last-child') || submitBtn;
-            const origText = btnText.textContent;
-            submitBtn.disabled = true;
-            btnText.textContent = '접수 중...';
-
-            try {
-                const resp = await fetch('/api/requests', {
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        customer_name: name, customer_phone: phone, building_name: building || 'MBS 테스트건물',
-                        as_type: `${systemType} (${serviceType})`, priority: '일반', description: desc,
-                    })
-                });
-                const data = await resp.json();
-                if (data.success) {
-                    sessionStorage.setItem('ticket_no', data.ticket_no);
-                    sessionStorage.setItem('customer_name', name);
-                    location.href = 'complete.html';
-                } else {
-                    alert('접수 오류: ' + (data.error || '알 수 없는 오류'));
-                    submitBtn.disabled = false;
-                    btnText.textContent = origText;
-                }
-            } catch (err) {
-                alert('서버 연결 오류.');
-                submitBtn.disabled = false;
-                btnText.textContent = origText;
-            }
-        });
+        } catch (e) {}
     }
 });
-</script>
-<!-- STITCH_LOGIC_END -->
-</body></html>
+</script>\n</body></html>

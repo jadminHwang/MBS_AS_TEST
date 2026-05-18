@@ -110,22 +110,41 @@
 <style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
 <body class="bg-background text-on-surface">
 <!-- TopNavBar -->
-<header style="background:#f0eded;border-bottom:1px solid #e2bec0;position:fixed;top:0;left:0;right:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,.08);height:68px;">
-<div style="display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:100%;max-width:100%;box-sizing:border-box;">
-  <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;">
-    <img alt="MBS 로고" style="height:52px;width:auto;display:block;object-fit:contain;" src="/assets/logo.png"/>
-    <span style="font-size:20px;font-weight:700;color:#1B365D;font-family:Hanken Grotesk,sans-serif;white-space:nowrap;">(주)엠비에스엔지니어링</span>
-  </a>
-  <div style="display:flex;align-items:center;gap:16px;">
-    <span style="font-size:13px;color:#5b5f62;font-family:Hanken Grotesk,sans-serif;">관리자 포털</span>
-    <button onclick="sessionStorage.removeItem('mbs_token');location.href='index.html';" style="font-size:14px;font-weight:600;background:#7a0024;color:#fff;padding:7px 16px;border-radius:8px;border:none;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.15);white-space:nowrap;">로그아웃</button>
-  </div>
+<header class="flex justify-between items-center w-full px-gutter h-16 fixed top-0 z-50 bg-surface-container-highest dark:bg-surface-container-lowest border-b border-outline-variant dark:border-outline shadow-sm">
+<div class="flex items-center gap-md">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface">Industrial Precision</h1>
+<div class="hidden md:flex ml-xl gap-lg">
+<span class="font-body-md text-body-md text-primary dark:text-inverse-primary font-bold border-b-2 border-primary cursor-pointer transition-opacity active:opacity-80">Dashboard</span>
+<span class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors cursor-pointer px-sm rounded">Reports</span>
+<span class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors cursor-pointer px-sm rounded">Analytics</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border border-outline-variant rounded-full text-body-md focus:ring-2 focus:ring-primary outline-none transition-all w-64" placeholder="Search facilities..." type="text">
+</div>
+<div class="flex items-center gap-sm"><button class="flex items-center gap-xs p-2 hover:bg-surface-container-high rounded-full transition-colors group">
+    <span class="material-symbols-outlined text-on-surface-variant">home</span>
+    <span class="hidden lg:block text-label-md font-label-md text-on-surface-variant">홈으로</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">help</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors ml-2">
+<img alt="Admin profile avatar" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAUJWMQtt_qw_e3a5o8YNMhsw4bwWZvoO4msHDkoNYn0sy0v3s7Ag7VxZ2ZDfWi2IeXJJVXj4aEnhHXLJFG11SKxM_VN67VEqnhOyGUqwCQhLtrlJxOaHrK_H2Qt32xnvmngy83L7Kt89kTz4ACSZ9c9zxkv8x6CK5YgB5snK0EWemTuRFrR-Srso1js4Uot0JxlERuaibeYtAeWlZSuNngSMQJcQYIW9JTe7Y_OB8fDmKY6hFl61OdyL1gOFDYJw-W1LJ85nVxUc">
+</button>
+</div>
 </div>
 </header>
 <!-- SideNavBar -->
-<aside class="fixed left-0 top-[68px] h-[calc(100vh-68px)] w-64 flex flex-col p-md border-r border-outline-variant bg-surface dark:bg-surface-dim shadow-md z-40">
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col p-md border-r border-outline-variant bg-surface dark:bg-surface-dim shadow-md z-40">
 <div class="flex flex-col gap-xs mb-lg px-sm">
-<span class="font-headline-md text-headline-md text-primary">Admin 페이지설정</span>
+<span class="font-headline-md text-headline-md text-primary">Admin Dashboard</span>
 <span class="text-label-sm font-label-sm text-secondary">Facility Controller</span>
 </div>
 <nav class="flex-1 flex flex-col gap-2">
@@ -154,7 +173,7 @@
 </div>
 </aside>
 <!-- Main Content Canvas -->
-<main class="ml-64 mt-[68px] p-gutter min-h-[calc(100vh-64px)]">
+<main class="ml-64 mt-16 p-gutter min-h-[calc(100vh-64px)]">
 <div class="max-w-container-max mx-auto">
 <!-- Header Section -->
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-xl gap-md">
@@ -165,7 +184,7 @@
 <div class="flex gap-sm">
 <button class="flex items-center gap-xs px-md py-2 bg-surface-container-high rounded-lg text-label-md font-label-md hover:bg-surface-variant transition-colors">
 <span class="material-symbols-outlined text-[20px]">calendar_today</span>
-                        2026년 5월 24일
+                        2024년 5월 24일
                     </button>
 <button class="flex items-center gap-xs px-md py-2 bg-primary text-on-primary rounded-lg text-label-md font-label-md hover:brightness-110 shadow-sm transition-all">
 <span class="material-symbols-outlined text-[20px]">add</span>
@@ -315,7 +334,7 @@
 <td class="px-lg py-4 text-label-md font-label-md text-secondary">#20491</td>
 <td class="px-lg py-4 font-body-md text-body-md">시설 보수</td>
 <td class="px-lg py-4 font-body-md text-body-md font-semibold">3층 북측 로비 조명 깜빡임 현상</td>
-<td class="px-lg py-4 text-body-md font-body-md text-on-surface-variant">2026-05-24 10:15</td>
+<td class="px-lg py-4 text-body-md font-body-md text-on-surface-variant">2024-05-24 10:15</td>
 <td class="px-lg py-4 text-body-md font-body-md">김철수 매니저</td>
 <td class="px-lg py-4 text-center">
 <span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant rounded-full text-label-sm font-label-sm">신규 접수</span>
@@ -330,7 +349,7 @@
 <td class="px-lg py-4 text-label-md font-label-md text-secondary">#20488</td>
 <td class="px-lg py-4 font-body-md text-body-md">공조 시스템</td>
 <td class="px-lg py-4 font-body-md text-body-md font-semibold">지하 2층 주차장 환기 팬 이상 소음</td>
-<td class="px-lg py-4 text-body-md font-body-md text-on-surface-variant">2026-05-24 09:30</td>
+<td class="px-lg py-4 text-body-md font-body-md text-on-surface-variant">2024-05-24 09:30</td>
 <td class="px-lg py-4 text-body-md font-body-md">이영희 엔지니어</td>
 <td class="px-lg py-4 text-center">
 <span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm font-label-sm">처리 중</span>
@@ -345,7 +364,7 @@
 <td class="px-lg py-4 text-label-md font-label-md text-secondary">#20485</td>
 <td class="px-lg py-4 font-body-md text-body-md">보안/출입</td>
 <td class="px-lg py-4 font-body-md text-body-md font-semibold">B구역 4번 출입문 카드 리더기 오류</td>
-<td class="px-lg py-4 text-body-md font-body-md text-on-surface-variant">2026-05-23 17:45</td>
+<td class="px-lg py-4 text-body-md font-body-md text-on-surface-variant">2024-05-23 17:45</td>
 <td class="px-lg py-4 text-body-md font-body-md">박지성 보안팀</td>
 <td class="px-lg py-4 text-center">
 <span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-label-sm font-label-sm">처리 완료</span>
@@ -360,7 +379,7 @@
 <td class="px-lg py-4 text-label-md font-label-md text-secondary">#20482</td>
 <td class="px-lg py-4 font-body-md text-body-md">기타</td>
 <td class="px-lg py-4 font-body-md text-body-md font-semibold">옥상 정원 조경 관리 요청</td>
-<td class="px-lg py-4 text-body-md font-body-md text-on-surface-variant">2026-05-23 14:20</td>
+<td class="px-lg py-4 text-body-md font-body-md text-on-surface-variant">2024-05-23 14:20</td>
 <td class="px-lg py-4 text-body-md font-body-md">최두리 관리원</td>
 <td class="px-lg py-4 text-center">
 <span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-label-sm font-label-sm">처리 완료</span>
@@ -410,7 +429,7 @@
 </div>
 <div class="col-span-12 md:col-span-6 lg:col-span-8 relative rounded-xl overflow-hidden shadow-sm h-64 border border-outline-variant/30">
 <div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover grayscale brightness-50" data-alt="A sophisticated birds-eye view architectural rendering of a high-tech industrial complex at sunset. The scene is illuminated with professional warm lighting that emphasizes structural silhouettes. The color palette is composed of metallic silvers, slate greys, and dramatic deep red accents from building light fixtures. The style is clean, corporate modernism with a premium, engineered feel." src="/assets/logo.png">
+<img class="w-full h-full object-cover grayscale brightness-50" data-alt="A sophisticated birds-eye view architectural rendering of a high-tech industrial complex at sunset. The scene is illuminated with professional warm lighting that emphasizes structural silhouettes. The color palette is composed of metallic silvers, slate greys, and dramatic deep red accents from building light fixtures. The style is clean, corporate modernism with a premium, engineered feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCevXHkMSJm-cioTdtlBQqsTpfjo1aaO-0tnYOvtAs78YnfWcM4IJ2pRBrUEpnGvYKMpempOKgVhdeoH8y1Cb85YUvAGl_rUc-AIZ85uWflcLTuzMWTs66S7yckGMTYxr3w_nF3o3wChCs5RDYlWj7KjbqdcyzVWsuw-aQrkvvIiz6UFDfqh69rWZPyKc3rbFSUU-p5qnLqnt6DKX0TzaxDzm5TqkjYWCVdZNFKRJFs5W1Mrlqjp-tttBT0riiRAQOi_LSvMkSZVuE">
 </div>
 <div class="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent z-10"></div>
 <div class="relative z-20 h-full p-lg flex flex-col justify-center max-w-lg">
@@ -431,28 +450,4 @@
 </button>
 
 
-\n
-<script>
-(function() {
-    const goTo = (u) => { if(u) location.href = u; };
-    document.addEventListener('click', (e) => {
-        const el = e.target.closest('a, button');
-        if (!el) return;
-        const t = el.innerText.trim();
-        if (t.includes('홈') || t.includes('HOME')) { 
-            if (window.location.pathname.includes('admin')) { } else { e.preventDefault(); goTo('index.html'); }
-        }
-        else if (t.includes('관리자 로그인')) { e.preventDefault(); goTo('login.html'); }
-        else if (t.includes('민원 관리') || t.includes('관리자 페이지') || t.includes('대시보드')) { e.preventDefault(); goTo('admin.html'); }
-        else if (t.includes('기술 교육 영상') || t.includes('영상 보기')) { e.preventDefault(); goTo('videos.html'); }
-        else if (t.includes('A/S 접수') || t.includes('접수하기')) { e.preventDefault(); goTo('request.html'); }
-        else if (t.includes('현장 관리')) { e.preventDefault(); goTo('admin_sites.html'); }
-        else if (t.includes('영상 관리')) { e.preventDefault(); goTo('admin_videos.html'); }
-        else if (t.includes('페이지 설정') || t.includes('설정')) { e.preventDefault(); goTo('admin_settings.html'); }
-        else if (t.includes('견적') || t.includes('견적 문의') || t.includes('견적문의')) { e.preventDefault(); goTo('quote.html'); }
-        else if (t.includes('담당자 관리') || t.includes('담당자 배정')) { e.preventDefault(); goTo('admin_access.html'); }
-        else if (t.includes('로그아웃')) { e.preventDefault(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); }
-    });
-})();
-</script>
-\n\n</body></html>
+</body></html>

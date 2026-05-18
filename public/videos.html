@@ -111,27 +111,26 @@
 <style data-stitch-cursor="">*{cursor:crosshair!important}[contenteditable="true"]:focus,.cursor-text:focus{cursor:text!important}</style><style data-stitch-scroll-lock="">html,body{overflow:hidden!important}</style></head>
 <body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
 <!-- Top Navigation Bar -->
-<header class="bg-surface-container-highest dark:bg-surface-container-lowest border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center w-full px-gutter h-16 fixed top-0 z-50">
-<div class="flex items-center gap-lg">
-<span class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface cursor-pointer">(주)엠비에스엔지니어링</span>
-<nav class="hidden md:flex gap-md ml-lg">
-<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors px-sm py-xs rounded cursor-pointer active:opacity-80 transition-opacity" href="#">Home</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors px-sm py-xs rounded cursor-pointer active:opacity-80 transition-opacity" href="#">AS 접수</a>
-<a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary font-label-md text-label-md px-sm py-xs cursor-pointer active:opacity-80 transition-opacity" href="#">기술 교육 영상</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors px-sm py-xs rounded cursor-pointer active:opacity-80 transition-opacity" href="#">견적문의</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors px-sm py-xs rounded cursor-pointer active:opacity-80 transition-opacity" href="#">연락처</a>
-</nav>
-</div>
-<div class="flex items-center gap-sm">
-<div class="relative hidden lg:block">
-<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-<input class="bg-surface-container-low border border-outline-variant rounded-full py-xs pl-[36px] pr-sm text-body-md font-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64" placeholder="Search..." type="text">
-</div>
-<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high p-xs rounded-full cursor-pointer transition-colors" data-icon="notifications">notifications</button>
-<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high p-xs rounded-full cursor-pointer transition-colors" data-icon="help">help</button>
-<button class="bg-primary text-on-primary px-md py-xs rounded font-label-md text-label-md ml-sm hover:bg-on-primary-fixed-variant transition-colors shadow-sm">Admin Login</button>
+
+<header style="background:#f0eded;border-bottom:1px solid #e2bec0;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,.08);">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 32px;max-width:1440px;margin:0 auto;height:68px;box-sizing:border-box;">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;">
+    <img alt="MBS 로고" style="height:52px;width:auto;display:block;object-fit:contain;" src="/assets/logo.png"/>
+    <span style="font-size:20px;font-weight:700;color:#1B365D;font-family:Hanken Grotesk,sans-serif;white-space:nowrap;">(주)엠비에스엔지니어링</span>
+  </a>
+  <nav style="display:flex;align-items:center;gap:24px;">
+    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="index.html">HOME</a>
+    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="request.html">A/S 접수</a>
+    <a class="text-[#7a0024] font-bold border-b-2 border-[#7a0024] pb-1 px-1 transition-colors" href="videos.html">기술 교육 영상</a>
+    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="quote.html">견적문의</a>
+    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="#contact">연락처</a>
+  </nav>
+  <div>
+    <button onclick="location.href='login.html'" style="font-size:14px;font-weight:600;background:#a50034;color:#fff;padding:8px 18px;border-radius:8px;border:none;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.15);white-space:nowrap;">관리자 로그인</button>
+  </div>
 </div>
 </header>
+
 <!-- Main Content -->
 <main class="flex-grow pt-16 mt-lg max-w-[1440px] mx-auto w-full px-gutter pb-xl flex gap-lg">
 <!-- Side Navigation (Suppressed based on logic, but requested overall layout implies focus on content canvas) -->
@@ -162,7 +161,7 @@
 <!-- Video Card 1 -->
 <article class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm border border-surface-container-highest hover:shadow-md transition-shadow group cursor-pointer flex flex-col">
 <div class="relative aspect-video bg-surface-container-high w-full overflow-hidden">
-<img alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A close-up shot of complex electrical wiring and circuit breakers in an industrial facility. The scene is brightly lit with cool, white industrial lighting, emphasizing precision and technical complexity. The color palette is composed of stark whites, metallic grays, and bold red accents on the wiring and switches. The overall aesthetic is highly technical, reliable, and clean, fitting a premium corporate modernism style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu8pXFzQksAIK6T_r0aBgJJxjGHRYvoQLH-HYL-NkDQx4J9Co2LruNw-_pW7au1e7dESKskYyGwyj00D1FV6Fpp4iECu1ejCk0DKIt0caSgUkVg6a_5Zs7Jiqf-CxPw5mDmrpg4ZJZQX-e32D36Ed_htz5C8oJMtP_dC8cUL-1RgtK_nFXxiqSYo3Ws_d9wyPtm4xK3tV_wYqZvJU25mcOwXrxkYJANwBCL81lVPLJy6Xw6jHRDMF_Odudsw_NoKVoged_Snzv-zM">
+<img alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A close-up shot of complex electrical wiring and circuit breakers in an industrial facility. The scene is brightly lit with cool, white industrial lighting, emphasizing precision and technical complexity. The color palette is composed of stark whites, metallic grays, and bold red accents on the wiring and switches. The overall aesthetic is highly technical, reliable, and clean, fitting a premium corporate modernism style." src="/assets/logo.png">
 <div class="absolute inset-0 bg-on-surface opacity-0 group-hover:opacity-20 transition-opacity flex items-center justify-center"></div>
 <span class="material-symbols-outlined absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-on-primary bg-primary bg-opacity-80 rounded-full p-sm opacity-80 group-hover:opacity-100 transition-opacity" data-icon="play_arrow" style="font-size: 48px;">play_arrow</span>
 <span class="absolute bottom-sm right-sm bg-on-surface text-on-primary font-label-sm text-label-sm px-xs py-[2px] rounded bg-opacity-80">03:45</span>
@@ -179,7 +178,7 @@
 <!-- Video Card 2 -->
 <article class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm border border-surface-container-highest hover:shadow-md transition-shadow group cursor-pointer flex flex-col">
 <div class="relative aspect-video bg-surface-container-high w-full overflow-hidden">
-<img alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A technician's hand adjusting a high-tech environmental sensor on a pristine white wall. The lighting is soft but highly focused on the device, highlighting its sleek, modern design. The environment feels sterile and highly controlled, utilizing a palette of silver, white, and subtle slate grey. The visual mood is calm, professional, and indicative of advanced facility management technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC0qiLAD3rQtFsHidOZpal0c4XW77-53oOpvkdycpisgWbKFIPt1kmCjzpuzzE0POV75wbZLzMI6q4hcVfh8s-eoQw8zOtNYgSPagHnx80p4G51ZspWhkcGUvzCZOgidUQ2gr3WxFwSdmUzKkbluqGE0Urg67XD-IVuJuEJD3ryttjDqgTcRXNzUQi5QUdTgx5zW-_yK-bnxjYQfNdkdT0N9KIi9Z9Zv1-ruw6FbHUKc6JeTQlXZYcjWElcNgZLweY57bmAPLFF68">
+<img alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A technician's hand adjusting a high-tech environmental sensor on a pristine white wall. The lighting is soft but highly focused on the device, highlighting its sleek, modern design. The environment feels sterile and highly controlled, utilizing a palette of silver, white, and subtle slate grey. The visual mood is calm, professional, and indicative of advanced facility management technology." src="/assets/logo.png">
 <div class="absolute inset-0 bg-on-surface opacity-0 group-hover:opacity-20 transition-opacity flex items-center justify-center"></div>
 <span class="material-symbols-outlined absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-on-primary bg-primary bg-opacity-80 rounded-full p-sm opacity-80 group-hover:opacity-100 transition-opacity" data-icon="play_arrow" style="font-size: 48px;">play_arrow</span>
 <span class="absolute bottom-sm right-sm bg-on-surface text-on-primary font-label-sm text-label-sm px-xs py-[2px] rounded bg-opacity-80">05:12</span>
@@ -196,7 +195,7 @@
 <!-- Video Card 3 -->
 <article class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm border border-surface-container-highest hover:shadow-md transition-shadow group cursor-pointer flex flex-col">
 <div class="relative aspect-video bg-surface-container-high w-full overflow-hidden">
-<img alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A digital dashboard displaying complex building energy management systems (BEMS) data. The screen shows various graphs and meters with sharp, distinct lines in dark navy and stark white, accented by deep heritage red for critical metrics. The setting is a darkened control room, creating a high-contrast, premium, and authoritative technological atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb43HY48COC6ZRjWsiYzQ1tah6_bVGn0yzu7WarNCDZcBWeNhVVakasG8dLDEIPr4Npy8-KN69cWGvGUnLMcFfEXJPGU2sFp2Ef9xDuw5bI7SuZt3mrCrK5uM_d-nx-W3_ZrlPCDgyPrbqLjoIIwPxW1Hl9GtFqGtro_ZlMrZzRNSl_2YZq-e1KwajMjovx-u89koPsw_PROMY0IlDWy4bI3NtQP95tDCQWPzThZV7Vs_6tQAiMtKWxvwETVMzho6waGjnCxzFcWY">
+<img alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A digital dashboard displaying complex building energy management systems (BEMS) data. The screen shows various graphs and meters with sharp, distinct lines in dark navy and stark white, accented by deep heritage red for critical metrics. The setting is a darkened control room, creating a high-contrast, premium, and authoritative technological atmosphere." src="/assets/logo.png">
 <div class="absolute inset-0 bg-on-surface opacity-0 group-hover:opacity-20 transition-opacity flex items-center justify-center"></div>
 <span class="material-symbols-outlined absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-on-primary bg-primary bg-opacity-80 rounded-full p-sm opacity-80 group-hover:opacity-100 transition-opacity" data-icon="play_arrow" style="font-size: 48px;">play_arrow</span>
 <span class="absolute bottom-sm right-sm bg-on-surface text-on-primary font-label-sm text-label-sm px-xs py-[2px] rounded bg-opacity-80">08:30</span>
@@ -213,7 +212,7 @@
 <!-- Video Card 4 -->
 <article class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm border border-surface-container-highest hover:shadow-md transition-shadow group cursor-pointer flex flex-col">
 <div class="relative aspect-video bg-surface-container-high w-full overflow-hidden">
-<img alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A wide angle shot of a modern, expansive server room with rows of well-organized racks. The space is illuminated by overhead industrial lights casting a clean, slightly cool tone over the silver and slate grey cabinets. Red LED indicator lights add a sense of active data processing. The visual narrative emphasizes order, reliability, and high-tech infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY4urxYe-7NKFODZGGfPQD9vX_BZyicNX-NExz0BuNTUkbfTHJsOjgrkO9-Ph7prZ51XgSC7-f-4sWSd7nSor0oXF-DapPzOd7KEo4TDpFvBcp0dN5dvYc_G6nV0fyPe-x1PAClSnSi_tRbDT-YgD_ZNt9QgJJ2jLBu2u3NgRMFiOVAyo1I-t6NgLf65LReP_1S5tERa7da4Btyilzb8ryq8TYwzZeSntYuKWRAq6V5QETZlhIpOKF45NU5xsrbtX6HW0ScRALyXc">
+<img alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A wide angle shot of a modern, expansive server room with rows of well-organized racks. The space is illuminated by overhead industrial lights casting a clean, slightly cool tone over the silver and slate grey cabinets. Red LED indicator lights add a sense of active data processing. The visual narrative emphasizes order, reliability, and high-tech infrastructure." src="/assets/logo.png">
 <div class="absolute inset-0 bg-on-surface opacity-0 group-hover:opacity-20 transition-opacity flex items-center justify-center"></div>
 <span class="material-symbols-outlined absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-on-primary bg-primary bg-opacity-80 rounded-full p-sm opacity-80 group-hover:opacity-100 transition-opacity" data-icon="play_arrow" style="font-size: 48px;">play_arrow</span>
 <span class="absolute bottom-sm right-sm bg-on-surface text-on-primary font-label-sm text-label-sm px-xs py-[2px] rounded bg-opacity-80">02:15</span>
@@ -256,65 +255,28 @@
 </footer>
 
 
-<!-- STITCH_ROUTING_START -->
-
+\n
 <script>
 (function() {
-    const goTo = (url) => { if(url) location.href = url; };
-    const normalize = (t) => t.normalize('NFC').replace(/[^a-zA-Z0-9가-힣]/g, '');
-    
+    const goTo = (u) => { if(u) location.href = u; };
     document.addEventListener('click', (e) => {
-        const el = e.target.closest('a, button, div, span');
-        if (!el || el.textContent.length > 100) return; // Optimization: Ignore huge containers
-
-        const t = el.textContent.trim();
-        const h = el.innerHTML;
-        const cleanT = normalize(t);
-        const isSubmit = el.tagName === 'BUTTON' && el.type === 'submit';
-
-        // Log for debugging
-        if (t.length > 0 && t.length < 50) console.log('Clicked:', { tag: el.tagName, text: t, clean: cleanT });
-
-        // Home (Text or Icon)
-        if (t.includes('홈') || t.includes('HOME') || t.includes('메인으로') || h.includes('>home</span>')) {
-            e.preventDefault(); e.stopPropagation(); goTo('index.html'); return;
+        const el = e.target.closest('a, button');
+        if (!el) return;
+        const t = el.innerText.trim();
+        if (t.includes('홈') || t.includes('HOME')) { 
+            if (window.location.pathname.includes('admin')) { } else { e.preventDefault(); goTo('index.html'); }
         }
-        // Admin Login (Landing -> Login)
-        else if (cleanT === '관리자로그인' || (cleanT === '로그인' && !isSubmit && !cleanT.includes('설정'))) {
-            e.preventDefault(); e.stopPropagation(); goTo('login.html'); return;
-        }
-        // AS Request
-        else if (cleanT.includes('AS접수') || cleanT.includes('접수하기')) {
-            e.preventDefault(); e.stopPropagation(); goTo('request.html'); return;
-        }
-        // Quote
-        else if (cleanT.includes('견적문의')) {
-            e.preventDefault(); e.stopPropagation(); goTo('quote.html'); return;
-        }
-        // Admin Video Management
-        else if (cleanT.includes('영상관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_videos.html'); return;
-        }
-        // Admin Site Management
-        else if (cleanT.includes('현장관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_sites.html'); return;
-        }
-        // Video Library
-        else if (cleanT.includes('영상') || cleanT.includes('교육')) {
-            e.preventDefault(); e.stopPropagation(); goTo('videos.html'); return;
-        }
-        // Logout
-        else if (cleanT.includes('LogOut') || cleanT.includes('로그아웃')) {
-            e.preventDefault(); e.stopPropagation(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); return;
-        }
-        // Admin Pages
-        else if (cleanT.includes('페이지설정') || cleanT.includes('settings')) { e.preventDefault(); e.stopPropagation(); goTo('admin_settings.html'); return; }
-        else if (cleanT.includes('담당자배정') || cleanT.includes('담당자관리') || cleanT.includes('접속관리')) { e.preventDefault(); e.stopPropagation(); goTo('admin_access.html'); return; }
-        else if (cleanT.includes('대시보드') || cleanT.includes('민원관리') || cleanT.includes('접수현황')) { e.preventDefault(); e.stopPropagation(); goTo('admin.html'); return; }
-    }, true);
+        else if (t.includes('관리자 로그인')) { e.preventDefault(); goTo('login.html'); }
+        else if (t.includes('민원 관리') || t.includes('관리자 페이지') || t.includes('대시보드')) { e.preventDefault(); goTo('admin.html'); }
+        else if (t.includes('기술 교육 영상') || t.includes('영상 보기')) { e.preventDefault(); goTo('videos.html'); }
+        else if (t.includes('A/S 접수') || t.includes('접수하기')) { e.preventDefault(); goTo('request.html'); }
+        else if (t.includes('현장 관리')) { e.preventDefault(); goTo('admin_sites.html'); }
+        else if (t.includes('영상 관리')) { e.preventDefault(); goTo('admin_videos.html'); }
+        else if (t.includes('페이지 설정') || t.includes('설정')) { e.preventDefault(); goTo('admin_settings.html'); }
+        else if (t.includes('견적') || t.includes('견적 문의') || t.includes('견적문의')) { e.preventDefault(); goTo('quote.html'); }
+        else if (t.includes('담당자 관리') || t.includes('담당자 배정')) { e.preventDefault(); goTo('admin_access.html'); }
+        else if (t.includes('로그아웃')) { e.preventDefault(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); }
+    });
 })();
 </script>
-
-<!-- STITCH_ROUTING_END -->
-
-</body></html>
+\n\n</body></html>

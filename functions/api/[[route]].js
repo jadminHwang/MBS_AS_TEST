@@ -571,6 +571,24 @@ async function router(request, env) {
     return res({ success: true }, 201);
   }
 
+  // ── PATCH /api/sites/:id ── 현장 수정
+  if (method === 'PATCH' && path.match(/^\/sites\/\d+$/)) {
+    if (!await checkAuth(request, env)) return err('인증이 필요합니다.', 401);
+    const id = path.split('/').pop();
+    let body;
+    try { body = await request.json(); } catch { return err('잘못된 요청 형식'); }
+    const { name, address, contact_person, contact_phone } = body;
+    await db.prepare(
+      `UPDATE sites SET
+        name=COALESCE(?, name),
+        address=COALESCE(?, address),
+        contact_person=COALESCE(?, contact_person),
+        contact_phone=COALESCE(?, contact_phone)
+       WHERE id=?`
+    ).bind(name || null, address || null, contact_person || null, contact_phone || null, id).run();
+    return res({ success: true });
+  }
+
   // ── DELETE /api/sites/:id ── 현장 삭제
   if (method === 'DELETE' && path.match(/^\/sites\/\d+$/)) {
     if (!await checkAuth(request, env)) return err('인증이 필요합니다.', 401);

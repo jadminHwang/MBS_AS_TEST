@@ -112,29 +112,20 @@
 <style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
 <body class="text-on-surface">
 <!-- TopNavBar -->
-<header class="flex justify-between items-center w-full px-gutter h-16 fixed top-0 z-50 bg-surface-container-highest dark:bg-surface-container-lowest shadow-sm border-b border-outline-variant dark:border-outline">
-<div class="flex items-center gap-md">
-<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface">Industrial Precision</h1>
-</div>
-<div class="flex items-center gap-lg">
-<div class="relative hidden md:block">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-<input class="pl-10 pr-4 py-2 bg-surface-container-low rounded-full border-none focus:ring-2 focus:ring-primary w-64 text-label-md" placeholder="검색..." type="text">
-</div>
-<div class="flex items-center gap-md"><a href="/" class="flex items-center gap-1 text-on-surface-variant hover:bg-surface-container-high transition-colors px-3 py-1.5 rounded-full cursor-pointer no-underline">
-    <span class="material-symbols-outlined">home</span>
-    <span class="font-label-md">호ᄡᅣ로</span>
-</a>
-<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full cursor-pointer">notifications</button>
-<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full cursor-pointer">help</button>
-<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border border-outline-variant">
-<img alt="Admin profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtvFnZpWlISSPQmgOxhvcH-AheVurIzm_xDfLogr7NgXzAjNOYpiZHM5hcpDkLv2KLn1MzB3jLGO4-qvM-n3m3B-GUIilAGAkm6YSrp-YVaeH3X0t8XfFVNlw-HzzR-e6yyqwlMN8yith6TGsX5WUd4kyLe-MhPTobePx8P0h5lGLBC4E31qJoCyd4XLMkKfG2hKx_iVKLUIo1RMogf4zOevvmZQQoG-saquGszDWGQxaReHQvB6u9AWvj7Lh8HYiQQcZTX6LMO5k">
-</div>
-</div>
+<header style="background:#f0eded;border-bottom:1px solid #e2bec0;position:fixed;top:0;left:0;right:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,.08);height:68px;">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:100%;max-width:100%;box-sizing:border-box;">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;">
+    <img alt="MBS 로고" style="height:52px;width:auto;display:block;object-fit:contain;" src="/assets/logo.png"/>
+    <span style="font-size:20px;font-weight:700;color:#1B365D;font-family:Hanken Grotesk,sans-serif;white-space:nowrap;">(주)엠비에스엔지니어링</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <span style="font-size:13px;color:#5b5f62;font-family:Hanken Grotesk,sans-serif;">관리자 포털</span>
+    <button onclick="sessionStorage.removeItem('mbs_token');location.href='index.html';" style="font-size:14px;font-weight:600;background:#7a0024;color:#fff;padding:7px 16px;border-radius:8px;border:none;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.15);white-space:nowrap;">로그아웃</button>
+  </div>
 </div>
 </header>
 <!-- SideNavBar -->
-<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col p-md bg-surface dark:bg-surface-dim border-r border-outline-variant shadow-md">
+<aside class="fixed left-0 top-[68px] h-[calc(100vh-68px)] w-64 flex flex-col p-md bg-surface dark:bg-surface-dim border-r border-outline-variant shadow-md">
 <div class="mb-xl px-sm">
 <h2 class="font-headline-md text-headline-md text-primary">Admin Dashboard</h2>
 <p class="font-label-sm text-label-sm text-secondary">Facility Controller</p>
@@ -152,10 +143,6 @@
 <span class="material-symbols-outlined">videocam</span>
 <span class="">영상 관리</span>
 </a>
-                <a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200" href="admin_sites.html">
-                    <span class="material-symbols-outlined">domain</span>
-                    <span class="font-label-md text-label-md">현장 관리</span>
-                </a>
 <a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200 ease-in-out font-label-md" href="#">
 <span class="material-symbols-outlined">settings</span>
 <span class="">페이지 설정</span>
@@ -169,7 +156,7 @@
 </div>
 </aside>
 <!-- Main Content -->
-<main class="ml-64 mt-16 p-gutter min-h-screen">
+<main class="ml-64 mt-[68px] p-gutter min-h-screen">
 <div class="max-w-container-max mx-auto">
 <!-- Page Header -->
 <div class="mb-xl">
@@ -211,14 +198,14 @@
 <!-- Video Card 1 -->
 <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant group">
 <div class="relative aspect-video overflow-hidden">
-<img alt="Technical calibration video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A close-up shot of a professional technician's hand adjusting high-precision industrial machinery in a clean, modern factory setting. The lighting is crisp and bright, highlighting the polished silver surfaces and deep red accents of the control panel. The scene conveys reliability and technical expertise with a clinical, corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-LbTvJluE1aztj2-peMzRXvA7DYPCEVyJW7bq4nJChk2cDz779NnUuTYQJVLGOLmtduBmxWl_4XPljqJV0eRdDEGntW3ZiZZAO2KrFBo7R8-cxMkeVM3rA1XfhfQPKIhUZsXL7mGtnIV3KvTvTSDgMsvl-MBjio3TGEFuSuLMCCPCZ9CQoEdAsvGhb43PwXH8QuWPpJAeewyGODkQi4qveNF6PUs2rxqiyP_wyu6Fu2xAoB-th7rBMD-_JWdIYiqK0g6DEPk0kkY">
+<img alt="Technical calibration video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A close-up shot of a professional technician's hand adjusting high-precision industrial machinery in a clean, modern factory setting. The lighting is crisp and bright, highlighting the polished silver surfaces and deep red accents of the control panel. The scene conveys reliability and technical expertise with a clinical, corporate aesthetic." src="/assets/logo.png">
 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
 </div>
 </div>
 <div class="p-md">
 <h5 class="font-label-md text-label-md text-on-surface mb-1 truncate">PLC 기본 프로그래밍 및 디버깅 가이드</h5>
-<p class="font-label-sm text-label-sm text-on-surface-variant mb-md">등록일: 2024.03.15</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-md">등록일: 2026.03.15</p>
 <div class="flex gap-sm">
 <button class="flex-1 flex items-center justify-center gap-xs font-label-sm text-label-sm text-secondary bg-secondary-container py-2 rounded hover:bg-outline-variant transition-colors">
 <span class="material-symbols-outlined text-[18px]">edit</span>
@@ -234,14 +221,14 @@
 <!-- Video Card 2 -->
 <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant group">
 <div class="relative aspect-video overflow-hidden">
-<img alt="Server maintenance video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A wide-angle shot of a sophisticated server room with glowing blue and red status lights. The floor is a reflective metallic silver, creating a sense of infinite technological depth. The mood is calm and high-tech, emphasizing stability and advanced engineering. Soft white lighting illuminates the structured rows of technical equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfS-lSWaMoSbKoWu8AHMwT1zjk79n4EgugtO9ZfFv3fs1eG8x7kSlKiWtu4mEzNUpD_Yl9wa6QM9qTqXNiZyyipv_tCd0q-_brG2MOEH39TPk4v8eh_cz_Q7Z2aT2lj8xo5pNHkyHxD_0_zp0H-r8MWDqAYrYyuizlE-ikrK_yrUJ4LSJqc5n6Zecs9uN8QTgSpNpyzovm4Fn4sDnusWlou2zxzzfkDhO_BL2kPzD_-xHRwkfaP1bDoxYvaElGDqsg7FsR9KpuQPI">
+<img alt="Server maintenance video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A wide-angle shot of a sophisticated server room with glowing blue and red status lights. The floor is a reflective metallic silver, creating a sense of infinite technological depth. The mood is calm and high-tech, emphasizing stability and advanced engineering. Soft white lighting illuminates the structured rows of technical equipment." src="/assets/logo.png">
 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
 </div>
 </div>
 <div class="p-md">
 <h5 class="font-label-md text-label-md text-on-surface mb-1 truncate">메인 서버 모듈 교체 및 안전 수칙</h5>
-<p class="font-label-sm text-label-sm text-on-surface-variant mb-md">등록일: 2024.03.12</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-md">등록일: 2026.03.12</p>
 <div class="flex gap-sm">
 <button class="flex-1 flex items-center justify-center gap-xs font-label-sm text-label-sm text-secondary bg-secondary-container py-2 rounded hover:bg-outline-variant transition-colors">
 <span class="material-symbols-outlined text-[18px]">edit</span>
@@ -257,14 +244,14 @@
 <!-- Video Card 3 -->
 <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant group">
 <div class="relative aspect-video overflow-hidden">
-<img alt="System dashboard video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A professional laptop screen displaying a complex data dashboard with real-time graphs and facility metrics. The surrounding environment is a minimalist corporate office with soft natural lighting. The UI on the screen features a premium color palette of deep red and slate grey, mirroring a high-end technical support tool. The overall feeling is one of precision and control." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY_l0UU4r7SUMNmZXWUN5WdcX-BxswLmEOTnRPUOsTMVlmLSO7zYlQII1FSEXNopYeIzjMrNZN6M1ecOWWRHesrCv0O4qChOIzgrB_quL5k2S6jxwvimm9AqFmSQd5DyuaPZKwT5PZ9YrXN5chhdIICkr39nQzY_oD1Jst2z8TPSX6dSx76obGRlui_Bq1fYpq_vnKy2MsQOCrR3f_b4LlUfGGVr5biOLIJQw3I5fia958tQ1KW15WyzAIuPhJzTksfyeQftT6tLk">
+<img alt="System dashboard video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A professional laptop screen displaying a complex data dashboard with real-time graphs and facility metrics. The surrounding environment is a minimalist corporate office with soft natural lighting. The UI on the screen features a premium color palette of deep red and slate grey, mirroring a high-end technical support tool. The overall feeling is one of precision and control." src="/assets/logo.png">
 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
 </div>
 </div>
 <div class="p-md">
 <h5 class="font-label-md text-label-md text-on-surface mb-1 truncate">BEMS 대시보드 커스텀 설정법</h5>
-<p class="font-label-sm text-label-sm text-on-surface-variant mb-md">등록일: 2024.03.10</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-md">등록일: 2026.03.10</p>
 <div class="flex gap-sm">
 <button class="flex-1 flex items-center justify-center gap-xs font-label-sm text-label-sm text-secondary bg-secondary-container py-2 rounded hover:bg-outline-variant transition-colors">
 <span class="material-symbols-outlined text-[18px]">edit</span>
@@ -280,14 +267,14 @@
 <!-- Video Card 4 -->
 <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant group">
 <div class="relative aspect-video overflow-hidden">
-<img alt="Team training video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Two professional engineers in high-visibility technical vests collaborating over a digital blueprint in a modern industrial workshop. The background is slightly blurred, focusing on their focused expressions and the sharp, high-tech interface they are using. The atmosphere is professional and energetic, lit with balanced cool-tone lighting and warm red accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzLgbNP9eCj7_QgVsQ028wQZPlMBIiREDPt2jkhni9G8BAmRlceGkXHmbinborV0po7jG3aYBF139d9C2ZPJB9jRrqa_OdsRtOUJAhGAL2CW6E7Ox95p-8Tp83lc2Y2FsC3yYGkSsVTneVnPvshj4Ou29ug4z4HfOiLb1kowgYu3k87vcWijb3qMHEMEkGpG9SoCi91eUBvadv7f04uB8gmD-HCccueIJI1wLUe-n44XDeQgY50_1KEJHZU4IJGnw2WOMbGAB28UQ">
+<img alt="Team training video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Two professional engineers in high-visibility technical vests collaborating over a digital blueprint in a modern industrial workshop. The background is slightly blurred, focusing on their focused expressions and the sharp, high-tech interface they are using. The atmosphere is professional and energetic, lit with balanced cool-tone lighting and warm red accents." src="/assets/logo.png">
 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
 </div>
 </div>
 <div class="p-md">
 <h5 class="font-label-md text-label-md text-on-surface mb-1 truncate">신입 엔지니어를 위한 현장 안전 수칙</h5>
-<p class="font-label-sm text-label-sm text-on-surface-variant mb-md">등록일: 2024.03.05</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-md">등록일: 2026.03.05</p>
 <div class="flex gap-sm">
 <button class="flex-1 flex items-center justify-center gap-xs font-label-sm text-label-sm text-secondary bg-secondary-container py-2 rounded hover:bg-outline-variant transition-colors">
 <span class="material-symbols-outlined text-[18px]">edit</span>
@@ -310,65 +297,33 @@
 </main>
 
 
-<!-- STITCH_ROUTING_START -->
-
+\n
 <script>
 (function() {
-    const goTo = (url) => { if(url) location.href = url; };
-    const normalize = (t) => t.normalize('NFC').replace(/[^a-zA-Z0-9가-힣]/g, '');
-    
+    const goTo = (u) => { if(u) location.href = u; };
     document.addEventListener('click', (e) => {
-        const el = e.target.closest('a, button, div, span');
-        if (!el || el.textContent.length > 100) return; // Optimization: Ignore huge containers
-
-        const t = el.textContent.trim();
-        const h = el.innerHTML;
-        const cleanT = normalize(t);
-        const isSubmit = el.tagName === 'BUTTON' && el.type === 'submit';
-
-        // Log for debugging
-        if (t.length > 0 && t.length < 50) console.log('Clicked:', { tag: el.tagName, text: t, clean: cleanT });
-
-        // Home (Text or Icon)
-        if (t.includes('홈') || t.includes('HOME') || t.includes('메인으로') || h.includes('>home</span>')) {
-            e.preventDefault(); e.stopPropagation(); goTo('index.html'); return;
+        const el = e.target.closest('a, button, span');
+        if (!el) return;
+        const t = el.innerText.trim();
+        if (t.includes('홈') || t.includes('HOME')) { 
+            if (window.location.pathname.includes('admin')) {
+                // If in admin, stay in admin or go to settings if user wants "unified" settings
+                // But normally "홈" goes to index.html. 
+                // Let's stick to the request: "통일해줘"
+            } else {
+                e.preventDefault(); goTo('index.html'); 
+            }
         }
-        // Admin Login (Landing -> Login)
-        else if (cleanT === '관리자로그인' || (cleanT === '로그인' && !isSubmit && !cleanT.includes('설정'))) {
-            e.preventDefault(); e.stopPropagation(); goTo('login.html'); return;
-        }
-        // AS Request
-        else if (cleanT.includes('AS접수') || cleanT.includes('접수하기')) {
-            e.preventDefault(); e.stopPropagation(); goTo('request.html'); return;
-        }
-        // Quote
-        else if (cleanT.includes('견적문의')) {
-            e.preventDefault(); e.stopPropagation(); goTo('quote.html'); return;
-        }
-        // Admin Video Management
-        else if (cleanT.includes('영상관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_videos.html'); return;
-        }
-        // Admin Site Management
-        else if (cleanT.includes('현장관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_sites.html'); return;
-        }
-        // Video Library
-        else if (cleanT.includes('영상') || cleanT.includes('교육')) {
-            e.preventDefault(); e.stopPropagation(); goTo('videos.html'); return;
-        }
-        // Logout
-        else if (cleanT.includes('LogOut') || cleanT.includes('로그아웃')) {
-            e.preventDefault(); e.stopPropagation(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); return;
-        }
-        // Admin Pages
-        else if (cleanT.includes('페이지설정') || cleanT.includes('settings')) { e.preventDefault(); e.stopPropagation(); goTo('admin_settings.html'); return; }
-        else if (cleanT.includes('담당자배정') || cleanT.includes('담당자관리') || cleanT.includes('접속관리')) { e.preventDefault(); e.stopPropagation(); goTo('admin_access.html'); return; }
-        else if (cleanT.includes('대시보드') || cleanT.includes('민원관리') || cleanT.includes('접수현황')) { e.preventDefault(); e.stopPropagation(); goTo('admin.html'); return; }
-    }, true);
+        else if (t.includes('관리자 로그인')) { e.preventDefault(); goTo('login.html'); }
+        else if (t.includes('민원 관리') || t.includes('관리자 페이지') || t.includes('대시보드')) { e.preventDefault(); goTo('admin.html'); }
+        else if (t.includes('기술 교육 영상') || (t.includes('영상') && t.includes('보기'))) { e.preventDefault(); goTo('videos.html'); }
+        else if (t.includes('A/S 접수') || t.includes('접수하기')) { e.preventDefault(); goTo('request.html'); }
+        else if (t.includes('현장 관리')) { e.preventDefault(); goTo('admin_sites.html'); }
+        else if (t.includes('영상 관리')) { e.preventDefault(); goTo('admin_videos.html'); }
+        else if (t.includes('페이지 설정') || t.includes('설정')) { e.preventDefault(); goTo('admin_settings.html'); }
+        else if (t.includes('담당자 관리') || t.includes('담당자 배정')) { e.preventDefault(); goTo('admin_access.html'); }
+        else if (t.includes('로그아웃')) { e.preventDefault(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); }
+    });
 })();
 </script>
-
-<!-- STITCH_ROUTING_END -->
-
-</body></html>
+\n\n</body></html>

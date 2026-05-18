@@ -102,31 +102,20 @@
 <style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
 <body class="bg-background text-on-surface">
 <!-- TopNavBar -->
-<header class="bg-surface-container-highest dark:bg-surface-container-lowest text-primary dark:text-inverse-primary font-body-md text-body-md docked full-width top-0 border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center w-full px-gutter h-16 fixed top-0 z-50">
-<div class="flex items-center gap-lg">
-<span class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface">Industrial Precision</span>
-<div class="hidden md:flex items-center gap-md">
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-<input class="pl-10 pr-4 py-2 bg-surface-container-low rounded-lg border-none focus:ring-2 focus:ring-primary w-64 text-label-md" placeholder="Search parameters..." type="text">
-</div>
-</div>
-</div>
-<div class="flex items-center gap-md"><a class="flex items-center gap-xs cursor-pointer hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors p-2 rounded-lg text-secondary dark:text-inverse-primary" href="#">
-  <span class="material-symbols-outlined">home</span>
-  <span class="font-label-md hidden lg:block">홈가기</span>
-</a>
-<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors p-2 rounded-full">notifications</span>
-<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-high dark:hover:bg-surface-dim transition-colors p-2 rounded-full">help</span>
-<div class="flex items-center gap-sm pl-md border-l border-outline-variant">
-<img alt="Admin profile avatar" class="w-8 h-8 rounded-full border border-outline" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjbdqba04IkrHbG-rf0SFURUnB4HOt-mOmesI55VzZSiwAfIrozYFCJ6NdE54SkzpyHvGpG5QIA8OTRPo3CYiikjviUzC-HL8Yyl_OsVyVEJdk6lwixD-3uPAiIZj4Y8IKIgqqeM8M249JBeDMakowOfSL496ovNVk4BYOt5fuU7O1fxApUU9vCemNVWkqLZpMQttCXNsS51yj_H8cBk7ZTQkbRxFBCrEIYzD_V8WrCtxuKG92X0sVAOWfvEMdKKjIqQ6h5hrGKh0">
-<span class="font-label-md hidden lg:block">System Admin</span>
-<span class="material-symbols-outlined text-on-surface-variant">settings</span>
-</div>
+<header style="background:#f0eded;border-bottom:1px solid #e2bec0;position:fixed;top:0;left:0;right:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,.08);height:68px;">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:100%;max-width:100%;box-sizing:border-box;">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;">
+    <img alt="MBS 로고" style="height:52px;width:auto;display:block;object-fit:contain;" src="/assets/logo.png"/>
+    <span style="font-size:20px;font-weight:700;color:#1B365D;font-family:Hanken Grotesk,sans-serif;white-space:nowrap;">(주)엠비에스엔지니어링</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <span style="font-size:13px;color:#5b5f62;font-family:Hanken Grotesk,sans-serif;">관리자 포털</span>
+    <button onclick="sessionStorage.removeItem('mbs_token');location.href='index.html';" style="font-size:14px;font-weight:600;background:#7a0024;color:#fff;padding:7px 16px;border-radius:8px;border:none;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.15);white-space:nowrap;">로그아웃</button>
+  </div>
 </div>
 </header>
 <!-- SideNavBar -->
-<aside class="bg-surface dark:bg-surface-dim fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col p-md border-r border-outline-variant shadow-md z-40 hidden md:flex">
+<aside class="bg-surface dark:bg-surface-dim fixed left-0 top-[68px] h-[calc(100vh-68px)] w-64 flex flex-col p-md border-r border-outline-variant shadow-md z-40 hidden md:flex">
 <div class="flex flex-col gap-xs flex-1">
 <div class="mb-lg px-md">
 <h2 class="font-headline-md text-headline-md text-primary">Admin Dashboard</h2>
@@ -145,10 +134,6 @@
 <span class="material-symbols-outlined">videocam</span>
 <span class="font-label-md">영상 관리</span>
 </a>
-                <a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200" href="admin_sites.html">
-                    <span class="material-symbols-outlined">domain</span>
-                    <span class="font-label-md text-label-md">현장 관리</span>
-                </a>
 <a class="flex items-center gap-md px-md py-sm bg-primary text-on-primary rounded-lg transition-all duration-200 ease-in-out" href="#">
 <span class="material-symbols-outlined">settings</span>
 <span class="font-label-md">페이지 설정</span>
@@ -280,7 +265,7 @@
 </div>
 <!-- Hero Preview -->
 <div class="relative h-64 rounded-xl overflow-hidden bg-primary-container group">
-<img class="w-full h-full object-cover mix-blend-overlay opacity-60" data-alt="A clean, wide-angle interior of a modern industrial facility with automated machinery and polished metallic surfaces. The atmosphere is professional and high-tech, with cool silver tones and warm red structural accents. Soft, natural daylight filters through large windows, creating a bright and airy light-mode aesthetic that emphasizes precision and technical authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0RgYbmrwhxECt_QM_7kqdF3WdTilMCRLlHFSzMo2laRrsV3sPLLAJ4eAkYj8fV0K5ybcWJB0ar04sscJuMs3s6lvxsByHWjRsnfcaS5bg4rw9RzPpQwUzNrbWkfaKec2ELrzdkRZKZqa88Nvg2n5g_hhpxHWwYcykg5_EYKE-vT7Woot38ZXo6gpb1a3UQg_zLc9GbApLzMrLgc_Xe9_vk9QiA3vArTlagZ8v1OlduR6eYSse6pnJW4oTsV-WKiCQxtfsNqnDNEY">
+<img class="w-full h-full object-cover mix-blend-overlay opacity-60" data-alt="A clean, wide-angle interior of a modern industrial facility with automated machinery and polished metallic surfaces. The atmosphere is professional and high-tech, with cool silver tones and warm red structural accents. Soft, natural daylight filters through large windows, creating a bright and airy light-mode aesthetic that emphasizes precision and technical authority." src="/assets/logo.png">
 <div class="absolute inset-0 p-lg flex flex-col justify-center text-white">
 <h2 class="font-headline-lg text-headline-lg mb-xs">Industrial Precision Dashboard</h2>
 <p class="font-body-md opacity-90 max-w-md">시설 관리 시스템의 데이터 흐름과 운영 상태를 한눈에 파악하세요.</p>
@@ -363,65 +348,28 @@
 </nav>
 
 
-<!-- STITCH_ROUTING_START -->
-
+\n
 <script>
 (function() {
-    const goTo = (url) => { if(url) location.href = url; };
-    const normalize = (t) => t.normalize('NFC').replace(/[^a-zA-Z0-9가-힣]/g, '');
-    
+    const goTo = (u) => { if(u) location.href = u; };
     document.addEventListener('click', (e) => {
-        const el = e.target.closest('a, button, div, span');
-        if (!el || el.textContent.length > 100) return; // Optimization: Ignore huge containers
-
-        const t = el.textContent.trim();
-        const h = el.innerHTML;
-        const cleanT = normalize(t);
-        const isSubmit = el.tagName === 'BUTTON' && el.type === 'submit';
-
-        // Log for debugging
-        if (t.length > 0 && t.length < 50) console.log('Clicked:', { tag: el.tagName, text: t, clean: cleanT });
-
-        // Home (Text or Icon)
-        if (t.includes('홈') || t.includes('HOME') || t.includes('메인으로') || h.includes('>home</span>')) {
-            e.preventDefault(); e.stopPropagation(); goTo('index.html'); return;
+        const el = e.target.closest('a, button');
+        if (!el) return;
+        const t = el.innerText.trim();
+        if (t.includes('홈') || t.includes('HOME')) { 
+            if (window.location.pathname.includes('admin')) { } else { e.preventDefault(); goTo('index.html'); }
         }
-        // Admin Login (Landing -> Login)
-        else if (cleanT === '관리자로그인' || (cleanT === '로그인' && !isSubmit && !cleanT.includes('설정'))) {
-            e.preventDefault(); e.stopPropagation(); goTo('login.html'); return;
-        }
-        // AS Request
-        else if (cleanT.includes('AS접수') || cleanT.includes('접수하기')) {
-            e.preventDefault(); e.stopPropagation(); goTo('request.html'); return;
-        }
-        // Quote
-        else if (cleanT.includes('견적문의')) {
-            e.preventDefault(); e.stopPropagation(); goTo('quote.html'); return;
-        }
-        // Admin Video Management
-        else if (cleanT.includes('영상관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_videos.html'); return;
-        }
-        // Admin Site Management
-        else if (cleanT.includes('현장관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_sites.html'); return;
-        }
-        // Video Library
-        else if (cleanT.includes('영상') || cleanT.includes('교육')) {
-            e.preventDefault(); e.stopPropagation(); goTo('videos.html'); return;
-        }
-        // Logout
-        else if (cleanT.includes('LogOut') || cleanT.includes('로그아웃')) {
-            e.preventDefault(); e.stopPropagation(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); return;
-        }
-        // Admin Pages
-        else if (cleanT.includes('페이지설정') || cleanT.includes('settings')) { e.preventDefault(); e.stopPropagation(); goTo('admin_settings.html'); return; }
-        else if (cleanT.includes('담당자배정') || cleanT.includes('담당자관리') || cleanT.includes('접속관리')) { e.preventDefault(); e.stopPropagation(); goTo('admin_access.html'); return; }
-        else if (cleanT.includes('대시보드') || cleanT.includes('민원관리') || cleanT.includes('접수현황')) { e.preventDefault(); e.stopPropagation(); goTo('admin.html'); return; }
-    }, true);
+        else if (t.includes('관리자 로그인')) { e.preventDefault(); goTo('login.html'); }
+        else if (t.includes('민원 관리') || t.includes('관리자 페이지') || t.includes('대시보드')) { e.preventDefault(); goTo('admin.html'); }
+        else if (t.includes('기술 교육 영상') || t.includes('영상 보기')) { e.preventDefault(); goTo('videos.html'); }
+        else if (t.includes('A/S 접수') || t.includes('접수하기')) { e.preventDefault(); goTo('request.html'); }
+        else if (t.includes('현장 관리')) { e.preventDefault(); goTo('admin_sites.html'); }
+        else if (t.includes('영상 관리')) { e.preventDefault(); goTo('admin_videos.html'); }
+        else if (t.includes('페이지 설정') || t.includes('설정')) { e.preventDefault(); goTo('admin_settings.html'); }
+        else if (t.includes('견적') || t.includes('견적 문의') || t.includes('견적문의')) { e.preventDefault(); goTo('quote.html'); }
+        else if (t.includes('담당자 관리') || t.includes('담당자 배정')) { e.preventDefault(); goTo('admin_access.html'); }
+        else if (t.includes('로그아웃')) { e.preventDefault(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); }
+    });
 })();
 </script>
-
-<!-- STITCH_ROUTING_END -->
-
-</body></html>
+\n\n</body></html>

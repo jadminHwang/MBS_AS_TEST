@@ -170,6 +170,24 @@
     </script>
 <style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
 <body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+<header style="background:#f0eded;border-bottom:1px solid #e2bec0;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,.08);">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 32px;max-width:1440px;margin:0 auto;height:68px;box-sizing:border-box;">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;">
+    <img alt="MBS 로고" style="height:52px;width:auto;display:block;object-fit:contain;" src="/assets/logo.png"/>
+    <span style="font-size:20px;font-weight:700;color:#1B365D;font-family:Hanken Grotesk,sans-serif;white-space:nowrap;">(주)엠비에스엔지니어링</span>
+  </a>
+  <nav style="display:flex;align-items:center;gap:24px;">
+    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="index.html">HOME</a>
+    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="request.html">A/S 접수</a>
+    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="videos.html">기술 교육 영상</a>
+    <a class="text-[#7a0024] font-bold border-b-2 border-[#7a0024] pb-1 px-1 transition-colors" href="quote.html">견적문의</a>
+    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="#contact">연락처</a>
+  </nav>
+  <div>
+    <button onclick="location.href='login.html'" style="font-size:14px;font-weight:600;background:#a50034;color:#fff;padding:8px 18px;border-radius:8px;border:none;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.15);white-space:nowrap;">관리자 로그인</button>
+  </div>
+</div>
+</header>
 <!-- TopNavBar from Shared Components JSON -->
 <nav class="bg-surface shadow-sm docked full-width top-0 z-50">
 <div class="flex justify-between items-center w-full px-gutter h-20 max-w-container-max mx-auto"><button class="bg-primary-container text-on-primary font-label-md text-label-md px-6 py-2 rounded-full hover:bg-surface-tint transition-colors">문의하기</button></div>
@@ -261,8 +279,8 @@
 <footer class="bg-surface-container-highest border-t border-outline-variant full-width mt-auto">
 <div class="flex flex-col md:flex-row justify-between items-start w-full px-gutter py-xl max-w-container-max mx-auto gap-lg">
 <div class="flex flex-col gap-4">
-<img alt="(주)엠비에스엔지니어링 Logo" class="h-8 object-contain self-start grayscale opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANRsMgxBmkfzWzdKnYeAlun7GCOVlsTZZBUf9tI99C2yCPuz80zPiSyipnx0BP7C8ABOGVhDLnWA9FebLHtgMRCfB90lkpfn5ATObBWfl5FVFX5PCvUfn9VYeJsIM9QIsSAJD3-udVW3QglX3e5OYBPmqq-qdU04JHXgov0ykEJsxkmSsgniCEEylg5VbHKf-Fz2EDrN22KafPnCTO1Sb4sPtstzSVPSE8ehB8KaRJ5fLiHznZ5p0h1JigdT3XnEQJZWhbP2jAG0I">
-<p class="text-body-md font-body-md text-on-surface">© 2024 (주)엠비에스엔지니어링. All Rights Reserved.</p>
+<img alt="(주)엠비에스엔지니어링 Logo" class="h-8 object-contain self-start grayscale opacity-70" src="/assets/logo.png">
+<p class="text-body-md font-body-md text-on-surface">© 2026 (주)엠비에스엔지니어링. All Rights Reserved.</p>
 </div>
 <div class="flex flex-wrap gap-x-8 gap-y-4">
 <a class="text-body-md font-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary" href="#">Terms of Service</a>
@@ -274,65 +292,28 @@
 </footer>
 
 
-<!-- STITCH_ROUTING_START -->
-
+\n
 <script>
 (function() {
-    const goTo = (url) => { if(url) location.href = url; };
-    const normalize = (t) => t.normalize('NFC').replace(/[^a-zA-Z0-9가-힣]/g, '');
-    
+    const goTo = (u) => { if(u) location.href = u; };
     document.addEventListener('click', (e) => {
-        const el = e.target.closest('a, button, div, span');
-        if (!el || el.textContent.length > 100) return; // Optimization: Ignore huge containers
-
-        const t = el.textContent.trim();
-        const h = el.innerHTML;
-        const cleanT = normalize(t);
-        const isSubmit = el.tagName === 'BUTTON' && el.type === 'submit';
-
-        // Log for debugging
-        if (t.length > 0 && t.length < 50) console.log('Clicked:', { tag: el.tagName, text: t, clean: cleanT });
-
-        // Home (Text or Icon)
-        if (t.includes('홈') || t.includes('HOME') || t.includes('메인으로') || h.includes('>home</span>')) {
-            e.preventDefault(); e.stopPropagation(); goTo('index.html'); return;
+        const el = e.target.closest('a, button');
+        if (!el) return;
+        const t = el.innerText.trim();
+        if (t.includes('홈') || t.includes('HOME')) { 
+            if (window.location.pathname.includes('admin')) { } else { e.preventDefault(); goTo('index.html'); }
         }
-        // Admin Login (Landing -> Login)
-        else if (cleanT === '관리자로그인' || (cleanT === '로그인' && !isSubmit && !cleanT.includes('설정'))) {
-            e.preventDefault(); e.stopPropagation(); goTo('login.html'); return;
-        }
-        // AS Request
-        else if (cleanT.includes('AS접수') || cleanT.includes('접수하기')) {
-            e.preventDefault(); e.stopPropagation(); goTo('request.html'); return;
-        }
-        // Quote
-        else if (cleanT.includes('견적문의')) {
-            e.preventDefault(); e.stopPropagation(); goTo('quote.html'); return;
-        }
-        // Admin Video Management
-        else if (cleanT.includes('영상관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_videos.html'); return;
-        }
-        // Admin Site Management
-        else if (cleanT.includes('현장관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_sites.html'); return;
-        }
-        // Video Library
-        else if (cleanT.includes('영상') || cleanT.includes('교육')) {
-            e.preventDefault(); e.stopPropagation(); goTo('videos.html'); return;
-        }
-        // Logout
-        else if (cleanT.includes('LogOut') || cleanT.includes('로그아웃')) {
-            e.preventDefault(); e.stopPropagation(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); return;
-        }
-        // Admin Pages
-        else if (cleanT.includes('페이지설정') || cleanT.includes('settings')) { e.preventDefault(); e.stopPropagation(); goTo('admin_settings.html'); return; }
-        else if (cleanT.includes('담당자배정') || cleanT.includes('담당자관리') || cleanT.includes('접속관리')) { e.preventDefault(); e.stopPropagation(); goTo('admin_access.html'); return; }
-        else if (cleanT.includes('대시보드') || cleanT.includes('민원관리') || cleanT.includes('접수현황')) { e.preventDefault(); e.stopPropagation(); goTo('admin.html'); return; }
-    }, true);
+        else if (t.includes('관리자 로그인')) { e.preventDefault(); goTo('login.html'); }
+        else if (t.includes('민원 관리') || t.includes('관리자 페이지') || t.includes('대시보드')) { e.preventDefault(); goTo('admin.html'); }
+        else if (t.includes('기술 교육 영상') || t.includes('영상 보기')) { e.preventDefault(); goTo('videos.html'); }
+        else if (t.includes('A/S 접수') || t.includes('접수하기')) { e.preventDefault(); goTo('request.html'); }
+        else if (t.includes('현장 관리')) { e.preventDefault(); goTo('admin_sites.html'); }
+        else if (t.includes('영상 관리')) { e.preventDefault(); goTo('admin_videos.html'); }
+        else if (t.includes('페이지 설정') || t.includes('설정')) { e.preventDefault(); goTo('admin_settings.html'); }
+        else if (t.includes('견적') || t.includes('견적 문의') || t.includes('견적문의')) { e.preventDefault(); goTo('quote.html'); }
+        else if (t.includes('담당자 관리') || t.includes('담당자 배정')) { e.preventDefault(); goTo('admin_access.html'); }
+        else if (t.includes('로그아웃')) { e.preventDefault(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); }
+    });
 })();
 </script>
-
-<!-- STITCH_ROUTING_END -->
-
-</body></html>
+\n\n</body></html>

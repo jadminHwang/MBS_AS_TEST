@@ -106,129 +106,33 @@
       min-height: max(884px, 100dvh);
       font-family: 'Hanken Grotesk', sans-serif;
     }
-
-    /* ── 공통 버튼 트랜지션 ── */
-    .btn-hero {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 18px 36px;
-      width: auto;
-      min-width: 180px;
-      border-radius: 14px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-      outline: none;
-      white-space: nowrap;
-      transition: transform 0.22s cubic-bezier(.34,1.56,.64,1),
-                  box-shadow 0.22s ease,
-                  filter 0.22s ease;
-      overflow: hidden;
-    }
-    .btn-hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(255,255,255,0);
-      transition: background 0.22s ease;
-      border-radius: inherit;
-    }
-    .btn-hero:hover {
-      transform: translateY(-4px) scale(1.03);
-    }
-    .btn-hero:hover::after {
-      background: rgba(255,255,255,0.08);
-    }
-    .btn-hero:active {
-      transform: translateY(1px) scale(0.97);
-    }
-    .btn-hero .btn-icon {
-      font-size: 1.75rem;
-      transition: transform 0.22s cubic-bezier(.34,1.56,.64,1);
-      font-variation-settings: 'FILL' 1, 'wght' 600;
-    }
-    .btn-hero:hover .btn-icon {
-      transform: scale(1.2) rotate(-6deg);
-    }
-
-    /* ── 빨간 주요 버튼 ── */
-    .btn-primary-red {
-      background: #7a0024;
-      color: #fff;
-      box-shadow: 0 6px 20px rgba(122,0,36,0.35);
-    }
-    .btn-primary-red:hover {
-      box-shadow: 0 14px 32px rgba(122,0,36,0.5);
-      filter: brightness(1.12);
-    }
-
-    /* ── 아웃라인(흰) 버튼 ── */
-    .btn-outline-white {
-      background: rgba(255,255,255,0.92);
-      color: #1b1c1c;
-      border: 2px solid #8e7071;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-    }
-    .btn-outline-white:hover {
-      background: #f6f3f2;
-      border-color: #7a0024;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-    }
-
-    /* ── 다크(회색) 버튼 ── */
-    .btn-dark {
-      background: #5b5f62;
-      color: #fff;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-    }
-    .btn-dark:hover {
-      background: #4a4e51;
-      box-shadow: 0 14px 32px rgba(0,0,0,0.35);
-    }
-
-    /* ── 관리자 로그인 헤더 버튼 ── */
-    .btn-admin-login {
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease !important;
-    }
-    .btn-admin-login:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 6px 18px rgba(122,0,36,0.4) !important;
-      background: #620019 !important;
-    }
-    .btn-admin-login:active {
-      transform: translateY(0px) !important;
-    }
   </style>
 <style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor="">*{cursor:crosshair!important}[contenteditable="true"]:focus,.cursor-text:focus{cursor:text!important}</style><style data-stitch-scroll-lock="">html,body{overflow:hidden!important}</style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
 <body class="bg-background text-on-background antialiased flex flex-col min-h-screen">
 <!-- TopAppBar -->
-<header style="background:#f0eded;border-bottom:1px solid #e2bec0;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,.08);">
-<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 32px;max-width:1440px;margin:0 auto;height:68px;box-sizing:border-box;">
-  <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;">
-    <img alt="MBS 로고" style="height:52px;width:auto;display:block;object-fit:contain;" src="/assets/logo.png"/>
-    <span style="font-size:20px;font-weight:700;color:#1B365D;font-family:Hanken Grotesk,sans-serif;white-space:nowrap;">(주)엠비에스엔지니어링</span>
-  </a>
-  <nav style="display:flex;align-items:center;gap:24px;">
-    <a class="text-[#7a0024] font-bold border-b-2 border-[#7a0024] pb-1 px-1 transition-colors" href="index.html">HOME</a>
-    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="request.html">A/S 접수</a>
-    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="videos.html">기술 교육 영상</a>
-    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="quote.html">견적문의</a>
-    <a class="text-gray-600 hover:text-[#7a0024] pb-1 px-1 transition-colors font-medium" href="#contact">연락처</a>
-  </nav>
-  <div>
-    <button onclick="location.href='login.html'" class="btn-admin-login" style="font-size:14px;font-weight:600;background:#a50034;color:#fff;padding:8px 18px;border-radius:8px;border:none;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.15);white-space:nowrap;">관리자 로그인</button>
-  </div>
+<header class="bg-surface-container dark:bg-surface-container-highest shadow-sm docked full-width top-0 z-50 border-b border-outline-variant dark:border-on-surface-variant sticky">
+<div class="flex items-center justify-between px-lg w-full max-w-container-max mx-auto py-sm">
+<div class="flex items-center gap-sm mt-1"><img alt="(주)엠비에스엔지니어링 로고" class="w-auto h-[67.2px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRBpVIxfJO8ad3V03Vv2XvgKjJeKNCp-gtqiDlMdDnNPrL4d8X745LBbk2-Qes63g1mD34965L3DcTWCyA7yyzU4CjyRxZElyiXGNNQUIGxA9dvyNTK95ZrgrEU0qMZ9dMWYhLooTpbFK9u58kEFRwLCbvtayJ7DSvjXn8WnpsRXQKck9BFJQ_6B-2i4l9oQdsVmiZax1iNwG_osnhznuzUUpoCRqi0wp2tK44qVaRQUs01X3xCoenZwqiZtGAfFPuNOXLooUBy4k"/>
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-[#a50034]" style="color: rgb(165, 0, 52);">(주)엠비에스엔지니어링</span></div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary pb-xs px-xs" href="#">HOME</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors pb-xs px-xs" href="#">A/S 접수</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors pb-xs px-xs" href="#">기술 교육 영상</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors pb-xs px-xs" href="#">견적문의</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors pb-xs px-xs" href="#">연락처</a>
+</nav>
+<button class="font-label-md text-label-md bg-primary-container text-on-primary-container px-md py-sm rounded-lg hover:bg-primary transition-colors active:scale-95 shadow-md flex items-center gap-xs">관리자 로그인</button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-surface p-sm">
+<span class="material-symbols-outlined">menu</span>
+</button>
 </div>
 </header>
 <div class="flex flex-1 relative overflow-hidden">
 <!-- Main Content Canvas -->
 <main class="flex-1 flex flex-col w-full overflow-y-auto">
 <!-- Hero Section -->
-<section class="relative w-full flex-1 min-h-[600px] flex items-center justify-center overflow-hidden bg-neutral-900 p-sm"><img alt="빌딩 중앙감시반 모니터링 환경" class="absolute inset-0 w-full h-full object-cover opacity-50" src="/assets/hero-bg.png" style="image-rendering: high-quality;"/>
+<section class="relative w-full flex-1 min-h-[600px] flex items-center justify-center overflow-hidden bg-neutral-900 p-sm"><img alt="빌딩 중앙감시반 모니터링 환경" class="absolute inset-0 w-full h-full object-cover opacity-40" data-alt="빌딩 중앙감시반 모니터링 환경" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRkmFzdLRh6Ly2zyYOp9sfDakfTdz9tg1PsPdMJj5_u5WNRgWZDyGw8KVOsJrvxK5jImchI-A4Ovk8fmP-1qTMh7mpIIfPJVPLLVnLXq6NJ_9HTdnnAuhMwvbfE2t8Y-m4ydLCu3pTUILE9O0kxouqf7iGl0RHf7TWfyxgJl7LG47wtR1eyN3OoB_BPoOZORoK6N8000UEYR0ib3TlX5CAWJmabxG7k5tKyygJ0pc57rNgMflou9QJfE0_6bSG4JicguzwgXr10SU"/>
 <div class="relative z-10 max-w-5xl text-center flex flex-col items-center dark:bg-surface-container-highest/80 backdrop-blur-md rounded-[2rem] shadow-2xl border border-outline-variant/30 bg-surface/90 px-lg py-lg gap-md">
 <div class="inline-flex items-center gap-sm bg-surface-container-high rounded-full border border-outline-variant/50 shadow-inner px-xl py-sm">
 <span class="rounded-full bg-primary animate-pulse w-4 h-4"></span>
@@ -237,19 +141,17 @@
 <h1 class="font-headline-xl text-headline-xl md:text-[64px] md:leading-[72px] text-on-surface">빌딩 자동제어<br/><span class="text-primary">기술 지원 서비스</span></h1>
 <p class="font-body-lg text-body-lg md:text-[20px] md:leading-[32px] text-on-surface-variant max-w-2xl">LG전자 BECON 전문점으로</p><div class="">전력, 조명, 설비제어, BEMS 외 빌딩자동제어 인프라의 안정적인 운영을 위한 <div><div><div class="">전문기술 지원 서비스를 제공합니다. </div></div></div></div><p class=""></p><p class=""></p>
 <div class="flex flex-col lg:flex-row gap-md w-full justify-center items-center">
-  <button class="btn-hero btn-primary-red">
-    <span class="material-symbols-outlined btn-icon">engineering</span>
-    A/S 접수하기
-  </button>
-  <button class="btn-hero btn-outline-white">
-    <span class="material-symbols-outlined btn-icon">video_library</span>
-    유지보수 영상 보기
-  </button>
-  <button class="btn-hero btn-dark">
-    <span class="material-symbols-outlined btn-icon">request_quote</span>
-    견적 문의
-  </button>
-</div>
+<button class="bg-primary text-on-primary hover:brightness-110 px-12 py-5 w-full sm:w-80 rounded-xl shadow-lg transition-all flex items-center justify-center gap-sm active:scale-95 font-label-md text-label-md text-lg font-bold">
+<span class="material-symbols-outlined text-2xl" style='font-variation-settings: "FILL" 1, "wght" 600; font-size: 1.75rem;'>engineering</span>
+                            A/S 접수하기
+                        </button>
+<button class="bg-surface text-on-surface border-2 border-outline hover:bg-surface-container-low px-12 py-5 w-full sm:w-80 rounded-xl shadow-sm transition-all flex items-center justify-center gap-sm active:scale-95 font-label-md text-label-md text-lg font-bold">
+<span class="material-symbols-outlined text-2xl" style='font-variation-settings: "FILL" 1, "wght" 600; font-size: 1.75rem;'>video_library</span>유지보수 영상 보기
+                        </button>
+<button class="bg-secondary text-on-secondary hover:brightness-110 px-12 py-5 w-full sm:w-80 rounded-xl font-label-md text-label-md shadow-lg transition-all flex items-center justify-center gap-sm active:scale-95 text-lg font-bold">
+<span class="material-symbols-outlined text-2xl" style='font-variation-settings: "FILL" 1, "wght" 600; font-size: 1.75rem;'>request_quote</span>
+                            견적 문의
+                        </button></div>
 </div></section>
 </main>
 </div>
@@ -257,7 +159,7 @@
 <footer class="bg-tertiary dark:bg-on-tertiary-fixed flat no shadows mt-auto">
 <div class="flex flex-col md:flex-row justify-between items-start px-lg w-full max-w-container-max mx-auto border-t border-tertiary dark:border-on-tertiary-fixed-variant gap-md py-sm">
 <div class="flex flex-col items-start max-w-sm gap-sm">
-<div class="flex items-center gap-sm"><img alt="(주)엠비에스엔지니어링 로고" class="h-10 w-auto brightness-0 invert" src="/assets/logo.png"/>
+<div class="flex items-center gap-sm"><img alt="(주)엠비에스엔지니어링 로고" class="h-10 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRBpVIxfJO8ad3V03Vv2XvgKjJeKNCp-gtqiDlMdDnNPrL4d8X745LBbk2-Qes63g1mD34965L3DcTWCyA7yyzU4CjyRxZElyiXGNNQUIGxA9dvyNTK95ZrgrEU0qMZ9dMWYhLooTpbFK9u58kEFRwLCbvtayJ7DSvjXn8WnpsRXQKck9BFJQ_6B-2i4l9oQdsVmiZax1iNwG_osnhznuzUUpoCRqi0wp2tK44qVaRQUs01X3xCoenZwqiZtGAfFPuNOXLooUBy4k"/>
 <span class="font-headline-md text-headline-md text-on-tertiary">(주)엠비에스엔지니어링</span></div>
 <p class="font-body-md text-body-md text-tertiary-fixed dark:text-surface-bright opacity-80">
                     최고의 빌딩 자동제어 솔루션과 끊임없는 기술 지원으로 스마트 인프라의 미래를 선도합니다.
@@ -289,35 +191,11 @@
 </div>
 </div>
 <div class="border-t border-surface/10 px-lg w-full max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-sm py-xs">
-<span class="font-label-sm text-label-sm text-tertiary-fixed-dim opacity-70">© 2026 (#0)엠비에스엔지니어링. 모든 권리 보유.</span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed-dim opacity-70">© 2024 (#0)엠비에스엔지니어링. 모든 권리 보유.</span>
 <nav class="flex gap-md">
 <a class="font-label-sm text-label-sm text-tertiary-fixed-dim hover:text-surface-bright transition-colors" href="#">개인정보 처리방침</a>
 <a class="font-label-sm text-label-sm text-tertiary-fixed-dim hover:text-surface-bright transition-colors" href="#">서비스 이용약관</a>
 </nav>
 </div>
 </footer>
-\n
-<script>
-(function() {
-    const goTo = (u) => { if(u) location.href = u; };
-    document.addEventListener('click', (e) => {
-        const el = e.target.closest('a, button');
-        if (!el) return;
-        const t = el.innerText.trim();
-        if (t.includes('홈') || t.includes('HOME')) { 
-            if (window.location.pathname.includes('admin')) { } else { e.preventDefault(); goTo('index.html'); }
-        }
-        else if (t.includes('관리자 로그인')) { e.preventDefault(); goTo('login.html'); }
-        else if (t.includes('민원 관리') || t.includes('관리자 페이지') || t.includes('대시보드')) { e.preventDefault(); goTo('admin.html'); }
-        else if (t.includes('기술 교육 영상') || t.includes('영상 보기')) { e.preventDefault(); goTo('videos.html'); }
-        else if (t.includes('A/S 접수') || t.includes('접수하기')) { e.preventDefault(); goTo('request.html'); }
-        else if (t.includes('현장 관리')) { e.preventDefault(); goTo('admin_sites.html'); }
-        else if (t.includes('영상 관리')) { e.preventDefault(); goTo('admin_videos.html'); }
-        else if (t.includes('페이지 설정') || t.includes('설정')) { e.preventDefault(); goTo('admin_settings.html'); }
-        else if (t.includes('견적') || t.includes('견적 문의') || t.includes('견적문의')) { e.preventDefault(); goTo('quote.html'); }
-        else if (t.includes('담당자 관리') || t.includes('담당자 배정')) { e.preventDefault(); goTo('admin_access.html'); }
-        else if (t.includes('로그아웃')) { e.preventDefault(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); }
-    });
-})();
-</script>
-\n\n</body></html>
+</body></html>

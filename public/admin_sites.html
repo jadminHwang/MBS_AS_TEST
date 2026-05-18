@@ -1,200 +1,239 @@
-<!DOCTYPE html><html lang="ko"><head>
+<!DOCTYPE html><html class="light" lang="ko"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Industrial Precision - 현장 관리</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for technical density */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 10px; }
+    </style>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     "colors": {
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "secondary-fixed-dim": "#c3c7ca",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
                         "primary": "#7a0024",
-                        "primary-container": "#a50034",
-                        "on-primary": "#ffffff",
-                        "secondary": "#5b5f62",
-                        "surface": "#fcf9f8",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dcd9d9",
+                        "on-surface-variant": "#5a4042",
                         "on-surface": "#1b1c1c",
+                        "tertiary-container": "#505151",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "primary-container": "#a50034",
+                        "surface-tint": "#b81840",
+                        "secondary": "#5b5f62",
+                        "on-secondary-fixed-variant": "#43474a",
+                        "primary-fixed-dim": "#ffb2b8",
+                        "tertiary": "#383a3b",
+                        "on-secondary-fixed": "#181c1f",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#303030",
+                        "secondary-fixed": "#e0e3e6",
                         "outline-variant": "#e2bec0",
-                        "background": "#fcf9f8"
+                        "outline": "#8e7071",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#eae7e7",
+                        "on-tertiary-container": "#c3c4c4",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary-fixed-variant": "#91002d",
+                        "tertiary-fixed": "#e2e2e2",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#40000f",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-bright": "#fcf9f8",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-container": "#5f6366",
+                        "background": "#fcf9f8",
+                        "surface-container": "#f0eded",
+                        "primary-fixed": "#ffdadb",
+                        "on-background": "#1b1c1c",
+                        "surface": "#fcf9f8",
+                        "inverse-primary": "#ffb2b8",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#dde0e3",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#ffafb5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "48px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "sm": "8px"
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
                     }
                 }
             }
         }
     </script>
-<style>
-        body { font-family: 'Hanken Grotesk', sans-serif; background-color: #fcf9f8; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-    </style>
-</head>
-<body class="bg-surface text-on-surface">
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="bg-background text-on-surface">
 <!-- TopNavBar -->
-<header class="flex justify-between items-center w-full px-6 h-16 fixed top-0 z-50 bg-white shadow-sm border-b border-outline-variant">
-    <div class="flex items-center gap-4">
-        <span class="text-2xl font-bold text-primary">Industrial Precision</span>
-    </div>
-    <div class="flex items-center gap-4">
-        <span class="material-symbols-outlined text-secondary cursor-pointer">home</span>
-        <span class="material-symbols-outlined text-secondary cursor-pointer">logout</span>
-    </div>
-</header>
-
-<!-- SideNavBar -->
-<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col p-4 border-r border-outline-variant bg-white shadow-md z-40">
-    <div class="mb-8 px-2">
-        <h2 class="text-xl font-bold text-primary">Admin Dashboard</h2>
-        <p class="text-sm text-secondary">Facility Controller</p>
-    </div>
-    <nav class="flex-1 flex flex-col gap-1">
-        <a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-gray-100 rounded-lg transition-all" href="admin.html">
-            <span class="material-symbols-outlined">assignment_late</span>
-            <span>민원 관리</span>
-        </a>
-        <a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-gray-100 rounded-lg transition-all" href="admin_access.html">
-            <span class="material-symbols-outlined">person_add</span>
-            <span>담당자 배정</span>
-        </a>
-        <a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-gray-100 rounded-lg transition-all" href="admin_videos.html">
-            <span class="material-symbols-outlined">videocam</span>
-            <span>영상 관리</span>
-        </a>
-        <a class="flex items-center gap-3 px-4 py-2 bg-primary text-on-primary rounded-lg shadow-sm" href="admin_sites.html">
-            <span class="material-symbols-outlined">domain</span>
-            <span>현장 관리</span>
-        </a>
-        <a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-gray-100 rounded-lg transition-all" href="admin_settings.html">
-            <span class="material-symbols-outlined">settings</span>
-            <span>페이지 설정</span>
-        </a>
-    </nav>
-</aside>
-
-<!-- Main Content -->
-<main class="ml-64 mt-16 p-8 min-h-screen">
-    <div class="max-w-6xl mx-auto">
-        <div class="flex justify-between items-center mb-8">
-            <h1 class="text-3xl font-bold text-on-surface">현장 관리</h1>
-            <button id="addSiteBtn" class="px-6 py-2 bg-primary text-white rounded-lg font-bold hover:opacity-90 shadow-md">
-                + 신규 현장 추가
-            </button>
-        </div>
-
-        <!-- Site List Table -->
-        <div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
-            <table class="w-full text-left border-collapse">
-                <thead class="bg-gray-50 border-b border-outline-variant">
-                    <tr>
-                        <th class="px-6 py-4 font-bold text-secondary">현장명</th>
-                        <th class="px-6 py-4 font-bold text-secondary">주소</th>
-                        <th class="px-6 py-4 font-bold text-secondary">담당자</th>
-                        <th class="px-6 py-4 font-bold text-secondary">연락처</th>
-                        <th class="px-6 py-4 font-bold text-secondary text-center">작업</th>
-                    </tr>
-                </thead>
-                <tbody id="sitesTableBody" class="divide-y divide-gray-100">
-                    <!-- Dynamic Rows -->
-                </tbody>
-            </table>
-        </div>
-    </div>
-</main>
-
-<!-- Add Site Modal -->
-<div id="siteModal" class="fixed inset-0 bg-black/50 hidden z-[60] items-center justify-center p-4">
-    <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6">
-        <h3 class="text-xl font-bold mb-4">신규 현장 추가</h3>
-        <div class="space-y-4">
-            <div>
-                <label class="block text-sm font-bold text-secondary mb-1">현장명</label>
-                <input id="siteName" type="text" class="w-full border border-outline-variant rounded-lg p-2 focus:ring-2 focus:ring-primary outline-none">
-            </div>
-            <div>
-                <label class="block text-sm font-bold text-secondary mb-1">주소</label>
-                <input id="siteAddress" type="text" class="w-full border border-outline-variant rounded-lg p-2 focus:ring-2 focus:ring-primary outline-none">
-            </div>
-            <div>
-                <label class="block text-sm font-bold text-secondary mb-1">담당자</label>
-                <input id="siteContact" type="text" class="w-full border border-outline-variant rounded-lg p-2 focus:ring-2 focus:ring-primary outline-none">
-            </div>
-            <div>
-                <label class="block text-sm font-bold text-secondary mb-1">연락처</label>
-                <input id="sitePhone" type="text" class="w-full border border-outline-variant rounded-lg p-2 focus:ring-2 focus:ring-primary outline-none">
-            </div>
-        </div>
-        <div class="mt-6 flex gap-3">
-            <button id="cancelModal" class="flex-1 px-4 py-2 border border-secondary text-secondary rounded-lg font-bold">취소</button>
-            <button id="saveSiteBtn" class="flex-1 px-4 py-2 bg-primary text-white rounded-lg font-bold">저장</button>
-        </div>
-    </div>
+<header style="background:#f0eded;border-bottom:1px solid #e2bec0;position:fixed;top:0;left:0;right:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,.08);height:68px;">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:100%;max-width:100%;box-sizing:border-box;">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;">
+    <img alt="MBS 로고" style="height:52px;width:auto;display:block;object-fit:contain;" src="/assets/logo.png"/>
+    <span style="font-size:20px;font-weight:700;color:#1B365D;font-family:Hanken Grotesk,sans-serif;white-space:nowrap;">(주)엠비에스엔지니어링</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <span style="font-size:13px;color:#5b5f62;font-family:Hanken Grotesk,sans-serif;">관리자 포털</span>
+    <button onclick="sessionStorage.removeItem('mbs_token');location.href='index.html';" style="font-size:14px;font-weight:600;background:#7a0024;color:#fff;padding:7px 16px;border-radius:8px;border:none;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.15);white-space:nowrap;">로그아웃</button>
+  </div>
 </div>
+</header>
+<!-- SideNavBar -->
+<aside class="bg-surface dark:bg-surface-dim fixed left-0 top-[68px] h-[calc(100vh-68px)] w-64 flex flex-col p-md border-r border-outline-variant shadow-md z-40 hidden md:flex">
+<div class="flex flex-col gap-xs flex-1">
+<div class="mb-lg px-md">
+<h2 class="font-headline-md text-headline-md text-primary">Admin Dashboard</h2>
+<p class="font-label-sm text-on-surface-variant opacity-70">Facility Controller</p>
+</div>
+<nav class="flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">assignment_late</span>
+<span class="font-label-md">민원 관리</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-label-md">담당자 배정</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">videocam</span>
+<span class="font-label-md">영상 관리</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-primary text-on-primary rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">페이지 설정</span>
+</a>
+</nav>
+</div>
+<div class="border-t border-outline-variant pt-md">
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="p-md"><div class="bg-white p-8 border rounded-2xl shadow-sm"><div class="flex justify-between items-center mb-8"><div><h3 class="font-bold text-2xl text-gray-900">현장 관리</h3><p class="text-gray-500 mt-1">시스템에 등록된 AS 지원 현장을 관리합니다.</p></div><button onclick="document.getElementById('siteModal').classList.remove('hidden')" class="bg-primary text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-red-900/10 hover:scale-105 transition-all">현장 신규 등록</button></div><div class="overflow-x-auto"><table class="w-full text-left"><thead class="bg-gray-50 text-gray-500 text-sm font-bold uppercase"><tr><th class="p-4 border-b">현장명</th><th class="p-4 border-b">주소</th><th class="p-4 border-b">담당자</th><th class="p-4 border-b">연락처</th><th class="p-4 border-b text-center">관리</th></tr></thead><tbody id="sitesTableBody"></tbody></table></div></div><div id="siteModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-[100]"><div class="bg-white p-8 rounded-3xl space-y-6 w-[450px] shadow-2xl"><div><h2 class="text-2xl font-bold">현장 정보 등록</h2><p class="text-gray-500 text-sm">AS를 접수받을 새로운 현장을 추가합니다.</p></div><div class="space-y-4"><input id="siteName" placeholder="현장명" class="w-full border-2 border-gray-100 rounded-xl p-3.5 focus:border-primary outline-none"><input id="siteAddress" placeholder="현장 주소" class="w-full border-2 border-gray-100 rounded-xl p-3.5 focus:border-primary outline-none"></div><div class="flex gap-3 pt-4"><button id="saveSiteBtn" class="flex-1 bg-primary text-white p-4 rounded-xl font-bold">등록 완료</button><button onclick="document.getElementById('siteModal').classList.add('hidden')" class="flex-1 bg-gray-100 text-gray-700 p-4 rounded-xl font-bold">취소</button></div></div></div></main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-highest border-t border-outline-variant flex justify-around items-center h-16 z-50">
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">assignment_late</span>
+<span class="text-[10px]">민원</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">person_add</span>
+<span class="text-[10px]">배정</span>
+</button>
+<button class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-[10px] font-bold">설정</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px]">프로필</span>
+</button>
+</nav>
 
 
-
-
-
-
-
-<!-- STITCH_ROUTING_START -->
-
+\n
 <script>
 (function() {
-    const goTo = (url) => { if(url) location.href = url; };
-    const normalize = (t) => t.normalize('NFC').replace(/[^a-zA-Z0-9가-힣]/g, '');
-    
+    const goTo = (u) => { if(u) location.href = u; };
     document.addEventListener('click', (e) => {
-        const el = e.target.closest('a, button, div, span');
-        if (!el || el.textContent.length > 100) return; // Optimization: Ignore huge containers
-
-        const t = el.textContent.trim();
-        const h = el.innerHTML;
-        const cleanT = normalize(t);
-        const isSubmit = el.tagName === 'BUTTON' && el.type === 'submit';
-
-        // Log for debugging
-        if (t.length > 0 && t.length < 50) console.log('Clicked:', { tag: el.tagName, text: t, clean: cleanT });
-
-        // Home (Text or Icon)
-        if (t.includes('홈') || t.includes('HOME') || t.includes('메인으로') || h.includes('>home</span>')) {
-            e.preventDefault(); e.stopPropagation(); goTo('index.html'); return;
+        const el = e.target.closest('a, button');
+        if (!el) return;
+        const t = el.innerText.trim();
+        if (t.includes('홈') || t.includes('HOME')) { 
+            if (window.location.pathname.includes('admin')) { } else { e.preventDefault(); goTo('index.html'); }
         }
-        // Admin Login (Landing -> Login)
-        else if (cleanT === '관리자로그인' || (cleanT === '로그인' && !isSubmit && !cleanT.includes('설정'))) {
-            e.preventDefault(); e.stopPropagation(); goTo('login.html'); return;
-        }
-        // AS Request
-        else if (cleanT.includes('AS접수') || cleanT.includes('접수하기')) {
-            e.preventDefault(); e.stopPropagation(); goTo('request.html'); return;
-        }
-        // Quote
-        else if (cleanT.includes('견적문의')) {
-            e.preventDefault(); e.stopPropagation(); goTo('quote.html'); return;
-        }
-        // Admin Video Management
-        else if (cleanT.includes('영상관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_videos.html'); return;
-        }
-        // Admin Site Management
-        else if (cleanT.includes('현장관리')) {
-            e.preventDefault(); e.stopPropagation(); goTo('admin_sites.html'); return;
-        }
-        // Video Library
-        else if (cleanT.includes('영상') || cleanT.includes('교육')) {
-            e.preventDefault(); e.stopPropagation(); goTo('videos.html'); return;
-        }
-        // Logout
-        else if (cleanT.includes('LogOut') || cleanT.includes('로그아웃')) {
-            e.preventDefault(); e.stopPropagation(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); return;
-        }
-        // Admin Pages
-        else if (cleanT.includes('페이지설정') || cleanT.includes('settings')) { e.preventDefault(); e.stopPropagation(); goTo('admin_settings.html'); return; }
-        else if (cleanT.includes('담당자배정') || cleanT.includes('담당자관리') || cleanT.includes('접속관리')) { e.preventDefault(); e.stopPropagation(); goTo('admin_access.html'); return; }
-        else if (cleanT.includes('대시보드') || cleanT.includes('민원관리') || cleanT.includes('접수현황')) { e.preventDefault(); e.stopPropagation(); goTo('admin.html'); return; }
-    }, true);
+        else if (t.includes('관리자 로그인')) { e.preventDefault(); goTo('login.html'); }
+        else if (t.includes('민원 관리') || t.includes('관리자 페이지') || t.includes('대시보드')) { e.preventDefault(); goTo('admin.html'); }
+        else if (t.includes('기술 교육 영상') || t.includes('영상 보기')) { e.preventDefault(); goTo('videos.html'); }
+        else if (t.includes('A/S 접수') || t.includes('접수하기')) { e.preventDefault(); goTo('request.html'); }
+        else if (t.includes('현장 관리')) { e.preventDefault(); goTo('admin_sites.html'); }
+        else if (t.includes('영상 관리')) { e.preventDefault(); goTo('admin_videos.html'); }
+        else if (t.includes('페이지 설정') || t.includes('설정')) { e.preventDefault(); goTo('admin_settings.html'); }
+        else if (t.includes('견적') || t.includes('견적 문의') || t.includes('견적문의')) { e.preventDefault(); goTo('quote.html'); }
+        else if (t.includes('담당자 관리') || t.includes('담당자 배정')) { e.preventDefault(); goTo('admin_access.html'); }
+        else if (t.includes('로그아웃')) { e.preventDefault(); sessionStorage.removeItem('mbs_token'); goTo('index.html'); }
+    });
 })();
 </script>
-
-<!-- STITCH_ROUTING_END -->
-
-</body></html>
+\n<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const fetchSites = async () => {
+        const tbody = document.getElementById('sitesTableBody');
+        if (!tbody) return;
+        try {
+            const res = await fetch('/api/sites');
+            const data = await res.json();
+            tbody.innerHTML = data.map(site => `
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="p-4 border-b font-bold text-primary">${site.name}</td>
+                    <td class="p-4 border-b text-gray-600">${site.address || '-'}</td>
+                    <td class="p-4 border-b font-bold text-gray-700">${site.contact_person || '-'}</td>
+                    <td class="p-4 border-b text-gray-500">${site.contact_phone || '-'}</td>
+                    <td class="p-4 border-b text-center">
+                        <button onclick="deleteSite(${site.id})" class="text-red-500 hover:text-red-700 font-medium transition-colors">삭제</button>
+                    </td>
+                </tr>
+            `).join('');
+        } catch (err) {}
+    };
+    window.deleteSite = async (id) => {
+        if (!confirm('삭제하시겠습니까?')) return;
+        await fetch(`/api/sites/${id}`, { method: 'DELETE', headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('mbs_token') } });
+        fetchSites();
+    };
+    const saveBtn = document.getElementById('saveSiteBtn');
+    if (saveBtn) {
+        saveBtn.onclick = async () => {
+            const name = document.getElementById('siteName').value;
+            const address = document.getElementById('siteAddress').value;
+            await fetch('/api/sites', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('mbs_token') },
+                body: JSON.stringify({ name, address })
+            });
+            document.getElementById('siteModal').classList.add('hidden');
+            fetchSites();
+        };
+    }
+    fetchSites();
+});
+</script>\n</body></html>

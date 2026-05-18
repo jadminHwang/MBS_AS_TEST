@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150">
+  <defs>
+    <linearGradient id="navyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B3A68" />
+      <stop offset="50%" stop-color="#0F2445" />
+      <stop offset="100%" stop-color="#0A182F" />
+    </linearGradient>
+    <linearGradient id="silverGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0E0E0" />
+      <stop offset="50%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#9E9E9E" />
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.4" />
+    </filter>
+  </defs>
+  
+  <g filter="url(#dropShadow)">
+    <text x="250" y="80" font-family="'Arial Black', sans-serif" font-size="70" font-weight="900" font-style="italic" fill="url(#navyGradient)" text-anchor="middle" letter-spacing="-2">
+      mbs
+    </text>
+  </g>
+  <path d="M 50 110 Q 250 60 450 120 L 440 125 Q 250 75 60 115 Z" fill="url(#silverGradient)" filter="url(#dropShadow)" />
+  <text x="250" y="140" font-family="'Arial', sans-serif" font-size="20" font-weight="bold" fill="#0A182F" text-anchor="middle" letter-spacing="1">
+    MBS ENG CO., LTD
+  </text>
+</svg>
